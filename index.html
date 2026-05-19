@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kim Gamet | Travel Advisor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0a1628;
+      --deep-navy: #060e1a;
+      --gold: #c9a96e;
+      --gold-light: #e8d5b0;
+      --gold-pale: #f5edd9;
+      --cream: #faf7f2;
+      --white: #ffffff;
+      --text-dark: #1a1a2e;
+      --text-mid: #4a4a6a;
+      --text-light: #8a8aaa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(6, 14, 26, 0.95);
+      padding: 1rem 4rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.15em;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-logo img + img {
+      border-left: 1px solid rgba(255,255,255,0.2);
+      padding-left: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--deep-navy);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(6, 14, 26, 0.72) 0%, rgba(6, 14, 26, 0.65) 50%, rgba(6, 14, 26, 0.85) 100%),
+        radial-gradient(ellipse at 20% 50%, rgba(201, 169, 110, 0.08) 0%, transparent 60%);
+    }
+
+    .hero-texture {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 2px,
+          rgba(201, 169, 110, 0.02) 2px,
+          rgba(201, 169, 110, 0.02) 4px
+        );
+    }
+
+    .hero-orb {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1.2s ease 0.2s both;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      animation: fadeUp 1.2s ease 0.3s both;
+    }
+
+    .hero-title {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2.5rem;
+      animation: fadeUp 1.2s ease 0.4s both;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+      animation: fadeUp 1.2s ease 0.5s both;
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1.2s ease 0.6s both;
+    }
+
+    .hero-specialties {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 3rem;
+      animation: fadeUp 1.2s ease 0.7s both;
+    }
+
+    .hero-specialties span {
+      color: rgba(201, 169, 110, 0.6);
+      margin: 0 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 1.2s ease 0.8s both;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn-primary:hover {
+      color: var(--deep-navy);
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(0);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: fadeUp 1.2s ease 1s both;
+    }
+
+    .hero-scroll span {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 7rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-divider {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-image-frame {
+      position: relative;
+    }
+
+    .about-image-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-frame-accent {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      right: 15px;
+      bottom: 15px;
+      border: 1px solid var(--gold);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-text strong {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .about-reasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(10, 22, 40, 0.1);
+    }
+
+    .about-reason-title {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .about-reason p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .about-reasons {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── SPECIALTIES ── */
+    #specialties {
+      background: var(--deep-navy);
+      position: relative;
+    }
+
+    #specialties .section-label {
+      color: var(--gold);
+    }
+
+    #specialties .section-title {
+      color: var(--white);
+    }
+
+    #specialties .section-divider {
+      background: var(--gold);
+    }
+
+    .specialties-list {
+      margin-top: 4rem;
+      border-top: 1px solid rgba(201, 169, 110, 0.2);
+    }
+
+    .specialty-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    .specialty-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background: var(--gold);
+      opacity: 0.05;
+      transition: width 0.4s ease;
+    }
+
+    .specialty-item:hover::before {
+      width: 100%;
+    }
+
+    .specialty-item-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      padding-top: 0.25rem;
+    }
+
+    .specialty-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .specialty-item p {
+      font-size: 0.88rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .specialty-item {
+        grid-template-columns: 40px 1fr;
+        grid-template-rows: auto auto;
+        gap: 0.75rem 1rem;
+        padding: 2rem 0;
+      }
+
+      .specialty-item p {
+        grid-column: 2;
+      }
+    }
+
+    /* ── WHY BOOK ── */
+    #why {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    #why .section-title {
+      color: var(--white);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .why-item {
+      border-top: 1px solid rgba(201, 169, 110, 0.3);
+      padding-top: 1.5rem;
+    }
+
+    .why-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(201, 169, 110, 0.2);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--gold-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .why-item p {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── FEATURED ── */
+    #featured {
+      background: var(--cream);
+    }
+
+    .travel-styles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .travel-style-card {
+      background: var(--white);
+      padding: 3rem;
+      position: relative;
+      border-top: 3px solid transparent;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .travel-style-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .travel-style-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .travel-style-card:hover {
+      box-shadow: 0 20px 50px rgba(10, 22, 40, 0.08);
+    }
+
+    .travel-style-eyebrow {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .travel-style-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .travel-style-card p {
+      font-size: 0.88rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+      margin-bottom: 1.75rem;
+    }
+
+    .travel-style-suppliers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .supplier-tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border: 1px solid rgba(10, 22, 40, 0.2);
+      padding: 0.35rem 0.85rem;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .travel-style-card:hover .supplier-tag {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    @media (max-width: 768px) {
+      .travel-styles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 0.5;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .testimonial-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--deep-navy);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 50% 50%, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+    }
+
+    #contact .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    #contact .section-label {
+      display: block;
+      text-align: center;
+    }
+
+    #contact .section-title {
+      color: var(--white);
+      text-align: center;
+    }
+
+    #contact .section-divider {
+      margin: 0 auto 2rem;
+    }
+
+    .contact-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 3rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--deep-navy);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold-light);
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info a {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--gold);
+    }
+
+    .contact-free {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(201, 169, 110, 0.5);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep-navy);
+      border-top: 1px solid rgba(201, 169, 110, 0.1);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logos img {
+      height: 48px;
+      width: auto;
+    }
+
+    footer p {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.2);
+    }
+
+    footer span {
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* ── DESTINATIONS ── */
+    #destinations {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #destinations::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(201, 169, 110, 0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    #destinations .section-label {
+      color: var(--gold);
+    }
+
+    #destinations .section-title {
+      color: var(--white);
+    }
+
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      border: 1px solid rgba(201, 169, 110, 0.15);
+    }
+
+    .destination-item {
+      padding: 2.5rem;
+      border-right: 1px solid rgba(201, 169, 110, 0.15);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+      position: relative;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+
+    .destination-item:nth-child(3n) {
+      border-right: none;
+    }
+
+    .destination-item:nth-last-child(-n+3) {
+      border-bottom: none;
+    }
+
+    .destination-item:hover {
+      background: rgba(201, 169, 110, 0.05);
+    }
+
+    .destination-region {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .destination-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .destination-item p {
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 768px) {
+      .destinations-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .destination-item:nth-child(3n) {
+        border-right: 1px solid rgba(201, 169, 110, 0.15);
+      }
+
+      .destination-item:nth-child(2n) {
+        border-right: none;
+      }
+
+      .destination-item:nth-last-child(-n+3) {
+        border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+      }
+
+      .destination-item:nth-last-child(-n+2) {
+        border-bottom: none;
+      }
+    }
+
+    /* ── RESET TRIP ── */
+    #reset-trip {
+      background: var(--deep-navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #reset-trip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('reset-bg.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0.18;
+    }
+
+    #reset-trip::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 50%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(6, 14, 26, 0.4) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .reset-trip-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .reset-trip-left .section-label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .reset-trip-left .section-title {
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .reset-trip-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .reset-trip-left p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.25rem;
+    }
+
+    .reset-trip-left p:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    .reset-trip-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .reset-detail {
+      border-top: 1px solid rgba(201, 169, 110, 0.25);
+      padding-top: 1rem;
+    }
+
+    .reset-detail-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .reset-detail-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      font-weight: 300;
+    }
+
+    .reset-trip-right {
+      position: relative;
+    }
+
+    .reset-trip-card {
+      background: rgba(201, 169, 110, 0.06);
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      padding: 3rem;
+    }
+
+    .reset-trip-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .reset-itinerary {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .reset-itinerary li {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .reset-itinerary li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .reset-itinerary li:last-child {
+      border-bottom: none;
+    }
+
+    .reset-included {
+      margin-bottom: 2rem;
+    }
+
+    .reset-included-title {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .reset-included-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .reset-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(201, 169, 110, 0.25);
+      padding: 0.3rem 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .reset-trip-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .reset-trip-details {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reset-trip-card {
+        padding: 2rem;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1.2rem 1.5rem;
+      }
+
+      nav.scrolled {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-image-placeholder {
+        aspect-ratio: 4/3;
+      }
+
+      .specialties-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specialty-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+        padding: 2.5rem 2rem;
+      }
+
+      .specialty-card:last-child {
+        border-bottom: none;
+      }
+
+      .specialty-card:nth-last-child(-n+2) {
+        border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+      }
+
+      .specialty-card:last-child {
+        border-bottom: none;
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <img src="MMVTravelCollectionWhite.png" alt="MMV Travel Collection" />
+      <img src="Logo-01.jpg" alt="Magical Moments Vacations" />
+      <span class="nav-logo-text">Kim Gamet</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#specialties">Specialties</a></li>
+      <li><a href="#featured">Travel Styles</a></li>
+      <li><a href="#reset-trip">Group Cruise</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-texture"></div>
+    <div class="hero-orb"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Travel Advisor</p>
+      <h1 class="hero-name">Kim Gamet</h1>
+      <p class="hero-title">MMV Travel Collection</p>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Let's get you somewhere extraordinary.</p>
+      <p class="hero-specialties">
+        Cruises <span>•</span> All-Inclusive Resorts <span>•</span> Adventure Travel <span>•</span> Military &amp; Veteran Travel
+      </p>
+      <a href="https://www.magicalmomentsvacations.com/quote" target="_blank" class="btn-primary">Start Planning Your Trip</a>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-image-frame">
+          <div class="about-image-placeholder">
+            <img src="kim-headshot.png" alt="Kim Gamet, Travel Advisor" />
+          </div>
+          <div class="about-frame-accent"></div>
+        </div>
+        <div class="about-text">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">Hi, I'm Kim.</h2>
+          <div class="section-divider"></div>
+          <p>US Navy Veteran. Proud mom. Theater geek. And the person who was already planning everyone else's vacations long before I made it official as an independent travel advisor with MMV Travel Collection, affiliated with Magical Moments Vacations.</p>
+          <p>That's really how this started. Friends and family kept asking for advice, recommendations, honest opinions. I realized I didn't just love travel, I loved helping people find the version of travel that was exactly right for them. So I made it my business.</p>
+          <p>I bring something most travel advisors can't. Real, firsthand experience across cruises, all-inclusives, adventure travel, and beyond. I've sailed Royal Caribbean and Virgin Voyages. I've experienced river cruising through Europe and researched expedition voyages to places most people only dream about. I've found the hidden gems and learned the hard lessons so you don't have to.</p>
+          <p>I also travel with food allergies myself. So when I tell you I know how to navigate menus, dietary restrictions, and allergy friendly destinations I mean it personally, not professionally.</p>
+          <p>As a Navy Veteran I have a special place in my heart for helping military families and veterans access the travel benefits and discounts they've earned and deserve.</p>
+          <p>My job is simple. Make your vacation less stressful and more extraordinary. You handle the excitement. I handle everything else.</p>
+
+          <div class="about-reasons">
+            <div class="about-reason">
+              <span class="about-reason-title">Free to You</span>
+              <p>I'm paid by the travel suppliers, so my services come at no cost to you. No booking fees, no planning fees, no catch. For travel outside of standard supplier partnerships a planning fee may apply, and I'll always be upfront about that before we begin.</p>
+            </div>
+            <div class="about-reason">
+              <span class="about-reason-title">Firsthand Knowledge</span>
+              <p>I travel, I train, I inspect ships and resorts personally. My recommendations come from real experience, not a brochure.</p>
+            </div>
+            <div class="about-reason">
+              <span class="about-reason-title">Honest Guidance</span>
+              <p>I'll tell you what's worth it and what isn't. My goal is your perfect vacation, not just a booking.</p>
+            </div>
+            <div class="about-reason">
+              <span class="about-reason-title">Exclusive Perks</span>
+              <p>I often have access to onboard credits and savings that simply aren't available when booking directly online.</p>
+            </div>
+            <div class="about-reason">
+              <span class="about-reason-title">Your Advocate</span>
+              <p>Before, during, and after your trip I am in your corner. You are never navigating it alone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALTIES -->
+  <section id="specialties">
+    <div class="section-inner">
+      <span class="section-label">What I Do</span>
+      <h2 class="section-title">My Specialties</h2>
+      <div class="section-divider"></div>
+      <div class="specialties-list">
+
+        <div class="specialty-item">
+          <span class="specialty-item-number">01</span>
+          <h3>Cruises</h3>
+          <p>Cruises are where my heart lives. Whether you're a first time sailor or a seasoned traveler ready for something new, I will find the perfect ship, itinerary, and experience for your life and your budget. I have deep expertise in Royal Caribbean, Virgin Voyages, and Viking and have trained extensively across Holland America, Norwegian, Princess, and more.</p>
+        </div>
+
+        <div class="specialty-item">
+          <span class="specialty-item-number">02</span>
+          <h3>All-Inclusive Resorts</h3>
+          <p>All-inclusive travel done right is one of life's great pleasures. Done wrong it's a very expensive disappointment. I know the difference and I will make sure you land in the right place for exactly what you need. Whether you're planning a romantic couples getaway, a family vacation, or a girls trip, I'll match you with a resort that fits your vibe, your budget, and your expectations.</p>
+        </div>
+
+        <div class="specialty-item">
+          <span class="specialty-item-number">03</span>
+          <h3>Adventure Travel</h3>
+          <p>For the traveler who wants more than a beach chair. Whether you're dreaming of an expedition cruise to Antarctica, a cultural deep dive through Europe, or something completely off the beaten path, I love crafting trips that push beyond the ordinary. Adventure looks different for everyone and I'll help you find yours.</p>
+        </div>
+
+        <div class="specialty-item">
+          <span class="specialty-item-number">04</span>
+          <h3>Military &amp; Veteran Travel</h3>
+          <p>As a US Navy Veteran I understand the sacrifices military families make and I am passionate about making sure they access every travel benefit and discount they have earned. From military cruise rates to resort discounts to navigating base travel options, I will make sure your family gets the most out of every travel dollar. It is my honor to serve those who served.</p>
+        </div>
+
+        <div class="specialty-item">
+          <span class="specialty-item-number">05</span>
+          <h3>Food Allergy Friendly Travel</h3>
+          <p>I travel with food allergies myself so this is personal for me. I know the anxiety of wondering if you'll be able to eat safely and enjoy a meal without a side of stress. I know which cruise lines, resorts, and destinations handle dietary restrictions exceptionally well and which ones fall short. I will make sure you eat great, not just safely, wherever your travels take you.</p>
+        </div>
+
+        <div class="specialty-item">
+          <span class="specialty-item-number">06</span>
+          <h3>Disney &amp; Universal</h3>
+          <p>I know these parks well and I'm happy to help you plan a trip that makes the most of every moment. From dining reservations to ride strategies, I'll make sure you show up prepared and actually enjoy the experience rather than spending your vacation stressed about logistics.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED EXPERIENCES -->
+  <section id="featured">
+    <div class="section-inner">
+      <span class="section-label">How I'll Take You There</span>
+      <h2 class="section-title">Find Your Travel Style</h2>
+      <div class="section-divider"></div>
+      <div class="travel-styles-grid">
+
+        <div class="travel-style-card">
+          <span class="travel-style-eyebrow">Adults Only · Elevated</span>
+          <h3>Unplug &amp; Reset</h3>
+          <p>For the traveler who needs to actually exhale. No kids, no obligations, no buffet anxiety. Just incredible food, open water, and the kind of rest that actually restores you. Whether you sail adults-only or disappear into a private resort, this is the trip you've been putting off too long.</p>
+          <div class="travel-style-suppliers">
+            <span class="supplier-tag">Virgin Voyages</span>
+            <span class="supplier-tag">All-Inclusive Resorts</span>
+            <span class="supplier-tag">Adults Only Sailings</span>
+          </div>
+        </div>
+
+        <div class="travel-style-card">
+          <span class="travel-style-eyebrow">Ocean · Family · Adventure</span>
+          <h3>Set Sail</h3>
+          <p>Cruising is the most efficient way to see the world without living out of a suitcase. Wake up in a new destination every day, unpack once, and let the ship do the work. From massive resort ships with something for everyone to intimate sailings built for couples, there's a cruise for every kind of traveler.</p>
+          <div class="travel-style-suppliers">
+            <span class="supplier-tag">Royal Caribbean</span>
+            <span class="supplier-tag">Holland America</span>
+            <span class="supplier-tag">Norwegian</span>
+            <span class="supplier-tag">Princess</span>
+          </div>
+        </div>
+
+        <div class="travel-style-card">
+          <span class="travel-style-eyebrow">River · Cultural · Immersive</span>
+          <h3>The Epic Voyage</h3>
+          <p>For the traveler who wants to go deeper. Not just see the Eiffel Tower from a bus but understand the city it stands in. River cruises and expedition journeys are for the curious, the sophisticated, and the ones who come home changed. Small ships, real destinations, and experiences that don't exist in a brochure.</p>
+          <div class="travel-style-suppliers">
+            <span class="supplier-tag">Viking</span>
+            <span class="supplier-tag">AmaWaterways</span>
+            <span class="supplier-tag">Globus</span>
+            <span class="supplier-tag">Intrepid Travel</span>
+            <span class="supplier-tag">Expedition Cruising</span>
+          </div>
+        </div>
+
+        <div class="travel-style-card">
+          <span class="travel-style-eyebrow">Magic · Wonder · Memories</span>
+          <h3>Family Adventures</h3>
+          <p>Disney and Universal are extraordinary experiences when they're planned well and overwhelming disasters when they're not. I know these parks inside and out, from the rides worth the wait to the dining reservations that make the day. Let me handle the strategy so your family just gets to enjoy the magic.</p>
+          <div class="travel-style-suppliers">
+            <span class="supplier-tag">Walt Disney World</span>
+            <span class="supplier-tag">Disneyland</span>
+            <span class="supplier-tag">Aulani Resort</span>
+            <span class="supplier-tag">Universal Orlando</span>
+            <span class="supplier-tag">Disney Cruise Line</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESET TRIP -->
+  <section id="reset-trip">
+    <div class="section-inner">
+      <div class="reset-trip-inner">
+
+        <div class="reset-trip-left">
+          <span class="section-label">Group Cruise · Now Booking</span>
+          <h2 class="section-title">The Reset Trip</h2>
+          <p class="reset-trip-subtitle">Valiant Lady · Virgin Voyages · Southern Caribbean</p>
+          <div class="section-divider"></div>
+
+          <p>You know that feeling of needing to just exhale? That is exactly what this trip is designed for. No kids. No drama. No endless buffet lines. Just you, the sea, incredible food, and a group of people who showed up to actually disconnect and enjoy themselves.</p>
+          <p>The Reset Trip is a group cruise aboard Virgin Voyages' Valiant Lady sailing the Southern Caribbean with a stop in Aruba. Virgin Voyages is adults only by design, with dining at 20 plus restaurants all included, world class entertainment, and a vibe that feels nothing like a traditional cruise ship.</p>
+          <p>Spots are limited. If you have been waiting for the right reason to finally book that trip, this is it.</p>
+
+          <div class="reset-trip-details">
+            <div class="reset-detail">
+              <span class="reset-detail-label">Ship</span>
+              <span class="reset-detail-value">Valiant Lady</span>
+            </div>
+            <div class="reset-detail">
+              <span class="reset-detail-label">Cruise Line</span>
+              <span class="reset-detail-value">Virgin Voyages</span>
+            </div>
+            <div class="reset-detail">
+              <span class="reset-detail-label">Departure</span>
+              <span class="reset-detail-value">February 27, 2027</span>
+            </div>
+            <div class="reset-detail">
+              <span class="reset-detail-label">Return</span>
+              <span class="reset-detail-value">March 6, 2027</span>
+            </div>
+            <div class="reset-detail">
+              <span class="reset-detail-label">Itinerary</span>
+              <span class="reset-detail-value">Southern Caribbean</span>
+            </div>
+            <div class="reset-detail">
+              <span class="reset-detail-label">Duration</span>
+              <span class="reset-detail-value">7 Nights</span>
+            </div>
+          </div>
+
+          <a href="https://www.magicalmomentsvacations.com/quote" target="_blank" class="btn-secondary">Reserve Your Spot</a>
+        </div>
+
+        <div class="reset-trip-right">
+          <div class="reset-trip-card">
+            <h3>What's Included</h3>
+
+            <span class="reset-included-title">Ports of Call</span>
+            <ul class="reset-itinerary">
+              <li>San Juan, Puerto Rico · Embarkation</li>
+              <li>Aruba · Aruban Nights</li>
+              <li>St. Croix, US Virgin Islands</li>
+              <li>Tortola, British Virgin Islands</li>
+              <li>San Juan, Puerto Rico · Return</li>
+            </ul>
+
+            <div class="reset-included">
+              <span class="reset-included-title">Virgin Voyages Includes</span>
+              <div class="reset-included-items">
+                <span class="reset-tag">20+ Restaurants</span>
+                <span class="reset-tag">All Dining</span>
+                <span class="reset-tag">Basic WiFi</span>
+                <span class="reset-tag">Group Fitness</span>
+                <span class="reset-tag">Live Entertainment</span>
+                <span class="reset-tag">No Kids Onboard</span>
+                <span class="reset-tag">Gratuities</span>
+                <span class="reset-tag">Richard's Rooftop</span>
+              </div>
+            </div>
+
+            <a href="mailto:kim.gamet@mmvagent.com" class="btn-primary">Email Kim to Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <span class="section-label">Client Love</span>
+      <h2 class="section-title">What My Clients Say</h2>
+      <div class="section-divider"></div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p>Kim made something that can be overwhelming super easy instead. She went over options and explored deals we didn't even realize were available. Our first trip we booked with Kim was amazing and we are already looking forward to the next one!</p>
+          <span class="testimonial-author">Brianna</span>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p>She was very easy to work with. We had several changes in requests and she never hesitated, just jumped right in. She gave excellent trip tips, checked in on us during transfers, and really goes above and beyond.</p>
+          <span class="testimonial-author">Lori</span>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <div class="testimonial-stars">★★★★★</div>
+          <p>Kim was a joy to work with! She is extremely knowledgeable and answered our questions every step of the way. She presented numerous options within our budget and got us the best value. I would 10/10 recommend Kim for your next vacation!</p>
+          <span class="testimonial-author">Jazmyn</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Let's Plan Your<br>Next Adventure</h2>
+      <div class="section-divider"></div>
+      <p class="contact-tagline">Let's get you somewhere extraordinary.</p>
+      <div class="contact-buttons">
+        <a href="https://www.magicalmomentsvacations.com/quote" target="_blank" class="btn-secondary">Start Planning Your Trip</a>
+        <a href="mailto:kim.gamet@mmvagent.com" class="btn-primary">Send Me an Email</a>
+      </div>
+      <div class="contact-info">
+        <a href="mailto:kim.gamet@mmvagent.com">kim.gamet@mmvagent.com</a>
+        <a href="https://www.facebook.com/KimGametMagicalMomentsVacations/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/kimg_magicalmomentsvacations" target="_blank">Instagram</a>
+      </div>
+      <p class="contact-free">My services are always completely free to you. 💛</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logos">
+      <img src="MMVTravelCollectionWhite.png" alt="MMV Travel Collection" />
+      <img src="Logo-01.jpg" alt="Magical Moments Vacations" />
+    </div>
+    <p>© 2026 Kim Gamet <span>|</span> MMV Travel Collection <span>|</span> Magical Moments Vacations <span>|</span> Independent Travel Advisor</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.specialty-card, .why-item, .featured-card, .testimonial-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
