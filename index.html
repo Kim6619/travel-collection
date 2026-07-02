@@ -1237,18 +1237,71 @@
       color: var(--text-mid);
     }
 
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1001;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s ease;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav {
         padding: 1.2rem 1.5rem;
+        flex-wrap: wrap;
       }
 
       nav.scrolled {
         padding: 1rem 1.5rem;
       }
 
+      .nav-hamburger {
+        display: flex;
+      }
+
       .nav-links {
         display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 0.5rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 0.75rem 0;
+        font-size: 0.85rem;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
       }
 
       .about-grid {
@@ -1297,13 +1350,18 @@
       <img src="Logo-01.jpg" alt="Magical Moments Vacations" />
       <span class="nav-logo-text">Kim Gamet</span>
     </a>
-    <ul class="nav-links">
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#specialties">Specialties</a></li>
       <li><a href="#featured">Travel Styles</a></li>
       <li><a href="#reset-trip">Group Cruise</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="blog-index.html">Travel Journal</a></li>
+      <li><a href="blog/">Travel Journal</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -1757,6 +1815,23 @@
         const isOpen = item.classList.contains('open');
         document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
         if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Hamburger menu
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
       });
     });
   </script>
