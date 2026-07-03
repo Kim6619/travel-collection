@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sample Client Quote — Virgin Voyages Girls Trip | Magical Moments Vacations</title>
+<title>Sample Client Quote | Virgin Voyages Girls Trip | Magical Moments Vacations</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min-height:100vh;}
@@ -21,13 +21,15 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .lock-footer{font-size:12px;color:#F9B8C8;text-align:center;margin-top:24px;}
 #page{display:none;}
 #page.visible{display:block;}
-.hero{background:linear-gradient(160deg,rgba(26,10,46,0.82) 0%,rgba(201,0,60,0.75) 100%),url("Virgin_Voyages_-_Valiant_Lady_-_British_Virgin_Islands.JPG") center/cover no-repeat;padding:32px 20px 28px;text-align:center;}
+.hero{background:linear-gradient(160deg,rgba(26,10,46,0.82) 0%,rgba(201,0,60,0.75) 100%),url('https://drive.google.com/uc?export=view&id=1JUTAMPGuzvZgQj641OH_OnSBHiDdEeUU') center/cover no-repeat;padding:32px 20px 28px;text-align:center;}
 .hero-agency{font-size:11px;color:#F9B8C8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;}
 .hero-badge{display:inline-block;background:rgba(255,255,255,0.15);color:#fff;font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px;letter-spacing:0.05em;}
 .hero-title{font-size:26px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:8px;}
 .hero-sub{font-size:13px;color:#F9B8C8;margin-bottom:14px;line-height:1.5;}
 .hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;}
 .hero-pill{background:rgba(255,255,255,0.15);border-radius:20px;padding:5px 12px;font-size:11px;color:#fff;}
+.sample-bar{background:#FAEEDA;padding:10px 16px;display:flex;align-items:flex-start;gap:8px;border-bottom:0.5px solid #FAC775;}
+.sample-bar p{font-size:12px;color:#633806;line-height:1.6;}
 .included-bar{background:#A5002E;padding:14px 16px;}
 .included-title{font-size:10px;font-weight:700;color:#F9B8C8;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;}
 .included-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
@@ -43,16 +45,26 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .itin-header{background:linear-gradient(135deg,#1a0a2e,#3D1463);padding:14px 16px;}
 .itin-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;}
 .itin-sub{font-size:11px;color:#C9B8E8;}
-.itin-day{display:flex;align-items:center;gap:10px;padding:9px 16px;border-bottom:0.5px solid #F1EFE8;}
+.itin-day{display:flex;align-items:flex-start;gap:10px;padding:9px 16px;border-bottom:0.5px solid #F1EFE8;}
 .itin-day:last-child{border-bottom:none;}
-.itin-num{width:28px;height:28px;border-radius:50%;background:#F1EFE8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#888780;flex-shrink:0;}
+.itin-num{width:28px;height:28px;border-radius:50%;background:#F1EFE8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#888780;flex-shrink:0;margin-top:2px;}
 .itin-num.active{background:#C9003C;color:#fff;}
 .itin-port{font-size:13px;font-weight:600;color:#1a1a1a;}
 .itin-note{font-size:11px;color:#888780;margin-top:1px;}
+.port-link{font-size:10px;font-weight:600;color:#185FA5;text-decoration:none;background:#E6F1FB;padding:2px 8px;border-radius:10px;border:0.5px solid #B5D4F4;white-space:nowrap;margin-left:6px;}
+.port-gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:8px;border-radius:8px;overflow:hidden;}
+.port-gallery img{width:100%;height:110px;object-fit:cover;display:block;cursor:pointer;}
+.port-gallery img.wide{grid-column:span 2;height:160px;}
+.gallery-caption{font-size:10px;color:#888780;text-align:center;padding:5px 0 8px;font-style:italic;}
 .cabin-grid{display:flex;flex-direction:column;gap:10px;padding:0 16px 4px;}
 .cabin-card{background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
 .cabin-card.featured{border:2px solid #C9003C;}
 .cabin-card.rockstar{border:2px solid #C9942A;}
+.cabin-card img{width:100%;height:180px;object-fit:cover;display:block;cursor:pointer;}
+.cabin-card img.gallery-img{height:120px;}
+.cabin-rs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.cabin-rs-grid img{width:100%;height:120px;object-fit:cover;display:block;cursor:pointer;}
+.cabin-rs-grid img.full{grid-column:span 2;height:120px;}
 .cabin-head{padding:14px 16px 10px;border-bottom:0.5px solid #F1EFE8;}
 .ctag{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:6px;}
 .ctag-red{background:#FFE5ED;color:#8C0027;}
@@ -60,6 +72,8 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .ctag-dark{background:#E8E6F0;color:#1a0a2e;}
 .cabin-name{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:3px;}
 .cabin-desc{font-size:12px;color:#5F5E5A;line-height:1.5;}
+.vv-link{display:inline-block;margin-top:9px;font-size:11px;font-weight:600;color:#C9003C;text-decoration:none;padding:4px 12px;border:0.5px solid #F9B8C8;border-radius:20px;background:#FFE5ED;}
+.vv-link.gold{color:#7A5800;border-color:#FAC775;background:#FDF3DC;}
 .cabin-body{padding:12px 16px;}
 .cabin-fl{font-size:10px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:7px;}
 .cabin-f{display:flex;align-items:center;gap:7px;font-size:12px;color:#3d3d3a;margin-bottom:5px;}
@@ -67,13 +81,19 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .cabin-card.rockstar .cabin-f:before{background:#C9942A;}
 .cabin-pr{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#f9f7f4;border-top:0.5px solid #F1EFE8;}
 .cabin-pl{font-size:11px;color:#888780;}
+.cabin-pn{font-size:10px;color:#888780;margin-top:2px;}
 .cabin-pv{font-size:18px;font-weight:700;color:#C9003C;}
 .cabin-card.rockstar .cabin-pv{color:#C9942A;}
-.cabin-pn{font-size:10px;color:#888780;margin-top:2px;}
 .popular-bar{background:#FFE5ED;padding:8px 16px;font-size:11px;color:#8C0027;font-weight:600;}
+.sea-view-block{padding:0 16px 12px;}
+.sea-view-label{font-size:10px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
+.sea-view-block img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;display:block;}
+.sea-view-note{font-size:11px;color:#5F5E5A;margin-top:6px;line-height:1.5;}
 .addons-list{margin:0 16px 4px;background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
-.addon-row{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 16px;border-bottom:0.5px solid #F1EFE8;gap:12px;}
+.addon-row{border-bottom:0.5px solid #F1EFE8;}
 .addon-row:last-child{border-bottom:none;}
+.addon-inner{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 16px;gap:12px;}
+.addon-spa img{width:100%;height:160px;object-fit:cover;object-position:center top;display:block;cursor:pointer;}
 .addon-left{flex:1;}
 .addon-name{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:2px;}
 .addon-desc{font-size:11px;color:#5F5E5A;line-height:1.5;}
@@ -86,17 +106,10 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .cta-contact a{color:#185FA5;text-decoration:none;}
 .footer{background:#1a0a2e;padding:16px;text-align:center;}
 .footer p{font-size:11px;color:#888780;line-height:1.8;}
-
-.port-gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:8px;border-radius:8px;overflow:hidden;}
-.port-gallery img{width:100%;height:110px;object-fit:cover;display:block;cursor:pointer;transition:opacity 0.2s;}
-.port-gallery img:hover{opacity:0.9;}
-.port-gallery img.wide{grid-column:span 2;height:160px;}
-.gallery-caption{font-size:10px;color:#888780;text-align:center;padding:5px 0 8px;font-style:italic;}
-/* Lightbox */
 #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:10000;align-items:center;justify-content:center;flex-direction:column;}
 #lightbox.open{display:flex;}
 #lightbox img{max-width:94vw;max-height:82vh;object-fit:contain;border-radius:8px;}
-#lightbox-close{position:absolute;top:16px;right:20px;color:#fff;font-size:28px;cursor:pointer;font-weight:300;line-height:1;}
+#lightbox-close{position:absolute;top:16px;right:20px;color:#fff;font-size:28px;cursor:pointer;}
 #lightbox-caption{color:#ccc;font-size:12px;margin-top:10px;}
 </style>
 </head>
@@ -116,39 +129,39 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 </div>
 
 <div id="page">
-  <div class="hero" id="hero-section">
-  
+
+  <div class="hero">
     <div class="hero-agency">Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet</div>
-    <div class="hero-badge">&#128137; Adults Only &nbsp;·&nbsp; Virgin Voyages &nbsp;·&nbsp; Scarlet Lady</div>
+    <div class="hero-badge">Adults Only &nbsp;·&nbsp; Virgin Voyages &nbsp;·&nbsp; Scarlet Lady</div>
     <div class="hero-title">Girls Trip Caribbean Cruise &#127946;</div>
     <div class="hero-sub">Your personalized voyage planning guide</div>
     <div class="hero-pills">
-      <span class="hero-pill">&#128197; March 14–21, 2026</span>
+      <span class="hero-pill">&#128197; March 14 to 21, 2026</span>
       <span class="hero-pill">&#128105; Group of 4 Sailors</span>
       <span class="hero-pill">&#128674; Departs Miami, FL</span>
     </div>
   </div>
 
-  <div class="included-bar">
-    <div class="included-title">Always included — no nickel and diming</div>
-    <div class="included-grid">
-      <div class="included-item"><div class="included-check">✓</div>Dining at 20+ restaurants</div>
-      <div class="included-item"><div class="included-check">✓</div>WiFi throughout the ship</div>
-      <div class="included-item"><div class="included-check">✓</div>All gratuities</div>
-      <div class="included-item"><div class="included-check">✓</div>Group fitness classes</div>
-      <div class="included-item"><div class="included-check">✓</div>Soft drinks and juices</div>
-      <div class="included-item"><div class="included-check">✓</div>Live entertainment nightly</div>
-    </div>
+  <div class="sample-bar">
+    <span style="font-size:16px;flex-shrink:0;">&#9432;</span>
+    <p><strong>Sample quote for illustration purposes.</strong> This is exactly what a real client quote looks like when you book with Magical Moments Vacations. Prices shown are estimates based on current availability and will vary by travel date, cabin category, and group size. Contact Kim for a personalized quote built around your trip.</p>
   </div>
-  <!-- ESTIMATE BANNER -->
-  <div style="background:#FAEEDA;padding:10px 16px;display:flex;align-items:flex-start;gap:8px;border-bottom:0.5px solid #FAC775;">
-    <span style="font-size:15px;flex-shrink:0;">&#9432;</span>
-    <div style="font-size:12px;color:#633806;line-height:1.6;"><strong>Sample quote — for illustration purposes.</strong> This page shows exactly what a real client quote looks like when you book with Magical Moments Vacations. Prices shown are estimates based on current availability and will vary by travel date, cabin category, and group size. Contact Kim for a personalized quote built around your trip.</div>
+
+  <div class="included-bar">
+    <div class="included-title">Always included with Virgin Voyages</div>
+    <div class="included-grid">
+      <div class="included-item"><div class="included-check">&#10003;</div>Dining at 20+ restaurants</div>
+      <div class="included-item"><div class="included-check">&#10003;</div>WiFi throughout the ship</div>
+      <div class="included-item"><div class="included-check">&#10003;</div>All gratuities</div>
+      <div class="included-item"><div class="included-check">&#10003;</div>Group fitness classes</div>
+      <div class="included-item"><div class="included-check">&#10003;</div>Soft drinks and juices</div>
+      <div class="included-item"><div class="included-check">&#10003;</div>Live entertainment nightly</div>
+    </div>
   </div>
 
   <div class="note-card">
-    <div class="note-label">What your quote looks like — from Kim</div>
-    <div class="note-text">Okay, can we talk about how perfect Virgin Voyages is for a girls trip? Adults only, no buffet lines, no dress codes — just 20+ incredible restaurants, a rooftop pool, drag brunches, and some of the best nightlife at sea. Scarlet Lady feels more like a boutique hotel than a cruise ship, and this Caribbean itinerary out of Miami in March is stunning.<br><br>I've pulled together three cabin options — from the perfect "we want to be comfortable and close together" pick all the way up to a RockStar Suite if you want to go all out. Everything included in your fare is listed above, and I've added a few upgrades worth considering below.<br><br>This one is going to be a trip you talk about for years. Let's make it happen.</div>
+    <div class="note-label">A note from Kim</div>
+    <div class="note-text">Can we talk about how perfect Virgin Voyages is for a girls trip? Adults only, no buffet lines, no dress codes. Just 20+ incredible restaurants, a rooftop pool, drag brunches, and some of the best nightlife at sea. Scarlet Lady feels more like a boutique hotel than a cruise ship, and this Caribbean itinerary out of Miami in March is stunning.<br><br>I pulled together three cabin options for your group, from the perfect "we want to be comfortable and close together" pick all the way up to a RockStar Suite if you want to go all out. Everything included in your fare is listed above, and I added a few upgrades worth considering below.<br><br>This one is going to be a trip you talk about for years. Let's make it happen.</div>
     <div class="note-sig">Kim Gamet</div>
     <div class="note-sig-sub">Your Travel Advisor &nbsp;·&nbsp; Magical Moments Vacations</div>
   </div>
@@ -157,56 +170,51 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
   <div class="itin-card">
     <div class="itin-header">
       <div class="itin-title">Scarlet Lady &nbsp;·&nbsp; Caribbean Calling</div>
-      <div class="itin-sub">Round-trip from Miami, Florida &nbsp;·&nbsp; March 14–21, 2026</div>
+      <div class="itin-sub">Round-trip from Miami, Florida &nbsp;·&nbsp; March 14 to 21, 2026</div>
     </div>
-    <div class="itin-day"><div class="itin-num active">1</div><div><div class="itin-port">Miami, Florida &#127482;&#127480;</div><div class="itin-note">Embark 1pm · sail away party on the pool deck</div></div></div>
-    <div class="itin-day"><div class="itin-num active">2</div><div><div class="itin-port">Day at Sea &#127754;</div><div class="itin-note">Pool deck · spa · restaurants · shows</div></div></div>
+    <div class="itin-day"><div class="itin-num active">1</div><div><div class="itin-port">Miami, Florida &#127482;&#127480;</div><div class="itin-note">Embark 1pm, sail away party on the pool deck</div></div></div>
+    <div class="itin-day"><div class="itin-num active">2</div><div><div class="itin-port">Day at Sea &#127754;</div><div class="itin-note">Pool deck, spa, restaurants, shows</div></div></div>
     <div class="itin-day" style="flex-direction:column;align-items:flex-start;padding-bottom:12px;">
       <div style="display:flex;align-items:center;gap:10px;width:100%;">
         <div class="itin-num active" style="flex-shrink:0;">3</div>
         <div style="flex:1;">
-          <div class="itin-port">Bimini, Bahamas &#127463;&#127480; <a href="https://www.virginvoyages.com/ports/bimini" target="_blank" rel="noopener" style="font-size:10px;font-weight:600;color:#185FA5;text-decoration:none;background:#E6F1FB;padding:2px 8px;border-radius:10px;border:0.5px solid #B5D4F4;white-space:nowrap;margin-left:4px;">Explore port &#8250;</a></div>
-          <div class="itin-note">Virgin's private Beach Club · crystal clear water</div>
+          <div class="itin-port">Bimini, Bahamas &#127463;&#127480; <a href="https://www.virginvoyages.com/ports/bimini" target="_blank" rel="noopener" class="port-link">Explore port</a></div>
+          <div class="itin-note">Virgin's private Beach Club, crystal clear water</div>
         </div>
       </div>
       <div style="padding-left:38px;width:100%;">
         <div class="port-gallery">
-          <img src="IMG-DEST-Bimini-BeachClub-AerialShot.jpg" class="wide" alt="Bimini Beach Club aerial view" onclick="openLightbox(this.src, 'Bimini Beach Club — aerial view')">
-          <img src="IMG-DEST-Bimini-BeachClub-Pool-Beach__1_.jpg" alt="Bimini Beach Club pool" onclick="openLightbox(this.src, 'Bimini Beach Club pool')">
-          <img src="IMG-DEST-Bimini-BeachClub-Cabanas__1_.jpg" alt="Bimini Beach Club cabanas" onclick="openLightbox(this.src, 'Bimini Beach Club cabanas')">
-          <img src="IMG-DEST-Bimini-BeachClub-Entrance-Day.jpg" alt="Bimini Beach Club entrance" onclick="openLightbox(this.src, 'Bimini Beach Club entrance')">
+          <img src="https://drive.google.com/uc?export=view&id=1a_SUURRq6h17q5i38UKsMaMMiPGquGj0" class="wide" alt="Bimini Beach Club aerial" onclick="openLightbox(this.src,'Bimini Beach Club aerial view')">
+          <img src="https://drive.google.com/uc?export=view&id=1d2gZ_QdVWZOVUu5JWqNGqOEGyf7vOf08" alt="Bimini Beach Club pool" onclick="openLightbox(this.src,'Bimini Beach Club pool')">
+          <img src="https://drive.google.com/uc?export=view&id=1Hc73XVd_YQt91pnEEF7faptSLszKHaFs" alt="Bimini Beach Club cabanas" onclick="openLightbox(this.src,'Bimini Beach Club cabanas')">
+          <img src="https://drive.google.com/uc?export=view&id=1KhD8adVSXL15zwQ8ooOdZM6WIbAwEax8" alt="Bimini Beach Club entrance" onclick="openLightbox(this.src,'Bimini Beach Club entrance')">
         </div>
-        <div class="gallery-caption">Virgin Voyages Beach Club at Bimini — tap any photo to expand</div>
+        <div class="gallery-caption">Virgin Voyages Beach Club at Bimini, tap any photo to expand</div>
       </div>
     </div>
-    <div class="itin-day"><div class="itin-num active">4</div><div><div class="itin-port">Puerto Plata, Dominican Republic &#127465;&#127476; <a href="https://www.virginvoyages.com/ports/puerto-plata" target="_blank" rel="noopener" style="font-size:10px;font-weight:600;color:#185FA5;text-decoration:none;background:#E6F1FB;padding:2px 8px;border-radius:10px;border:0.5px solid #B5D4F4;white-space:nowrap;margin-left:4px;">Explore port &#8250;</a></div><div class="itin-note">Cable car to Mount Isabel de Torres · waterfalls</div></div></div>
-    <div class="itin-day"><div class="itin-num active">5</div><div><div class="itin-port">San Juan, Puerto Rico &#127477;&#127479; <a href="https://www.virginvoyages.com/ports/san-juan" target="_blank" rel="noopener" style="font-size:10px;font-weight:600;color:#185FA5;text-decoration:none;background:#E6F1FB;padding:2px 8px;border-radius:10px;border:0.5px solid #B5D4F4;white-space:nowrap;margin-left:4px;">Explore port &#8250;</a></div><div class="itin-note">Old San Juan · El Morro fortress · nightlife</div></div></div>
-    <div class="itin-day"><div class="itin-num active">6</div><div><div class="itin-port">St. Croix, U.S. Virgin Islands &#127483;&#127470; <a href="https://www.virginvoyages.com/ports/st-croix" target="_blank" rel="noopener" style="font-size:10px;font-weight:600;color:#185FA5;text-decoration:none;background:#E6F1FB;padding:2px 8px;border-radius:10px;border:0.5px solid #B5D4F4;white-space:nowrap;margin-left:4px;">Explore port &#8250;</a></div><div class="itin-note">Snorkeling · Buck Island · Christiansted</div></div></div>
-    <div class="itin-day"><div class="itin-num">7</div><div><div class="itin-port">Day at Sea &#127751;</div><div class="itin-note">Last night dinner · farewell show</div></div></div>
-    <div class="itin-day"><div class="itin-num">8</div><div><div class="itin-port">Miami, Florida — Disembark &#127482;&#127480;</div><div class="itin-note">Disembark by 9am</div></div></div>
+    <div class="itin-day"><div class="itin-num active">4</div><div><div class="itin-port">Puerto Plata, Dominican Republic &#127465;&#127476; <a href="https://www.virginvoyages.com/ports/puerto-plata" target="_blank" rel="noopener" class="port-link">Explore port</a></div><div class="itin-note">Cable car to Mount Isabel de Torres, waterfalls</div></div></div>
+    <div class="itin-day"><div class="itin-num active">5</div><div><div class="itin-port">San Juan, Puerto Rico &#127477;&#127479; <a href="https://www.virginvoyages.com/ports/san-juan" target="_blank" rel="noopener" class="port-link">Explore port</a></div><div class="itin-note">Old San Juan, El Morro fortress, nightlife</div></div></div>
+    <div class="itin-day"><div class="itin-num active">6</div><div><div class="itin-port">St. Croix, U.S. Virgin Islands &#127483;&#127470; <a href="https://www.virginvoyages.com/ports/st-croix" target="_blank" rel="noopener" class="port-link">Explore port</a></div><div class="itin-note">Snorkeling, Buck Island, Christiansted</div></div></div>
+    <div class="itin-day"><div class="itin-num">7</div><div><div class="itin-port">Day at Sea &#127751;</div><div class="itin-note">Last night dinner, farewell show</div></div></div>
+    <div class="itin-day"><div class="itin-num">8</div><div><div class="itin-port">Miami, Florida &#127482;&#127480;</div><div class="itin-note">Disembark by 9am</div></div></div>
   </div>
 
   <div class="section-label">Cabin options &nbsp;·&nbsp; 2 cabins for 4 Sailors &nbsp;·&nbsp; price per cabin</div>
   <div class="cabin-grid">
 
     <div class="cabin-card">
-      <img src="IMG-SCL-2021-CAB-the-insider-interior-bed-configuration-day-UNCROPPED.jpg" alt="The Insider cabin — Virgin Voyages" style="width:100%;height:180px;object-fit:cover;display:block;cursor:pointer;" onclick="openLightbox(this.src,'The Insider cabin — chic windowless design with mood lighting')">
+      <img src="https://drive.google.com/uc?export=view&id=1J3nSoERg4rGpJ0i7zukeYqZ0x0CZ6D01" alt="The Insider cabin" onclick="openLightbox(this.src,'The Insider cabin')">
       <div class="cabin-head">
         <span class="ctag ctag-dark">Best value &nbsp;·&nbsp; Insider cabin</span>
         <div class="cabin-name">The Insider &nbsp;·&nbsp; 2 cabins</div>
-        <div class="cabin-desc">Virgin's signature windowless cabin — mood lighting, rainshower, convertible bunk beds, same chic design throughout. You're not in the room much anyway.</div>
-        <a href="https://www.virginvoyages.com/onboard/cabins/insider" target="_blank" rel="noopener" style="display:inline-block;margin-top:9px;font-size:11px;font-weight:600;color:#C9003C;text-decoration:none;padding:4px 12px;border:0.5px solid #F9B8C8;border-radius:20px;background:#FFE5ED;">View cabin on Virgin Voyages &#8250;</a>
-      </div>
-      <div style="padding:0 16px 12px;">
-        <div style="font-size:10px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Not quite ready for a balcony? There's also the Sea View</div>
-        <img src="IMG-SCL-2021-CAB-the-sea-view-interior-bed-configuration-day-UNCROPPED.JPG" alt="Sea View cabin" style="width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;display:block;" onclick="openLightbox(this.src,'Sea View cabin — porthole window, same great design, no balcony')">
-        <div style="font-size:11px;color:#5F5E5A;margin-top:6px;line-height:1.5;">Same stunning design — queen bed, mood lighting, premium finishes — but with a porthole window instead of a private balcony. A great middle option. Ask Kim for pricing.</div>
+        <div class="cabin-desc">Virgin's signature windowless cabin with mood lighting, rainshower, and convertible bunk beds. Same chic design throughout. You are not in the room much anyway.</div>
+        <a href="https://www.virginvoyages.com/onboard/cabins/insider" target="_blank" rel="noopener" class="vv-link">View cabin on Virgin Voyages</a>
       </div>
       <div class="cabin-body">
         <div class="cabin-fl">What's in your cabin</div>
         <div class="cabin-f">Queen bed convertible to twin bunks</div>
         <div class="cabin-f">Rainfall shower with premium toiletries</div>
-        <div class="cabin-f">Customizable mood lighting &amp; smart TV</div>
+        <div class="cabin-f">Customizable mood lighting and smart TV</div>
         <div class="cabin-f">All dining, WiFi and gratuities included</div>
       </div>
       <div class="cabin-pr">
@@ -216,20 +224,25 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
     </div>
 
     <div class="cabin-card featured">
-      <img src="Virgin_Voyages_Social_Media_Pack_-_Cabins_3.jpg" alt="Sea Terrace cabin — Virgin Voyages" style="width:100%;height:180px;object-fit:cover;display:block;" onclick="openLightbox(this.src,'Sea Terrace cabin')">
+      <img src="https://drive.google.com/uc?export=view&id=16n3sAHphU9Er7RGMJknPFXp1zQ10lxjO" alt="Sea Terrace cabin" onclick="openLightbox(this.src,'Sea Terrace cabin with private balcony')">
       <div class="popular-bar">&#11088; Most popular for groups</div>
       <div class="cabin-head">
         <span class="ctag ctag-red">Sea Terrace &nbsp;·&nbsp; Private balcony</span>
         <div class="cabin-name">Sea Terrace &nbsp;·&nbsp; 2 cabins</div>
-        <div class="cabin-desc">Private balcony with a hammock and ocean views — wake up to the Caribbean, have morning coffee in the hammock, watch sunsets from your own space. This is the one.</div>
-        <a href="https://www.virginvoyages.com/onboard/cabins/sea-terrace" target="_blank" rel="noopener" style="display:inline-block;margin-top:9px;font-size:11px;font-weight:600;color:#C9003C;text-decoration:none;padding:4px 12px;border:0.5px solid #F9B8C8;border-radius:20px;background:#FFE5ED;">View cabin on Virgin Voyages &#8250;</a>
+        <div class="cabin-desc">Private balcony with a hammock and ocean views. Wake up to the Caribbean, have morning coffee in the hammock, watch sunsets from your own space. This is the one.</div>
+        <a href="https://www.virginvoyages.com/onboard/cabins/sea-terrace" target="_blank" rel="noopener" class="vv-link">View cabin on Virgin Voyages</a>
       </div>
       <div class="cabin-body">
         <div class="cabin-fl">What's in your cabin</div>
         <div class="cabin-f">Private balcony with hammock and seating</div>
         <div class="cabin-f">Queen bed with premium linens</div>
-        <div class="cabin-f">Rainfall shower &amp; mood lighting</div>
+        <div class="cabin-f">Rainfall shower and mood lighting</div>
         <div class="cabin-f">All dining, WiFi and gratuities included</div>
+      </div>
+      <div class="sea-view-block">
+        <div class="sea-view-label">Not quite ready for a balcony? There's also the Sea View</div>
+        <img src="https://drive.google.com/uc?export=view&id=1dqX3BMsEpUDQ3yspOrjR7oHPyT4H7_O2" alt="Sea View cabin" onclick="openLightbox(this.src,'Sea View cabin with porthole window')">
+        <div class="sea-view-note">Same stunning design with a porthole window instead of a private balcony. A great middle option. Ask Kim for pricing.</div>
       </div>
       <div class="cabin-pr">
         <div><div class="cabin-pl">Per cabin (2 Sailors)</div><div class="cabin-pn">Total for 2 cabins: ~$3,600</div></div>
@@ -238,20 +251,20 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
     </div>
 
     <div class="cabin-card rockstar">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:0;">
-        <img src="IMG-STE-massive-suite-architectural-interior-living-room-v1-01-S22_014-1600x900.jpg" alt="RockStar suite living room" style="width:100%;height:120px;object-fit:cover;display:block;cursor:pointer;" onclick="openLightbox(this.src,'RockStar suite — living room with guitars')">
-        <img src="IMG-STE-massive-suite-architectural-exterior-detail-terrace-jacuzzi-v1-01-0426-1200x630.jpg" alt="RockStar suite terrace jacuzzi" style="width:100%;height:120px;object-fit:cover;display:block;cursor:pointer;" onclick="openLightbox(this.src,'RockStar suite — private terrace jacuzzi')">
-        <img src="IMG-STE-bed-peekaboo-suite-v1-71034.jpg" alt="RockStar suite bedroom" style="width:100%;height:120px;object-fit:cover;grid-column:span 2;display:block;cursor:pointer;" onclick="openLightbox(this.src,'RockStar suite — bedroom')">
+      <div class="cabin-rs-grid">
+        <img src="https://drive.google.com/uc?export=view&id=1KtXuldwbzPwNUc9G_u7NbDpju9TL0YGK" alt="RockStar suite living room" onclick="openLightbox(this.src,'RockStar suite living room with guitars')">
+        <img src="https://drive.google.com/uc?export=view&id=1p04axinXceHjnGThJts2800Wvi1NNAXt" alt="RockStar suite terrace jacuzzi" onclick="openLightbox(this.src,'RockStar suite private terrace jacuzzi')">
+        <img src="https://drive.google.com/uc?export=view&id=1BPC5GBwDTWDF8zehI77khPPxgCSeUUOO" class="full" alt="RockStar suite bedroom" onclick="openLightbox(this.src,'RockStar suite bedroom')">
       </div>
       <div class="cabin-head">
-        <span class="ctag ctag-gold">&#127381; Go all out &nbsp;·&nbsp; RockStar Quarters</span>
+        <span class="ctag ctag-gold">Go all out &nbsp;·&nbsp; RockStar Quarters</span>
         <div class="cabin-name">RockStar Quarters &nbsp;·&nbsp; 1 suite</div>
-        <div class="cabin-desc">One suite, sleeps 4, changes the whole trip. Bottomless in-suite bar, access to Richard's Rooftop (VIP-only sun deck), priority boarding, and a dedicated RockStar Agent. Split 4 ways it's very reasonable for what you get.</div>
-        <a href="https://www.virginvoyages.com/onboard/cabins/rockstar-quarters" target="_blank" rel="noopener" style="display:inline-block;margin-top:9px;font-size:11px;font-weight:600;color:#C9942A;text-decoration:none;padding:4px 12px;border:0.5px solid #FAC775;border-radius:20px;background:#FDF3DC">View suite on Virgin Voyages &#8250;</a>
+        <div class="cabin-desc">One suite, sleeps 4, changes the whole trip. Bottomless in-suite bar, access to Richard's Rooftop (VIP-only sun deck), priority boarding, and a dedicated RockStar Agent. Split 4 ways it is very reasonable for what you get.</div>
+        <a href="https://www.virginvoyages.com/onboard/cabins/rockstar-quarters" target="_blank" rel="noopener" class="vv-link gold">View suite on Virgin Voyages</a>
       </div>
       <div class="cabin-body">
         <div class="cabin-fl">RockStar perks included</div>
-        <div class="cabin-f">Access to Richard's Rooftop — exclusive sun deck</div>
+        <div class="cabin-f">Access to Richard's Rooftop, exclusive sun deck</div>
         <div class="cabin-f">Bottomless bar stocked your way before boarding</div>
         <div class="cabin-f">Dedicated 24/7 RockStar Agent</div>
         <div class="cabin-f">Priority boarding and disembarkation</div>
@@ -269,50 +282,58 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
   <div class="section-label">Optional add-ons</div>
   <div class="addons-list">
     <div class="addon-row">
-      <div class="addon-left">
-        <div class="addon-name">Bar Tab</div>
-        <div class="addon-desc">Pre-loaded tab applied to cocktails, wine and spirits throughout the voyage. Unused balance is refunded. $300–$500 per person is a comfortable budget for 7 nights.</div>
+      <div class="addon-inner">
+        <div class="addon-left">
+          <div class="addon-name">Bar Tab</div>
+          <div class="addon-desc">Pre-loaded tab applied to cocktails, wine and spirits throughout the voyage. Unused balance is refunded. $300 to $500 per person is a comfortable budget for 7 nights.</div>
+        </div>
+        <div class="addon-price">$300 to $500<br><span style="font-size:10px;font-weight:400;color:#888780;">per person</span></div>
       </div>
-      <div class="addon-price">$300–$500<br><span style="font-size:10px;font-weight:400;color:#888780;">per person</span></div>
     </div>
     <div class="addon-row">
-      <div class="addon-left">
-        <div class="addon-name">Shore Excursions</div>
-        <div class="addon-desc">Bookable via the Virgin Voyages app. Highlights: snorkeling at Buck Island (St. Croix), catamaran in Puerto Rico, Beach Club day pass upgrade at Bimini.</div>
+      <div class="addon-inner">
+        <div class="addon-left">
+          <div class="addon-name">Shore Excursions</div>
+          <div class="addon-desc">Bookable via the Virgin Voyages app. Highlights include snorkeling at Buck Island (St. Croix), catamaran in Puerto Rico, and Beach Club day pass upgrade at Bimini.</div>
+        </div>
+        <div class="addon-price">$75 to $150<br><span style="font-size:10px;font-weight:400;color:#888780;">per person per port</span></div>
       </div>
-      <div class="addon-price">$75–$150<br><span style="font-size:10px;font-weight:400;color:#888780;">per person / port</span></div>
     </div>
-    <div class="addon-row" style="flex-direction:column;padding:0;gap:0;">
-      <img src="Virgin_Voyages_Redemption_Spa_Wellness_Image.jpg" alt="The Redemption Spa — Virgin Voyages" style="width:100%;height:160px;object-fit:cover;object-position:center top;display:block;cursor:pointer;border-radius:0;" onclick="openLightbox(this.src,'The Redemption Spa at Virgin Voyages')">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:12px 16px;gap:12px;">
+    <div class="addon-row addon-spa">
+      <img src="https://drive.google.com/uc?export=view&id=1OaLQynn9P_JJHfLtCQg0vs_R1vVawY7w" alt="The Redemption Spa" onclick="openLightbox(this.src,'The Redemption Spa at Virgin Voyages')">
+      <div class="addon-inner">
         <div class="addon-left">
           <div class="addon-name">The Redemption Spa</div>
-          <div class="addon-desc">One of the best spas at sea. Thermal suite day pass ~$75pp. A 50-minute massage ~$139. Book a group treatment before you sail and save.</div>
+          <div class="addon-desc">One of the best spas at sea. Thermal suite day pass from $75 per person. A 50-minute massage from $139. Book a group treatment before you sail and save.</div>
         </div>
         <div class="addon-price">from $75<br><span style="font-size:10px;font-weight:400;color:#888780;">per person</span></div>
       </div>
     </div>
     <div class="addon-row">
-      <div class="addon-left">
-        <div class="addon-name">Travel Insurance</div>
-        <div class="addon-desc">Covers trip cancellation, interruption, and medical emergencies. Highly recommended for international travel and group trips especially.</div>
+      <div class="addon-inner">
+        <div class="addon-left">
+          <div class="addon-name">Travel Insurance</div>
+          <div class="addon-desc">Covers trip cancellation, interruption, and medical emergencies. Highly recommended for international travel and group trips especially.</div>
+        </div>
+        <div class="addon-price">from $89<br><span style="font-size:10px;font-weight:400;color:#888780;">per person</span></div>
       </div>
-      <div class="addon-price">from $89<br><span style="font-size:10px;font-weight:400;color:#888780;">per person</span></div>
     </div>
     <div class="addon-row">
-      <div class="addon-left">
-        <div class="addon-name">Airfare to Miami</div>
-        <div class="addon-desc">I can price out round-trip flights from your home city for the group and coordinate so everyone arrives in time for the 1pm boarding window.</div>
+      <div class="addon-inner">
+        <div class="addon-left">
+          <div class="addon-name">Airfare to Miami</div>
+          <div class="addon-desc">I can price out round-trip flights from your home city for the group and coordinate so everyone arrives in time for the 1pm boarding window.</div>
+        </div>
+        <div class="addon-price">Ask Kim<br><span style="font-size:10px;font-weight:400;color:#888780;">varies by city</span></div>
       </div>
-      <div class="addon-price">Ask Kim<br><span style="font-size:10px;font-weight:400;color:#888780;">varies by city</span></div>
     </div>
   </div>
 
-  <div class="disclaimer">&#9432; All pricing is per cabin based on double occupancy and reflects estimated current rates — prices are subject to availability and change. A valid passport is required for all Sailors. Contact Kim to confirm current pricing before booking.</div>
+  <div class="disclaimer">All pricing is per cabin based on double occupancy and reflects estimated current rates. Prices are subject to availability and change. A valid passport is required for all Sailors. Contact Kim to confirm current pricing before booking.</div>
 
   <div class="cta-block">
-    <div class="cta-text">Ready to claim your cabin and make this trip official? I handle everything — pricing, booking, excursion coordination, and any questions along the way. Let's sail. &#127946;</div>
-    <a href="https://calendly.com/kim-gamet-mmv/30min" class="cta-btn">Schedule a call with Kim</a>
+    <div class="cta-text">Ready to claim your cabin and make this trip official? I handle everything from pricing and booking to excursion coordination and any questions along the way. Let's sail.</div>
+    <a href="https://calendly.com/kim-gamet-mmv/30min" class="cta-btn">Schedule a call with Kim &#127946;</a>
     <div class="cta-contact">
       &#9993; <a href="mailto:kim.gamet@mmvagent.com">kim.gamet@mmvagent.com</a><br>
       &#128222; 734-770-6554<br>
@@ -321,10 +342,17 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
   </div>
 
   <div class="footer">
-    <p>Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet &nbsp;·&nbsp; Creating · Lifetime · Memories<br>
+    <p>Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet &nbsp;·&nbsp; Creating Lifetime Memories<br>
     All prices are estimates based on current availability and subject to change. Contact Kim to confirm and book.<br>
     &copy; 2026 Magical Moments Vacations</p>
   </div>
+
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <div id="lightbox-close" onclick="closeLightbox()">&#10005;</div>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
 </div>
 
 <script>
@@ -336,15 +364,16 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
   window.unlock=function(){
     const v=document.getElementById('pw-input').value;
     if(v===PW){sessionStorage.setItem(KEY,'1');show();}
-    else{document.getElementById('pw-error').textContent='Incorrect password — check with Kim and try again.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
+    else{document.getElementById('pw-error').textContent='Incorrect password. Check with Kim and try again.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
   };
+  window.openLightbox=function(src,caption){
+    document.getElementById('lightbox-img').src=src;
+    document.getElementById('lightbox-caption').textContent=caption||'';
+    document.getElementById('lightbox').classList.add('open');
+  };
+  window.closeLightbox=function(){document.getElementById('lightbox').classList.remove('open');};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
 })();
 </script>
-
-<div id="lightbox" onclick="closeLightbox()">
-  <div id="lightbox-close" onclick="closeLightbox()">&#10005;</div>
-  <img id="lightbox-img" src="" alt="">
-  <div id="lightbox-caption"></div>
-</div>
 </body>
 </html>
