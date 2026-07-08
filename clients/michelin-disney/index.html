@@ -7,8 +7,6 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min-height:100vh;}
-
-/* ── LOCK SCREEN ── */
 #lock{position:fixed;inset:0;background:#993556;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:24px;}
 #lock.hidden{display:none;}
 .lock-logo{font-size:13px;color:#F4C0D1;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:32px;text-align:center;}
@@ -19,28 +17,21 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .lock-box input{width:100%;padding:12px 14px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:16px;outline:none;margin-bottom:16px;font-family:Arial,sans-serif;}
 .lock-box input:focus{border-color:#993556;}
 .lock-btn{width:100%;background:#993556;color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;font-family:Arial,sans-serif;}
-.lock-btn:hover{background:#72243E;}
 .lock-error{font-size:13px;color:#A32D2D;text-align:center;margin-top:10px;min-height:18px;}
 .lock-footer{font-size:12px;color:#F4C0D1;text-align:center;margin-top:24px;}
-
-/* ── PAGE ── */
 #page{display:none;}
 #page.visible{display:block;}
-
 .hero{background:#993556;padding:28px 20px 24px;text-align:center;}
 .hero-agency{font-size:11px;color:#F4C0D1;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;}
 .hero-title{font-size:24px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:6px;}
 .hero-sub{font-size:13px;color:#F4C0D1;margin-bottom:12px;}
-.hero-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border-radius:20px;padding:5px 14px;font-size:12px;color:#FBEAF0;}
-
+.hero-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);color:#FBEAF0;font-size:11px;padding:5px 14px;border-radius:20px;}
 .note-card{background:#fff;margin:16px;border-radius:12px;border:0.5px solid #D3D1C7;padding:18px;}
 .note-label{font-size:10px;font-weight:700;color:#993556;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;}
-.note-text{font-size:13px;color:#3d3d3a;line-height:1.7;}
+.note-text{font-size:13px;color:#3d3d3a;line-height:1.75;}
 .note-sig{margin-top:12px;font-size:13px;font-weight:600;color:#993556;}
 .note-sig-sub{font-size:11px;color:#888780;}
-
 .section-label{font-size:10px;font-weight:700;color:#888780;letter-spacing:0.08em;text-transform:uppercase;padding:14px 16px 6px;background:#f9f7f4;}
-
 .resort-grid{display:flex;flex-direction:column;gap:10px;padding:0 16px 4px;}
 .resort-card{background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
 .resort-card.featured{border:2px solid #185FA5;}
@@ -49,19 +40,19 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .tag-blue{background:#E6F1FB;color:#0C447C;}
 .tag-pink{background:#FBEAF0;color:#72243E;}
 .tag-green{background:#EAF3DE;color:#27500A;}
-.tag-amber{background:#FAEEDA;color:#633806;}
 .tag-purple{background:#EEEDFE;color:#3C3489;}
+.tag-teal{background:#E1F5EE;color:#0F6E56;}
 .resort-name{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:3px;}
 .resort-desc{font-size:12px;color:#5F5E5A;line-height:1.5;}
+.overview-btn{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;color:#185FA5;text-decoration:none;padding:4px 12px;border:0.5px solid #B5D4F4;border-radius:20px;background:#E6F1FB;cursor:pointer;border:0.5px solid #B5D4F4;}
 .resort-body{padding:12px 16px;}
-.resort-includes{font-size:11px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:7px;}
-.resort-feature{display:flex;align-items:center;gap:7px;font-size:12px;color:#3d3d3a;margin-bottom:5px;}
-.resort-feature:before{content:'';width:6px;height:6px;border-radius:50%;background:#993556;flex-shrink:0;}
+.resort-fl{font-size:10px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:7px;}
+.resort-f{display:flex;align-items:center;gap:7px;font-size:12px;color:#3d3d3a;margin-bottom:5px;}
+.resort-f:before{content:'';width:6px;height:6px;border-radius:50%;background:#993556;flex-shrink:0;}
 .resort-price-row{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#f9f7f4;border-top:0.5px solid #F1EFE8;}
 .resort-price-label{font-size:11px;color:#888780;}
 .resort-price{font-size:18px;font-weight:700;color:#993556;}
 .resort-note{font-size:10px;color:#888780;margin-top:2px;}
-
 .addons-list{margin:0 16px 4px;background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
 .addon-row{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 16px;border-bottom:0.5px solid #F1EFE8;gap:12px;}
 .addon-row:last-child{border-bottom:none;}
@@ -70,7 +61,6 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .addon-desc{font-size:11px;color:#5F5E5A;line-height:1.5;}
 .addon-price{font-size:14px;font-weight:700;color:#185FA5;white-space:nowrap;flex-shrink:0;margin-top:2px;}
 .party-note{background:#FAEEDA;border-radius:10px;padding:8px 12px;margin:8px 16px 0;font-size:11px;color:#633806;line-height:1.5;}
-
 .tip-grid{display:flex;flex-direction:column;gap:0;margin:0 16px 4px;background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
 .tip-row{display:flex;align-items:center;padding:12px 14px;border-bottom:0.5px solid #F1EFE8;text-decoration:none;gap:12px;}
 .tip-row:last-child{border-bottom:none;}
@@ -80,29 +70,28 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 .tip-name{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:1px;}
 .tip-sub{font-size:11px;color:#888780;}
 .tip-arrow{font-size:18px;color:#D3D1C7;flex-shrink:0;}
-
 .cta-block{margin:16px;background:#FBEAF0;border-radius:12px;padding:20px;text-align:center;border:0.5px solid #F4C0D1;}
 .cta-text{font-size:14px;color:#72243E;line-height:1.6;margin-bottom:14px;}
 .cta-btn{display:inline-block;background:#993556;color:#fff;font-size:14px;font-weight:600;padding:12px 28px;border-radius:25px;text-decoration:none;margin-bottom:10px;}
-.cta-btn:hover{background:#72243E;}
-.cta-contact{font-size:12px;color:#888780;line-height:1.8;}
+.cta-contact{font-size:12px;color:#888780;line-height:1.9;}
 .cta-contact a{color:#185FA5;text-decoration:none;}
-
 .footer{background:#2C2C2A;padding:16px;text-align:center;}
 .footer p{font-size:11px;color:#888780;line-height:1.8;}
-
-.total-bar{background:#1a1a1a;margin:10px 16px 0;border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;}
-.total-label{font-size:12px;color:#888780;}
-.total-price{font-size:15px;font-weight:700;color:#fff;}
-.total-note{font-size:10px;color:#5F5E5A;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:16px;width:100%;max-width:700px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#993556;flex-shrink:0;}
+.modal-title{font-size:15px;font-weight:600;color:#fff;}
+.modal-close{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;line-height:1;padding:0;}
+.modal-body{flex:1;overflow-y:auto;}
+.modal-body iframe{width:100%;border:none;height:560px;}
 </style>
 </head>
 <body>
 
-<!-- LOCK SCREEN -->
 <div id="lock">
   <div class="lock-logo">Magical Moments Vacations</div>
-  <div class="lock-title">Michelin Family<br>Disney Vacation</div>
+  <div class="lock-title">Michelin Family Disney Vacation</div>
   <div class="lock-sub">Your private trip planning page</div>
   <div class="lock-box">
     <label>Enter your access code</label>
@@ -113,267 +102,235 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
   <div class="lock-footer">Kim Gamet &nbsp;·&nbsp; kim.gamet@mmvagent.com &nbsp;·&nbsp; 734-770-6554</div>
 </div>
 
-<!-- PAGE -->
 <div id="page">
-
   <div class="hero">
     <div class="hero-agency">Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet</div>
-    <div class="hero-title">Michelin Family<br>Disney Vacation</div>
+    <div class="hero-title">Michelin Family Disney Vacation</div>
     <div class="hero-sub">Your personalized planning guide</div>
-    <div class="hero-pill">&#128197; December 7–12, 2026 &nbsp;·&nbsp; 3 adults, 2 children</div>
+    <div class="hero-pill">&#128197; December 7 to 12, 2026 &nbsp;·&nbsp; 4 adults, 2 children</div>
   </div>
 
-  <!-- NOTE FROM KIM -->
   <div class="note-card">
     <div class="note-label">A note from Kim</div>
-    <div class="note-text">I am so excited to help plan your family's first Disney World trip in December — what a magical time to go! The holiday season at Disney is truly something special, and with little ones at 2 and 4 years old, you are going to have the best time watching them experience it all for the first time.<br><br>Inside this page you'll find your resort options side by side, all the add-ons worth considering, and links to my favorite tip sheets so you can start dreaming about the details. No rush at all — take your time looking everything over and I am just a call or text away when you're ready to talk it through.</div>
+    <div class="note-text">I am so excited to help plan your family's Disney World trip in December! The holiday season at Disney is truly something special, and with little ones at 2 and 4 years old, you are going to have the best time watching them experience it all for the first time.<br><br>Inside this page you will find your resort options side by side, all the add-ons worth considering, and links to my favorite tip sheets so you can start dreaming about the details. No rush at all, take your time looking everything over and I am just a call or text away when you are ready to talk it through.</div>
     <div class="note-sig">Kim Gamet</div>
     <div class="note-sig-sub">Your Travel Advisor &nbsp;·&nbsp; Magical Moments Vacations</div>
   </div>
 
-  <!-- RESORT OPTIONS -->
-  <div class="section-label">Resort options &nbsp;·&nbsp; all include 4-day base tickets</div>
-
+  <div class="section-label">Resort options &nbsp;·&nbsp; all include 4-day base tickets for 4 adults and 2 children</div>
   <div class="resort-grid">
 
     <div class="resort-card">
       <div class="resort-header">
         <span class="resort-tag tag-purple">Most space &nbsp;·&nbsp; Full kitchen</span>
-        <div class="resort-name">Saratoga Springs Resort &amp; Spa</div><a href="https://drive.google.com/file/d/1Std0V0i4eyEpSeJVDH6dyGqhbsDHSR7V/view?usp=drive_link" target="_blank" style="display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:#185FA5;text-decoration:none;padding:5px 12px;border:0.5px solid #B5D4F4;border-radius:20px;background:#E6F1FB;">View resort overview &#8250;</a>
-        <div class="resort-desc">1-bedroom villa with full kitchen. Disney Springs area — complimentary water taxi to Disney Springs shops and dining. Ideal for spreading out with young kids.</div>
+        <div class="resort-name">Saratoga Springs Resort &amp; Spa</div>
+        <div class="resort-desc">1-bedroom villa with full kitchen. Disney Springs area with complimentary water taxi. Ideal for spreading out with young kids.</div>
+        <button class="overview-btn" onclick="openModal('Saratoga Springs Resort &amp; Spa')">View resort details</button>
       </div>
       <div class="resort-body">
-        <div class="resort-includes">What's included</div>
-        <div class="resort-feature">1-bedroom villa — separate living area and bedroom</div>
-        <div class="resort-feature">Full kitchen — cook meals, store snacks and baby food</div>
-        <div class="resort-feature">Washer and dryer in unit</div>
-        <div class="resort-feature">4-day base tickets for all 5 guests</div>
-        <div class="resort-feature">Complimentary Disney transportation</div>
+        <div class="resort-fl">What's included</div>
+        <div class="resort-f">1-bedroom villa with separate living area and bedroom</div>
+        <div class="resort-f">Full kitchen to store snacks, bottles, and baby food</div>
+        <div class="resort-f">Washer and dryer in unit</div>
+        <div class="resort-f">4-day base tickets for all 6 guests</div>
+        <div class="resort-f">Complimentary Disney transportation</div>
       </div>
       <div class="resort-price-row">
         <div><div class="resort-price-label">Total package</div><div class="resort-note">Tickets included</div></div>
-        <div style="text-align:right;"><div class="resort-price">$7,042.22</div></div>
+        <div style="text-align:right;"><div class="resort-price">$7,770.40</div></div>
       </div>
     </div>
 
     <div class="resort-card featured">
       <div class="resort-header">
         <span class="resort-tag tag-blue">Most space &nbsp;·&nbsp; Best value</span>
-        <div class="resort-name">Art of Animation &nbsp;·&nbsp; Family Suite</div><a href="https://drive.google.com/file/d/1hTRbIoPgjZUbKEvvBUaNwp1A9VSZnrfz/view?usp=drive_link" target="_blank" style="display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:#185FA5;text-decoration:none;padding:5px 12px;border:0.5px solid #B5D4F4;border-radius:20px;background:#E6F1FB;">View resort overview &#8250;</a>
-        <div class="resort-desc">Oversized family suite themed around Disney and Pixar films — perfect for little ones. Two bathrooms, a kitchenette, and sleeping for up to 6. One of the most popular choices for families with young kids.</div>
+        <div class="resort-name">Art of Animation &nbsp;·&nbsp; Family Suite</div>
+        <div class="resort-desc">Oversized family suite themed around Disney and Pixar films. Two bathrooms, kitchenette, and sleeping for up to 6. One of the most popular choices for families with young kids.</div>
+        <button class="overview-btn" onclick="openModal('Art of Animation Family Suite')">View resort details</button>
       </div>
       <div class="resort-body">
-        <div class="resort-includes">What's included</div>
-        <div class="resort-feature">Full family suite — sleeping area, living area, kitchenette</div>
-        <div class="resort-feature">Two full bathrooms — huge for families with young kids</div>
-        <div class="resort-feature">Themed rooms (Little Mermaid, Lion King, Finding Nemo, Cars)</div>
-        <div class="resort-feature">4-day base tickets for all 5 guests</div>
-        <div class="resort-feature">Complimentary Disney Skyliner access to EPCOT and Hollywood Studios</div>
+        <div class="resort-fl">What's included</div>
+        <div class="resort-f">Full family suite with sleeping area, living area, and kitchenette</div>
+        <div class="resort-f">Two full bathrooms</div>
+        <div class="resort-f">Themed rooms (Little Mermaid, Lion King, Finding Nemo, Cars)</div>
+        <div class="resort-f">4-day base tickets for all 6 guests</div>
+        <div class="resort-f">Complimentary Disney Skyliner to EPCOT and Hollywood Studios</div>
       </div>
       <div class="resort-price-row">
         <div><div class="resort-price-label">Total package</div><div class="resort-note">Tickets included</div></div>
-        <div style="text-align:right;"><div class="resort-price">$6,167.98</div></div>
+        <div style="text-align:right;"><div class="resort-price">$6,896.22</div></div>
       </div>
     </div>
 
     <div class="resort-card">
       <div class="resort-header">
         <span class="resort-tag tag-green">Moderate resort &nbsp;·&nbsp; Fifth sleeper</span>
-        <div class="resort-name">Disney's Caribbean Beach Resort</div><a href="https://drive.google.com/file/d/1hkOYUuDbOXWFZAVfZhTBA-bc3Beu6-6w/view?usp=drive_link" target="_blank" style="display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:#185FA5;text-decoration:none;padding:5px 12px;border:0.5px solid #B5D4F4;border-radius:20px;background:#E6F1FB;">View resort overview &#8250;</a>
-        <div class="resort-desc">Colorful, relaxed moderate resort with a Caribbean village feel. Rooms include a fifth sleeper option. Great pool complex and easy Skyliner access to EPCOT and Hollywood Studios.</div>
+        <div class="resort-name">Disney's Caribbean Beach Resort</div>
+        <div class="resort-desc">Colorful moderate resort with a Caribbean village feel. Great pool complex and easy Skyliner access to EPCOT and Hollywood Studios.</div>
+        <button class="overview-btn" onclick="openModal('Caribbean Beach Resort')">View resort details</button>
       </div>
       <div class="resort-body">
-        <div class="resort-includes">What's included</div>
-        <div class="resort-feature">Standard room with fifth sleeper option</div>
-        <div class="resort-feature">Large feature pool with waterslide</div>
-        <div class="resort-feature">4-day base tickets for all 5 guests</div>
-        <div class="resort-feature">Disney Skyliner access</div>
-        <div class="resort-feature">Complimentary Disney transportation</div>
+        <div class="resort-fl">What's included</div>
+        <div class="resort-f">Standard room with fifth sleeper option</div>
+        <div class="resort-f">Large feature pool with waterslide</div>
+        <div class="resort-f">4-day base tickets for all 6 guests</div>
+        <div class="resort-f">Disney Skyliner access</div>
+        <div class="resort-f">Complimentary Disney transportation</div>
       </div>
       <div class="resort-price-row">
         <div><div class="resort-price-label">Total package</div><div class="resort-note">Tickets included</div></div>
-        <div style="text-align:right;"><div class="resort-price">$5,237.04</div></div>
+        <div style="text-align:right;"><div class="resort-price">$6,105.88</div></div>
       </div>
     </div>
 
     <div class="resort-card">
       <div class="resort-header">
         <span class="resort-tag tag-pink">Deluxe resort &nbsp;·&nbsp; Next to Magic Kingdom</span>
-        <div class="resort-name">Disney's Contemporary Resort</div><a href="https://drive.google.com/file/d/1joV6Ou-cJh2MzBhFVh9mQa2Xl-Sqf_GY/view?usp=drive_link" target="_blank" style="display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:#185FA5;text-decoration:none;padding:5px 12px;border:0.5px solid #B5D4F4;border-radius:20px;background:#E6F1FB;">View resort overview &#8250;</a>
-        <div class="resort-desc">Iconic A-frame tower steps from Magic Kingdom — you can walk to the park. The monorail runs directly through the building. A true bucket-list Disney experience with stunning views of Cinderella Castle.</div>
+        <div class="resort-name">Disney's Contemporary Resort</div>
+        <div class="resort-desc">Iconic A-frame tower steps from Magic Kingdom. The monorail runs directly through the building. A true bucket-list Disney experience with stunning views of Cinderella Castle.</div>
+        <button class="overview-btn" onclick="openModal('Contemporary Resort')">View resort details</button>
       </div>
       <div class="resort-body">
-        <div class="resort-includes">What's included</div>
-        <div class="resort-feature">Walking distance to Magic Kingdom</div>
-        <div class="resort-feature">Monorail access directly from the resort</div>
-        <div class="resort-feature">California Grill restaurant with fireworks views</div>
-        <div class="resort-feature">4-day base tickets for all 5 guests</div>
-        <div class="resort-feature">Complimentary Disney transportation to all parks</div>
+        <div class="resort-fl">What's included</div>
+        <div class="resort-f">Walking distance to Magic Kingdom</div>
+        <div class="resort-f">Monorail access directly from the resort</div>
+        <div class="resort-f">California Grill restaurant with fireworks views</div>
+        <div class="resort-f">4-day base tickets for all 6 guests</div>
+        <div class="resort-f">Complimentary Disney transportation to all parks</div>
       </div>
       <div class="resort-price-row">
         <div><div class="resort-price-label">Total package</div><div class="resort-note">Tickets included</div></div>
-        <div style="text-align:right;"><div class="resort-price">$7,232.00</div></div>
+        <div style="text-align:right;"><div class="resort-price">$8,477.40</div></div>
+      </div>
+    </div>
+
+    <div class="resort-card">
+      <div class="resort-header">
+        <span class="resort-tag tag-teal">Disney Vacation Club &nbsp;·&nbsp; Full kitchen</span>
+        <div class="resort-name">The Cabins at Fort Wilderness Resort</div>
+        <div class="resort-desc">A Disney Vacation Club Resort. Standalone 1-bedroom cabin nestled in a wooded setting. Feels like a cozy retreat with all the Disney magic right outside your door. Perfect for families who want space and privacy.</div>
+        <button class="overview-btn" onclick="openModal('The Cabins at Fort Wilderness Resort')">View resort details</button>
+      </div>
+      <div class="resort-body">
+        <div class="resort-fl">What's included</div>
+        <div class="resort-f">Private standalone cabin with full kitchen</div>
+        <div class="resort-f">Sleeps up to 6 with a deck and outdoor space</div>
+        <div class="resort-f">Access to Fort Wilderness amenities including pool, campfire, and pony rides</div>
+        <div class="resort-f">4-day base tickets for all 6 guests</div>
+        <div class="resort-f">Complimentary Disney transportation including boat to Magic Kingdom</div>
+      </div>
+      <div class="resort-price-row">
+        <div><div class="resort-price-label">Total package</div><div class="resort-note">Tickets included</div></div>
+        <div style="text-align:right;"><div class="resort-price">$7,746.12</div></div>
       </div>
     </div>
 
   </div>
 
-  <!-- ADD-ONS -->
   <div class="section-label">Optional add-ons</div>
-  <div class="party-note">&#9432; All prices below are for your full party (3 adults + 2 children) unless otherwise noted. Children ages 2 and under are free for most experiences.</div>
-
+  <div class="party-note">&#9432; All prices below are for your full party (4 adults and 2 children) unless otherwise noted. Children ages 2 and under are free for most experiences.</div>
   <div class="addons-list" style="margin-top:10px;">
-
     <div class="addon-row">
       <div class="addon-left">
         <div class="addon-name">Memory Maker</div>
-        <div class="addon-desc">Unlimited digital downloads of all Disney PhotoPass photos taken throughout your trip — at parks, character meets, and select attractions. Worth it with little ones who light up for every character.</div>
+        <div class="addon-desc">Unlimited digital downloads of all Disney PhotoPass photos taken throughout your trip at parks, character meets, and select attractions. Worth it with little ones who light up for every character.</div>
       </div>
       <div class="addon-price">$185.00</div>
     </div>
-
     <div class="addon-row">
       <div class="addon-left">
         <div class="addon-name">Quick-Service Dining Plan</div>
-        <div class="addon-desc">2 quick-service meals + 1 snack per person per night. Kids ages 3–9 are included free with this package. Covers counter-service meals at all 4 parks and resort food courts — great for families who like flexibility.</div>
+        <div class="addon-desc">2 quick-service meals and 1 snack per person per night. Kids ages 3 to 9 are included free. Covers counter-service meals at all 4 parks and resort food courts.</div>
       </div>
       <div class="addon-price">$907.05</div>
     </div>
-
     <div class="addon-row">
       <div class="addon-left">
         <div class="addon-name">Disney Dining Plan</div>
-        <div class="addon-desc">1 table-service meal + 1 quick-service meal + 1 snack per person per night. Kids ages 3–9 included free. Ideal if you want to experience character dining or signature restaurants like Be Our Guest.</div>
+        <div class="addon-desc">1 table-service meal, 1 quick-service meal, and 1 snack per person per night. Kids ages 3 to 9 included free. Ideal if you want character dining or signature restaurants like Be Our Guest.</div>
       </div>
       <div class="addon-price">$1,478.82</div>
     </div>
-
     <div class="addon-row">
       <div class="addon-left">
         <div class="addon-name">Mears Airport Transportation</div>
-        <div class="addon-desc">Round-trip shared shuttle between Orlando International Airport and your Disney resort. No need to rent a car or arrange rides — convenient for families traveling with young children and strollers.</div>
+        <div class="addon-desc">Round-trip shared shuttle between Orlando International Airport and your Disney resort. Convenient for families traveling with young children and strollers.</div>
       </div>
       <div class="addon-price">$131.76</div>
     </div>
-
     <div class="addon-row">
       <div class="addon-left">
         <div class="addon-name">Mickey's Very Merry Christmas Party</div>
-        <div class="addon-desc">A separately ticketed evening event at Magic Kingdom — holiday parade, special fireworks, free cookies and hot cocoa, and exclusive character meets in Christmas attire. Available December 8, 10, and 11 during your stay. Guests booked with Disney can purchase early starting July 9, 2026.<br><br><strong style="color:#633806;">Tickets: $189–$229 per ticket (price varies by date) + tax</strong><br>Tip: Dec 8 dates are typically least crowded and lowest priced.</div>
+        <div class="addon-desc">A separately ticketed evening event at Magic Kingdom with holiday parade, special fireworks, free cookies and hot cocoa, and exclusive character meets. Available December 8, 10, and 11 during your stay. Guests booked with Disney can purchase early starting July 9, 2026.<br><br><strong style="color:#633806;">Tickets: $189 to $229 per ticket depending on date plus tax. December 8 is typically least crowded and lowest priced.</strong></div>
       </div>
-      <div class="addon-price" style="color:#854F0B;">$189–$229<br><span style="font-size:10px;font-weight:400;color:#888780;">per ticket</span></div>
+      <div class="addon-price" style="color:#854F0B;">$189 to $229<br><span style="font-size:10px;font-weight:400;color:#888780;">per ticket</span></div>
     </div>
-
     <div class="addon-row">
       <div class="addon-left">
         <div class="addon-name">Travel Insurance</div>
-        <div class="addon-desc">Covers trip cancellation, interruption, medical emergencies, and more. Especially recommended for December travel — holiday weather and illness can affect plans. Peace of mind for the whole family.</div>
+        <div class="addon-desc">Covers trip cancellation, interruption, and medical emergencies. Especially recommended for December travel. Peace of mind for the whole family.</div>
       </div>
       <div class="addon-price">$297.00</div>
     </div>
-
   </div>
 
-  <!-- TIP SHEETS -->
   <div class="section-label">Planning tip sheets</div>
   <div class="tip-grid">
-
     <a href="https://drive.google.com/file/d/1-JQZez80uDTh8N609ifrYfPWH2jUcCVp/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#E6F1FB;color:#185FA5;">&#9889;</div>
-      <div class="tip-text">
-        <div class="tip-name">Lightning Lane guide</div>
-        <div class="tip-sub">Multi Pass, Single Pass and Premier Pass explained</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Lightning Lane guide</div><div class="tip-sub">Multi Pass, Single Pass and Premier Pass explained</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/1GYSoX54nZfGGBA8NCa6e3PcXrcTsXSmb/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#EAF3DE;color:#3B6D11;">&#128106;</div>
-      <div class="tip-text">
-        <div class="tip-name">Fun for families guide</div>
-        <div class="tip-sub">Park-by-park overview with kid-favorite experiences</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Fun for families guide</div><div class="tip-sub">Park-by-park overview with kid-favorite experiences</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/1ijuyY4aZUWN_Jrv4cMPMbZkQq_fWWGlj/view?usp=sharing" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#FAECE7;color:#993C1D;">&#127876;</div>
-      <div class="tip-text">
-        <div class="tip-name">Holiday magic at Disney World</div>
-        <div class="tip-sub">Special seasonal events across all parks and resorts</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Holiday magic at Disney World</div><div class="tip-sub">Special seasonal events across all parks and resorts</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/1ZHE_JiwdMqaApaJcn9peZG0vZdkZhXeJ/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#EEEDFE;color:#534AB7;">&#127869;</div>
-      <div class="tip-text">
-        <div class="tip-name">Character dining guide</div>
-        <div class="tip-sub">Every character dining experience by park and resort</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Character dining guide</div><div class="tip-sub">Every character dining experience by park and resort</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/1M_xWa161T6D9TJSF-2EQYPySertrjrCa/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#E1F5EE;color:#0F6E56;">&#127828;</div>
-      <div class="tip-text">
-        <div class="tip-name">Quick service food favorites</div>
-        <div class="tip-sub">Kim's picks for the best spots at every park</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Quick service food favorites</div><div class="tip-sub">Kim's picks for the best spots at every park</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/11B0r7Asn0vsyqHYarInnO8V6hg0Q5lai/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#EAF3DE;color:#3B6D11;">&#128211;</div>
-      <div class="tip-text">
-        <div class="tip-name">Disney Dining Plan details</div>
-        <div class="tip-sub">Full plan and Quick-Service plan inclusions</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Disney Dining Plan details</div><div class="tip-sub">Full plan and Quick-Service plan inclusions</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/1RjhAKUFo3-oN9PfrH4j5SoUp0DEgP1_9/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#FAEEDA;color:#854F0B;">&#128118;</div>
-      <div class="tip-text">
-        <div class="tip-name">Baby-safe attractions</div>
-        <div class="tip-sub">No height requirement rides across all 4 parks</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Baby-safe attractions</div><div class="tip-sub">No height requirement rides across all 4 parks</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/167ihK6ei-wVJLk-mf7LOKideISLzPu5G/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#EEEDFE;color:#534AB7;">&#128241;</div>
-      <div class="tip-text">
-        <div class="tip-name">Disney MagicMobile setup</div>
-        <div class="tip-sub">Use your phone instead of a MagicBand</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Disney MagicMobile setup</div><div class="tip-sub">Use your phone instead of a MagicBand</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/1BdsYgLjQj3vKyCIWLYY_x83oSXTOQRtM/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#FBEAF0;color:#993556;">&#128247;</div>
-      <div class="tip-text">
-        <div class="tip-name">Memory Maker and PhotoPass</div>
-        <div class="tip-sub">How to capture every magical moment</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Memory Maker and PhotoPass</div><div class="tip-sub">How to capture every magical moment</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
     <a href="https://drive.google.com/file/d/13ufK08Pj_YaVRxqKmtKyAFNqBEB3vcHQ/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#FBEAF0;color:#993556;">&#127876;</div>
-      <div class="tip-text">
-        <div class="tip-name">Mickey's Very Merry Christmas Party tips</div>
-        <div class="tip-sub">Entertainment schedule, characters and timing guide</div>
-      </div>
+      <div class="tip-text"><div class="tip-name">Mickey's Very Merry Christmas Party tips</div><div class="tip-sub">Entertainment schedule, characters and timing guide</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-
   </div>
 
-  <!-- CTA -->
   <div class="cta-block">
-    <div class="cta-text">Questions? Want to talk through the options? I'm here to make this as easy and magical as possible — just reach out and I'll take care of everything.</div>
-    <a href="https://calendly.com" class="cta-btn">Schedule a call with Kim</a>
+    <div class="cta-text">Questions? Want to talk through the options? I am here to make this as easy and magical as possible. Just reach out and I will take care of everything.</div>
+    <a href="https://calendly.com/kim-gamet-mmv/30min" class="cta-btn">Schedule a call with Kim</a>
     <div class="cta-contact">
       &#9993; <a href="mailto:kim.gamet@mmvagent.com">kim.gamet@mmvagent.com</a><br>
       &#128222; 734-770-6554<br>
@@ -382,31 +339,49 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
   </div>
 
   <div class="footer">
-    <p>Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet &nbsp;·&nbsp; Creating · Lifetime · Memories<br>
-    All prices subject to availability and are valid as quoted. Contact Kim to confirm and book.<br>
+    <p>Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet &nbsp;·&nbsp; Creating Lifetime Memories<br>
+    All prices subject to availability. Contact us to confirm and book.<br>
     &copy; 2026 Magical Moments Vacations</p>
   </div>
 
 </div>
 
+<div class="modal-overlay" id="modal" onclick="handleModalClick(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Resort Details</span>
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <iframe id="resort-iframe" src="https://www.disneytravelcenter.com/ec43663823/" scrolling="yes"></iframe>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
-  const PW = 'CMich2026';
-  const KEY = 'mmv_michelin_auth';
-  if(sessionStorage.getItem(KEY)==='1'){unlock_ui();}
-  function unlock_ui(){
-    document.getElementById('lock').classList.add('hidden');
-    document.getElementById('page').classList.add('visible');
-  }
+  const PW='CMich2026';
+  const KEY='mmv_michelin_auth';
+  if(sessionStorage.getItem(KEY)==='1'){show();}
+  function show(){document.getElementById('lock').classList.add('hidden');document.getElementById('page').classList.add('visible');}
   window.unlock=function(){
-    const val=document.getElementById('pw-input').value;
-    if(val===PW){sessionStorage.setItem(KEY,'1');unlock_ui();}
-    else{
-      document.getElementById('pw-error').textContent='Incorrect password. Please check with Kim and try again.';
-      document.getElementById('pw-input').value='';
-      document.getElementById('pw-input').focus();
-    }
+    const v=document.getElementById('pw-input').value;
+    if(v===PW){sessionStorage.setItem(KEY,'1');show();}
+    else{document.getElementById('pw-error').textContent='Incorrect password. Please check with Kim and try again.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
   };
+  window.openModal=function(name){
+    document.getElementById('modal-title').textContent=name+' — Resort Details';
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow='hidden';
+  };
+  window.closeModal=function(){
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow='';
+  };
+  window.handleModalClick=function(e){
+    if(e.target===document.getElementById('modal'))closeModal();
+  };
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 })();
 </script>
 </body>
