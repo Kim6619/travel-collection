@@ -125,7 +125,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
         <span class="resort-tag tag-purple">Most space &nbsp;·&nbsp; Full kitchen</span>
         <div class="resort-name">Saratoga Springs Resort &amp; Spa</div>
         <div class="resort-desc">1-bedroom villa with full kitchen. Disney Springs area with complimentary water taxi. Ideal for spreading out with young kids.</div>
-        <button class="overview-btn" onclick="openModal('Saratoga Springs Resort &amp; Spa')">View resort details</button>
+        <button class="overview-btn" onclick="openModal('Saratoga Springs Resort & Spa')">View resort details</button>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -369,8 +369,16 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
     if(v===PW){sessionStorage.setItem(KEY,'1');show();}
     else{document.getElementById('pw-error').textContent='Incorrect password. Please check with Kim and try again.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
   };
+  const resortUrls = {
+    'Saratoga Springs Resort & Spa': 'https://www.disneytravelcenter.com/ec22fa61ab/',
+    'Art of Animation Family Suite': 'https://www.disneytravelcenter.com/ecd4f5137c/',
+    'Caribbean Beach Resort': 'https://www.disneytravelcenter.com/ec18832493/',
+    'Contemporary Resort': 'https://www.disneytravelcenter.com/ecf58bd4d4/',
+    'The Cabins at Fort Wilderness Resort': 'https://www.disneytravelcenter.com/ec43663823/',
+  };
   window.openModal=function(name){
     document.getElementById('modal-title').textContent=name+' — Resort Details';
+    document.getElementById('resort-iframe').src = resortUrls[name] || 'https://www.disneytravelcenter.com/ec43663823/';
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow='hidden';
   };
