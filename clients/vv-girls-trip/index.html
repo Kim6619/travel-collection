@@ -6,111 +6,134 @@
 <title>Sample Client Quote | Virgin Voyages Girls Trip | Magical Moments Vacations</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min-height:100vh;}
-#lock{position:fixed;inset:0;background:linear-gradient(160deg,#1a0a2e 0%,#C9003C 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:24px;}
+body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A0A2E;min-height:100vh;}
+
+/* ── LOCK ── */
+#lock{position:fixed;inset:0;background:linear-gradient(160deg,#1A0A2E 0%,#C9003C 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:24px;}
 #lock.hidden{display:none;}
-.lock-logo{font-size:13px;color:#F9B8C8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:28px;text-align:center;}
+.lock-logo{font-size:12px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:28px;text-align:center;font-family:Arial,sans-serif;}
 .lock-title{font-size:26px;font-weight:700;color:#fff;text-align:center;margin-bottom:8px;line-height:1.3;}
-.lock-sub{font-size:14px;color:#F9B8C8;text-align:center;margin-bottom:32px;}
-.lock-box{background:#fff;border-radius:16px;padding:28px 24px;width:100%;max-width:340px;}
-.lock-box label{font-size:12px;font-weight:600;color:#5F5E5A;letter-spacing:0.05em;text-transform:uppercase;display:block;margin-bottom:8px;}
+.lock-sub{font-size:14px;color:#F9B8C8;text-align:center;margin-bottom:32px;font-family:Arial,sans-serif;}
+.lock-box{background:#fff;border-radius:16px;padding:28px 24px;width:100%;max-width:340px;box-shadow:0 8px 40px rgba(0,0,0,0.4);}
+.lock-box label{font-size:11px;font-weight:700;color:#888780;letter-spacing:0.07em;text-transform:uppercase;display:block;margin-bottom:8px;font-family:Arial,sans-serif;}
 .lock-box input{width:100%;padding:12px 14px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:16px;outline:none;margin-bottom:16px;font-family:Arial,sans-serif;}
 .lock-box input:focus{border-color:#C9003C;}
-.lock-btn{width:100%;background:#C9003C;color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;font-family:Arial,sans-serif;}
-.lock-error{font-size:13px;color:#A32D2D;text-align:center;margin-top:10px;min-height:18px;}
-.lock-footer{font-size:12px;color:#F9B8C8;text-align:center;margin-top:24px;}
+.lock-btn{width:100%;background:#1A0A2E;color:#D4B483;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:0.05em;text-transform:uppercase;}
+.lock-error{font-size:13px;color:#A32D2D;text-align:center;margin-top:10px;min-height:18px;font-family:Arial,sans-serif;}
+.lock-footer{font-size:12px;color:#F9B8C8;text-align:center;margin-top:24px;font-family:Arial,sans-serif;}
+
+/* ── PAGE ── */
 #page{display:none;}
 #page.visible{display:block;}
-.hero{background:linear-gradient(160deg,rgba(26,10,46,0.80) 0%,rgba(201,0,60,0.72) 100%),url("Virgin_Voyages_-_Valiant_Lady_-_British_Virgin_Islands.JPG") center/cover no-repeat;padding:32px 20px 28px;text-align:center;}
-.hero-agency{font-size:11px;color:#F9B8C8;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;}
-.hero-badge{display:inline-block;background:rgba(255,255,255,0.15);color:#fff;font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px;letter-spacing:0.05em;}
-.hero-title{font-size:26px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:8px;}
-.hero-sub{font-size:13px;color:#F9B8C8;margin-bottom:14px;line-height:1.5;}
-.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;}
-.hero-pill{background:rgba(255,255,255,0.15);border-radius:20px;padding:5px 12px;font-size:11px;color:#fff;}
-.sample-bar{background:#FAEEDA;padding:10px 16px;display:flex;align-items:flex-start;gap:8px;border-bottom:0.5px solid #FAC775;}
-.sample-bar p{font-size:12px;color:#633806;line-height:1.6;}
-.included-bar{background:#A5002E;padding:14px 16px;}
-.included-title{font-size:10px;font-weight:700;color:#F9B8C8;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;}
-.included-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
-.included-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#fff;}
-.included-check{width:16px;height:16px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;}
-.note-card{background:#fff;margin:16px;border-radius:12px;border:0.5px solid #D3D1C7;padding:18px;}
-.note-label{font-size:10px;font-weight:700;color:#C9003C;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;}
-.note-text{font-size:13px;color:#3d3d3a;line-height:1.75;}
-.note-sig{margin-top:12px;font-size:13px;font-weight:600;color:#C9003C;}
-.note-sig-sub{font-size:11px;color:#888780;}
-.section-label{font-size:10px;font-weight:700;color:#888780;letter-spacing:0.08em;text-transform:uppercase;padding:14px 16px 6px;background:#f9f7f4;}
-.itin-card{background:#fff;margin:0 16px 16px;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
-.itin-header{background:linear-gradient(135deg,#1a0a2e,#3D1463);padding:14px 16px;}
-.itin-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;}
-.itin-sub{font-size:11px;color:#C9B8E8;}
-.itin-day{display:flex;align-items:flex-start;gap:10px;padding:9px 16px;border-bottom:0.5px solid #F1EFE8;}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,rgba(26,10,46,0.82) 0%,rgba(201,0,60,0.72) 100%),url("Virgin_Voyages_-_Valiant_Lady_-_British_Virgin_Islands.JPG") center/cover no-repeat;padding:36px 20px 32px;text-align:center;position:relative;}
+.hero:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#D4B483,transparent);}
+.hero-agency{font-size:11px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;font-family:Arial,sans-serif;}
+.hero-badge{display:inline-block;background:rgba(212,180,131,0.15);color:#F5E6C8;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:12px;letter-spacing:0.05em;border:1px solid rgba(212,180,131,0.35);font-family:Arial,sans-serif;}
+.hero-title{font-size:28px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:8px;}
+.hero-sub{font-size:14px;color:#F9B8C8;margin-bottom:16px;line-height:1.5;font-family:Arial,sans-serif;}
+.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+.hero-pill{background:rgba(212,180,131,0.15);border-radius:20px;padding:6px 14px;font-size:12px;color:#F5E6C8;border:1px solid rgba(212,180,131,0.3);font-family:Arial,sans-serif;}
+
+/* ── SAMPLE BAR ── */
+.sample-bar{background:#FFF8EC;padding:12px 16px;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid #E8D9B5;border-left:4px solid #D4B483;}
+.sample-bar p{font-size:13px;color:#7A5800;line-height:1.6;font-family:Arial,sans-serif;}
+
+/* ── INCLUDED BAR ── */
+.included-bar{background:#1A0A2E;padding:16px 18px;}
+.included-title{font-size:11px;font-weight:700;color:#D4B483;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-family:Arial,sans-serif;}
+.included-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.included-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#E8D8F8;font-family:Arial,sans-serif;}
+.included-check{width:18px;height:18px;background:rgba(212,180,131,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;border:1px solid rgba(212,180,131,0.4);}
+
+/* ── SECTION LABELS ── */
+.section-label{font-size:11px;font-weight:700;color:#888780;letter-spacing:0.1em;text-transform:uppercase;padding:28px 20px 10px;background:#FAF8F5;font-family:Arial,sans-serif;}
+
+/* ── NOTE CARD ── */
+.note-card{background:#fff;margin:20px 16px;border-radius:16px;padding:24px;box-shadow:0 2px 20px rgba(26,10,46,0.08),0 0 0 1px rgba(26,10,46,0.06);}
+.note-label{font-size:11px;font-weight:700;color:#D4B483;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-family:Arial,sans-serif;}
+.note-text{font-size:15px;color:#1A0A2E;line-height:1.85;}
+.note-sig{margin-top:4px;font-size:15px;font-weight:700;color:#C9003C;}
+.note-sig-sub{font-size:12px;color:#888780;font-family:Arial,sans-serif;}
+
+/* ── ITINERARY ── */
+.itin-card{background:#fff;margin:0 16px 20px;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(26,10,46,0.08),0 0 0 1px rgba(26,10,46,0.06);}
+.itin-header{background:#1A0A2E;padding:16px 18px;border-bottom:2px solid #D4B483;}
+.itin-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:3px;}
+.itin-sub{font-size:12px;color:#C9B8E8;font-family:Arial,sans-serif;}
+.itin-day{display:flex;align-items:flex-start;gap:12px;padding:12px 18px;border-bottom:1px solid #F0EBF8;}
 .itin-day:last-child{border-bottom:none;}
-.itin-num{width:28px;height:28px;border-radius:50%;background:#F1EFE8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#888780;flex-shrink:0;margin-top:2px;}
+.itin-num{width:30px;height:30px;border-radius:50%;background:#F0EBF8;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#888780;flex-shrink:0;margin-top:2px;font-family:Arial,sans-serif;}
 .itin-num.active{background:#C9003C;color:#fff;}
-.itin-port{font-size:13px;font-weight:600;color:#1a1a1a;}
-.itin-note{font-size:11px;color:#888780;margin-top:1px;}
-.port-link{font-size:10px;font-weight:600;color:#185FA5;text-decoration:none;background:#E6F1FB;padding:2px 8px;border-radius:10px;border:0.5px solid #B5D4F4;white-space:nowrap;margin-left:6px;}
-.port-gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:8px;border-radius:8px;overflow:hidden;}
+.itin-port{font-size:15px;font-weight:700;color:#1A0A2E;}
+.itin-note{font-size:13px;color:#6B5080;margin-top:2px;font-family:Arial,sans-serif;}
+.port-link{font-size:11px;font-weight:600;color:#C9003C;text-decoration:none;background:#FFF0F3;padding:2px 9px;border-radius:10px;border:0.5px solid #F9B8C8;white-space:nowrap;margin-left:6px;font-family:Arial,sans-serif;}
+.port-gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:10px;border-radius:8px;overflow:hidden;}
 .port-gallery img{width:100%;height:110px;object-fit:cover;display:block;cursor:pointer;}
 .port-gallery img.wide{grid-column:span 2;height:160px;}
-.gallery-caption{font-size:10px;color:#888780;text-align:center;padding:5px 0 8px;font-style:italic;}
-.cabin-grid{display:flex;flex-direction:column;gap:10px;padding:0 16px 4px;}
-.cabin-card{background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
-.cabin-card.featured{border:2px solid #C9003C;}
-.cabin-card.rockstar{border:2px solid #C9942A;}
-.cabin-card img{width:100%;height:180px;object-fit:cover;display:block;cursor:pointer;}
-.cabin-card img.gallery-img{height:120px;}
-.cabin-rs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
-.cabin-rs-grid img{width:100%;height:120px;object-fit:cover;display:block;cursor:pointer;}
-.cabin-rs-grid img.full{grid-column:span 2;height:120px;}
-.cabin-head{padding:14px 16px 10px;border-bottom:0.5px solid #F1EFE8;}
-.ctag{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:6px;}
-.ctag-red{background:#FFE5ED;color:#8C0027;}
-.ctag-gold{background:#FDF3DC;color:#7A5800;}
-.ctag-dark{background:#E8E6F0;color:#1a0a2e;}
-.cabin-name{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:3px;}
-.cabin-desc{font-size:12px;color:#5F5E5A;line-height:1.5;}
-.vv-link{display:inline-block;margin-top:9px;font-size:11px;font-weight:600;color:#C9003C;text-decoration:none;padding:4px 12px;border:0.5px solid #F9B8C8;border-radius:20px;background:#FFE5ED;}
-.vv-link.gold{color:#7A5800;border-color:#FAC775;background:#FDF3DC;}
-.cabin-body{padding:12px 16px;}
-.cabin-fl{font-size:10px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:7px;}
-.cabin-f{display:flex;align-items:center;gap:7px;font-size:12px;color:#3d3d3a;margin-bottom:5px;}
-.cabin-f:before{content:'';width:6px;height:6px;border-radius:50%;background:#C9003C;flex-shrink:0;}
-.cabin-card.rockstar .cabin-f:before{background:#C9942A;}
-.cabin-pr{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#f9f7f4;border-top:0.5px solid #F1EFE8;}
-.cabin-pl{font-size:11px;color:#888780;}
-.cabin-pn{font-size:10px;color:#888780;margin-top:2px;}
-.cabin-pv{font-size:18px;font-weight:700;color:#C9003C;}
-.cabin-card.rockstar .cabin-pv{color:#C9942A;}
-.popular-bar{background:#FFE5ED;padding:8px 16px;font-size:11px;color:#8C0027;font-weight:600;}
-.sea-view-block{padding:0 16px 12px;}
-.sea-view-label{font-size:10px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
-.sea-view-block img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;display:block;}
-.sea-view-note{font-size:11px;color:#5F5E5A;margin-top:6px;line-height:1.5;}
-.addons-list{margin:0 16px 4px;background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
-.addon-row{border-bottom:0.5px solid #F1EFE8;}
+.gallery-caption{font-size:11px;color:#888780;text-align:center;padding:6px 0 10px;font-style:italic;font-family:Arial,sans-serif;}
+
+/* ── CABIN CARDS ── */
+.cabin-grid{display:flex;flex-direction:column;gap:14px;padding:0 16px 4px;}
+.cabin-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(26,10,46,0.08),0 0 0 1px rgba(26,10,46,0.06);}
+.cabin-card.featured{box-shadow:0 4px 24px rgba(201,0,60,0.15),0 0 0 2px #C9003C;}
+.cabin-card.rockstar{box-shadow:0 4px 24px rgba(212,180,131,0.25),0 0 0 2px #D4B483;}
+.cabin-head{padding:18px 18px 14px;border-bottom:1px solid #F0EBF8;}
+.ctag{display:inline-block;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:8px;font-family:Arial,sans-serif;letter-spacing:0.04em;}
+.ctag-red{background:#FFF0F3;color:#8C0027;}
+.ctag-gold{background:#FFF8EC;color:#7A5800;}
+.ctag-dark{background:#EDE9FC;color:#1A0A2E;}
+.cabin-name{font-size:18px;font-weight:700;color:#1A0A2E;margin-bottom:4px;}
+.cabin-desc{font-size:14px;color:#5A3070;line-height:1.65;font-family:Arial,sans-serif;}
+.vv-link{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;color:#C9003C;text-decoration:none;padding:6px 16px;border:1.5px solid #F9B8C8;border-radius:20px;background:#FFF0F3;font-family:Arial,sans-serif;letter-spacing:0.04em;}
+.vv-link.gold{color:#7A5800;border-color:#E8D5A0;background:#FFF8EC;}
+.cabin-body{padding:16px 18px;background:#FDFBF9;}
+.cabin-fl{font-size:11px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;font-family:Arial,sans-serif;}
+.cabin-f{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#1A0A2E;margin-bottom:8px;line-height:1.55;font-family:Arial,sans-serif;}
+.cabin-f:before{content:'';width:5px;height:5px;border-radius:50%;background:#D4B483;flex-shrink:0;margin-top:7px;}
+.cabin-card.rockstar .cabin-f:before{background:#C9003C;}
+.cabin-pr{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#1A0A2E;border-top:1px solid #2D1060;}
+.cabin-pl{font-size:12px;color:#C9B8E8;font-family:Arial,sans-serif;}
+.cabin-pn{font-size:11px;color:#8070A0;margin-top:2px;font-family:Arial,sans-serif;}
+.cabin-pv{font-size:22px;font-weight:700;color:#D4B483;}
+.popular-bar{background:#FFF0F3;padding:9px 18px;font-size:12px;color:#8C0027;font-weight:700;font-family:Arial,sans-serif;border-bottom:1px solid #F9B8C8;}
+.sea-view-block{padding:0 18px 16px;}
+.sea-view-label{font-size:11px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;font-family:Arial,sans-serif;}
+.sea-view-block img{width:100%;height:140px;object-fit:cover;border-radius:10px;cursor:pointer;display:block;}
+.sea-view-note{font-size:13px;color:#5A3070;margin-top:8px;line-height:1.55;font-family:Arial,sans-serif;}
+
+/* ── ADD-ONS ── */
+.addons-list{margin:0 16px 4px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(26,10,46,0.08),0 0 0 1px rgba(26,10,46,0.06);}
+.addon-row{border-bottom:1px solid #F0EBF8;}
 .addon-row:last-child{border-bottom:none;}
-.addon-inner{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 16px;gap:12px;}
-.addon-spa img{width:100%;height:160px;object-fit:cover;object-position:center top;display:block;cursor:pointer;}
+.addon-inner{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 18px;gap:14px;}
 .addon-left{flex:1;}
-.addon-name{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:2px;}
-.addon-desc{font-size:11px;color:#5F5E5A;line-height:1.5;}
-.addon-price{font-size:14px;font-weight:700;color:#185FA5;white-space:nowrap;flex-shrink:0;text-align:right;}
-.disclaimer{margin:10px 16px 4px;background:#F1EFE8;border-radius:10px;padding:12px 14px;font-size:11px;color:#888780;line-height:1.6;}
-.cta-block{margin:16px;background:#FFE5ED;border-radius:12px;padding:20px;text-align:center;border:0.5px solid #F9B8C8;}
-.cta-text{font-size:14px;color:#8C0027;line-height:1.6;margin-bottom:14px;}
-.cta-btn{display:inline-block;background:#C9003C;color:#fff;font-size:14px;font-weight:600;padding:12px 28px;border-radius:25px;text-decoration:none;margin-bottom:10px;}
-.cta-contact{font-size:12px;color:#888780;line-height:1.9;}
-.cta-contact a{color:#185FA5;text-decoration:none;}
-.footer{background:#1a0a2e;padding:16px;text-align:center;}
-.footer p{font-size:11px;color:#888780;line-height:1.8;}
+.addon-name{font-size:15px;font-weight:700;color:#1A0A2E;margin-bottom:4px;}
+.addon-desc{font-size:13px;color:#5A3070;line-height:1.65;font-family:Arial,sans-serif;}
+.addon-price{font-size:17px;font-weight:700;color:#C9003C;white-space:nowrap;flex-shrink:0;text-align:right;font-family:Arial,sans-serif;}
+
+/* ── DISCLAIMER ── */
+.disclaimer{margin:10px 16px 4px;background:#FFF8EC;border-radius:10px;padding:12px 14px;font-size:13px;color:#7A5800;line-height:1.6;font-family:Arial,sans-serif;border-left:3px solid #D4B483;}
+
+/* ── CTA ── */
+.cta-block{margin:20px 16px;background:#1A0A2E;border-radius:16px;padding:28px 20px;text-align:center;box-shadow:0 4px 24px rgba(26,10,46,0.3);}
+.cta-text{font-size:16px;color:#C9B8E8;line-height:1.75;margin-bottom:18px;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#C8942A,#D4B483);color:#1A0A2E;font-size:14px;font-weight:700;padding:14px 32px;border-radius:25px;text-decoration:none;margin-bottom:12px;letter-spacing:0.05em;text-transform:uppercase;font-family:Arial,sans-serif;}
+.cta-vv-btn{display:inline-block;margin-top:4px;font-size:13px;font-weight:700;color:#D4B483;text-decoration:none;padding:11px 26px;border-radius:25px;border:1.5px solid #D4B483;background:transparent;font-family:Arial,sans-serif;letter-spacing:0.04em;}
+.cta-contact{font-size:13px;color:#8070A0;line-height:2;font-family:Arial,sans-serif;}
+.cta-contact a{color:#D4B483;text-decoration:none;}
+
+/* ── FOOTER ── */
+.footer{background:#0F0718;padding:20px;text-align:center;border-top:1px solid #2D1060;}
+.footer p{font-size:12px;color:#4A3060;line-height:1.9;font-family:Arial,sans-serif;}
+
+/* ── LIGHTBOX ── */
 #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:10000;align-items:center;justify-content:center;flex-direction:column;}
 #lightbox.open{display:flex;}
 #lightbox img{max-width:94vw;max-height:82vh;object-fit:contain;border-radius:8px;}
-#lightbox-close{position:absolute;top:16px;right:20px;color:#fff;font-size:28px;cursor:pointer;}
-#lightbox-caption{color:#ccc;font-size:12px;margin-top:10px;}
+#lightbox-close{position:absolute;top:16px;right:20px;color:#D4B483;font-size:28px;cursor:pointer;}
+#lightbox-caption{color:#C9B8E8;font-size:13px;margin-top:12px;font-family:Arial,sans-serif;}
 </style>
 </head>
 <body>
@@ -161,7 +184,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 
   <div class="note-card">
     <div class="note-label">A note from Kim</div>
-    <div class="note-text">Can we talk about how perfect Virgin Voyages is for a girls trip? Adults only, no buffet lines, no dress codes. Just 20+ incredible restaurants, a rooftop pool, drag brunches, and some of the best nightlife at sea. Scarlet Lady feels more like a boutique hotel than a cruise ship, and this Caribbean itinerary out of Miami in March is stunning.<br><br>I pulled together three cabin options for your group, from the perfect "we want to be comfortable and close together" pick all the way up to a RockStar Suite if you want to go all out. Everything included in your fare is listed above, and I added a few upgrades worth considering below.<br><br>This one is going to be a trip you talk about for years. Let's make it happen.</div>
+    <div class="note-text">Can we talk about how perfect Virgin Voyages is for a girls trip? Adults only, no buffet lines, no dress codes. Just 20+ incredible restaurants, a rooftop pool, drag brunches, and some of the best nightlife at sea. Scarlet Lady feels more like a boutique hotel than a cruise ship, and this Caribbean itinerary out of Miami in March is stunning.<br><br>I pulled together three cabin options for your group, from the perfect "we want to be comfortable and close together" pick all the way up to a RockStar Suite if you want to go all out. Everything included in your fare is listed above, and I added a few upgrades worth considering below.<br><br>This one is going to be a trip you talk about for years. Let's make it happen.<br><br><strong style="color:#C9003C;">Please note:</strong> I have a limited number of cabins held for this sailing. Once they are gone, pricing and availability are subject to change. Reach out sooner rather than later to secure your spot.</div>
     <div style="display:flex;align-items:center;gap:12px;margin-top:14px;">
       <img src="Kim_updated_headshot.JPG" alt="Kim Gamet" style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 15%;border:2px solid #F9B8C8;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
       <div>
@@ -330,7 +353,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
     <div class="cta-text">Ready to claim your cabin and make this trip official? I handle everything from pricing and booking to excursion coordination and any questions along the way. Let's sail.</div>
     <a href="https://calendly.com/kim-gamet-mmv/30min" class="cta-btn">Schedule a call with Kim &#127946;</a>
     <br>
-    <a href="https://www.virginvoyages.com/book/voyage-planner/find-a-voyage?cabins=1&currencyCode=USD&agentId=159717&agencyId=4712&bookingChannel=FMLINK" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:#fff;text-decoration:none;padding:11px 26px;border-radius:25px;border:1.5px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.1);">Browse sailings on Virgin Voyages &#8250;</a>
+    <a href="https://www.virginvoyages.com/book/voyage-planner/find-a-voyage?cabins=1&currencyCode=USD&agentId=159717&agencyId=4712&bookingChannel=FMLINK" target="_blank" rel="noopener" class="cta-vv-btn">Browse sailings on Virgin Voyages &#8250;</a>
     <div class="cta-contact">
       &#9993; <a href="mailto:kim.gamet@mmvagent.com">kim.gamet@mmvagent.com</a><br>
       &#128222; 734-770-6554<br>
