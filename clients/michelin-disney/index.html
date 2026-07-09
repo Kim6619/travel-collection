@@ -284,11 +284,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
 
   <div class="section-label">Planning tip sheets</div>
   <div class="tip-grid">
-    <a href="https://drive.google.com/file/d/1-JQZez80uDTh8N609ifrYfPWH2jUcCVp/view?usp=drive_link" target="_blank" class="tip-row">
+    <div class="tip-row" onclick="openModal('Lightning Lane Guide')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#E6F1FB;color:#185FA5;">&#9889;</div>
       <div class="tip-text"><div class="tip-name">Lightning Lane guide</div><div class="tip-sub">Multi Pass, Single Pass and Premier Pass explained</div></div>
       <div class="tip-arrow">&#8250;</div>
-    </a>
+    </div>
     <a href="https://drive.google.com/file/d/1GYSoX54nZfGGBA8NCa6e3PcXrcTsXSmb/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#EAF3DE;color:#3B6D11;">&#128106;</div>
       <div class="tip-text"><div class="tip-name">Fun for families guide</div><div class="tip-sub">Park-by-park overview with kid-favorite experiences</div></div>
@@ -309,11 +309,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
       <div class="tip-text"><div class="tip-name">Quick service food favorites</div><div class="tip-sub">Kim's picks for the best spots at every park</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-    <a href="https://drive.google.com/file/d/11B0r7Asn0vsyqHYarInnO8V6hg0Q5lai/view?usp=drive_link" target="_blank" class="tip-row">
+    <div class="tip-row" onclick="openModal('Dining Plan')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#EAF3DE;color:#3B6D11;">&#128211;</div>
       <div class="tip-text"><div class="tip-name">Disney Dining Plan details</div><div class="tip-sub">Full plan and Quick-Service plan inclusions</div></div>
       <div class="tip-arrow">&#8250;</div>
-    </a>
+    </div>
     <a href="https://drive.google.com/file/d/1RjhAKUFo3-oN9PfrH4j5SoUp0DEgP1_9/view?usp=drive_link" target="_blank" class="tip-row">
       <div class="tip-icon" style="background:#FAEEDA;color:#854F0B;">&#128118;</div>
       <div class="tip-text"><div class="tip-name">Baby-safe attractions</div><div class="tip-sub">No height requirement rides across all 4 parks</div></div>
@@ -324,16 +324,26 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
       <div class="tip-text"><div class="tip-name">Disney MagicMobile setup</div><div class="tip-sub">Use your phone instead of a MagicBand</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-    <a href="https://drive.google.com/file/d/1BdsYgLjQj3vKyCIWLYY_x83oSXTOQRtM/view?usp=drive_link" target="_blank" class="tip-row">
+    <div class="tip-row" onclick="openModal('Memory Maker')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#FBEAF0;color:#993556;">&#128247;</div>
       <div class="tip-text"><div class="tip-name">Memory Maker and PhotoPass</div><div class="tip-sub">How to capture every magical moment</div></div>
       <div class="tip-arrow">&#8250;</div>
-    </a>
-    <a href="https://drive.google.com/file/d/13ufK08Pj_YaVRxqKmtKyAFNqBEB3vcHQ/view?usp=drive_link" target="_blank" class="tip-row">
+    </div>
+    <div class="tip-row" onclick="openModal('Mickey\'s Very Merry Christmas Party')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#FBEAF0;color:#993556;">&#127876;</div>
       <div class="tip-text"><div class="tip-name">Mickey's Very Merry Christmas Party tips</div><div class="tip-sub">Entertainment schedule, characters and timing guide</div></div>
       <div class="tip-arrow">&#8250;</div>
-    </a>
+    </div>
+    <div class="tip-row" onclick="openModal('Property Maps')" style="cursor:pointer;">
+      <div class="tip-icon" style="background:#E6F1FB;color:#185FA5;">&#128506;</div>
+      <div class="tip-text"><div class="tip-name">Property Maps</div><div class="tip-sub">Maps for all 4 parks and resort areas</div></div>
+      <div class="tip-arrow">&#8250;</div>
+    </div>
+    <div class="tip-row" onclick="openModal('EPCOT Festival of the Holidays')" style="cursor:pointer;">
+      <div class="tip-icon" style="background:#FAECE7;color:#993C1D;">&#127747;</div>
+      <div class="tip-text"><div class="tip-name">EPCOT International Festival of the Holidays</div><div class="tip-sub">Holiday kitchens, Candlelight Processional, and more</div></div>
+      <div class="tip-arrow">&#8250;</div>
+    </div>
   </div>
 
   <div class="cta-block">
@@ -377,16 +387,22 @@ body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min
     if(v===PW){sessionStorage.setItem(KEY,'1');show();}
     else{document.getElementById('pw-error').textContent='Incorrect password. Please check with Kim and try again.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
   };
-  const resortUrls = {
+  const modalUrls = {
     'Saratoga Springs Resort & Spa': 'https://www.disneytravelcenter.com/ec22fa61ab/',
     'Art of Animation Family Suite': 'https://www.disneytravelcenter.com/ecd4f5137c/',
     'Caribbean Beach Resort': 'https://www.disneytravelcenter.com/ec18832493/',
     'Contemporary Resort': 'https://www.disneytravelcenter.com/ecf58bd4d4/',
     'The Cabins at Fort Wilderness Resort': 'https://www.disneytravelcenter.com/ec43663823/',
+    'Lightning Lane Guide': 'https://www.disneytravelcenter.com/ecf351d075/',
+    'Memory Maker': 'https://www.disneytravelcenter.com/ecafd402d5/',
+    'Dining Plan': 'https://www.disneytravelcenter.com/ec7120cfc2/',
+    'Mickey\'s Very Merry Christmas Party': 'https://www.disneytravelcenter.com/ec1ffc6794/',
+    'Property Maps': 'https://www.disneytravelcenter.com/ecfea59f82/',
+    'EPCOT Festival of the Holidays': 'https://www.disneytravelcenter.com/ec290fe1a2/',
   };
   window.openModal=function(name){
-    document.getElementById('modal-title').textContent=name+' — Resort Details';
-    document.getElementById('resort-iframe').src = resortUrls[name] || 'https://www.disneytravelcenter.com/ec43663823/';
+    document.getElementById('modal-title').textContent=name;
+    document.getElementById('resort-iframe').src = modalUrls[name] || '';
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow='hidden';
   };
