@@ -8,7 +8,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A0A2E;min-height:100vh;}
 
-/* ── HERO ── */
 .hero{background:linear-gradient(160deg,#1A0A2E 0%,#C9003C 100%);padding:36px 20px 32px;text-align:center;position:relative;}
 .hero:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#D4B483,transparent);}
 .hero-agency{font-size:11px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;font-family:Arial,sans-serif;}
@@ -17,72 +16,88 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A0A2E;min-height:100
 .hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
 .hero-pill{background:rgba(212,180,131,0.15);border-radius:20px;padding:6px 14px;font-size:12px;color:#F5E6C8;border:1px solid rgba(212,180,131,0.3);font-family:Arial,sans-serif;}
 
-/* ── NAV ── */
-.port-nav{display:flex;overflow-x:auto;background:#1A0A2E;padding:0;border-bottom:2px solid #D4B483;-webkit-overflow-scrolling:touch;}
-.port-nav::-webkit-scrollbar{display:none;}
-.port-nav a{flex-shrink:0;padding:14px 20px;font-size:12px;font-weight:700;color:#C9B8E8;text-decoration:none;text-transform:uppercase;letter-spacing:0.07em;font-family:Arial,sans-serif;border-bottom:3px solid transparent;white-space:nowrap;}
-.port-nav a:hover,.port-nav a.active{color:#D4B483;border-bottom-color:#D4B483;}
+.back-bar{background:#1A0A2E;padding:10px 16px;border-bottom:1px solid #2D1060;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#D4B483;text-decoration:none;font-family:Arial,sans-serif;}
 
-/* ── PORT SECTION ── */
-.port-section{margin-bottom:0;}
-.port-hero{width:100%;height:260px;object-fit:cover;display:block;}
-.port-header{background:#1A0A2E;padding:20px 18px 16px;border-bottom:2px solid #D4B483;}
-.port-day{font-size:11px;color:#D4B483;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;font-family:Arial,sans-serif;}
-.port-name{font-size:24px;font-weight:700;color:#fff;margin-bottom:4px;}
-.port-tagline{font-size:14px;color:#C9B8E8;font-family:Arial,sans-serif;}
-.port-body{background:#FAF8F5;}
+.section-label{font-size:11px;font-weight:700;color:#888780;letter-spacing:0.1em;text-transform:uppercase;padding:24px 16px 10px;background:#FAF8F5;font-family:Arial,sans-serif;}
 
-/* ── QUICK FACTS ── */
-.quick-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8E0D0;margin:0;}
-.fact{background:#fff;padding:12px 16px;}
+/* PORT CARD */
+.port-card{background:#fff;margin:0 16px 20px;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(26,10,46,0.1),0 0 0 1px rgba(26,10,46,0.06);}
+
+/* PORT CARD HEADER */
+.port-card-header{position:relative;height:200px;overflow:hidden;}
+.port-card-header img{width:100%;height:100%;object-fit:cover;display:block;}
+.port-card-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,10,46,0.2) 0%,rgba(26,10,46,0.75) 100%);}
+.port-card-info{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;}
+.port-day-badge{display:inline-block;background:#C9003C;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:6px;font-family:Arial,sans-serif;letter-spacing:0.05em;}
+.port-card-name{font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;}
+.port-card-tagline{font-size:12px;color:#F9B8C8;font-family:Arial,sans-serif;}
+.port-vv-btn{position:absolute;top:14px;right:14px;background:rgba(212,180,131,0.9);color:#1A0A2E;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;text-decoration:none;font-family:Arial,sans-serif;border:none;cursor:pointer;}
+
+/* TABS */
+.port-tabs{display:flex;background:#1A0A2E;border-bottom:2px solid #D4B483;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.port-tabs::-webkit-scrollbar{display:none;}
+.port-tab{flex-shrink:0;padding:12px 18px;font-size:12px;font-weight:700;color:#8070A0;text-transform:uppercase;letter-spacing:0.07em;cursor:pointer;border-bottom:3px solid transparent;font-family:Arial,sans-serif;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap;}
+.port-tab.active{color:#D4B483;border-bottom-color:#D4B483;}
+.port-tab:hover{color:#C9B8E8;}
+
+/* TAB CONTENT */
+.port-tab-content{display:none;padding:18px;}
+.port-tab-content.active{display:block;}
+
+/* QUICK FACTS */
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8E0D0;border-radius:10px;overflow:hidden;margin-bottom:16px;}
+.fact{background:#FAF8F5;padding:11px 14px;}
 .fact-label{font-size:10px;font-weight:700;color:#D4B483;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;font-family:Arial,sans-serif;}
 .fact-value{font-size:13px;color:#1A0A2E;font-weight:600;font-family:Arial,sans-serif;}
 
-/* ── CONTENT CARDS ── */
-.content-card{background:#fff;margin:14px 16px;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(26,10,46,0.07),0 0 0 1px rgba(26,10,46,0.05);}
-.card-header{padding:14px 18px 0;display:flex;align-items:center;gap:10px;}
-.card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.card-title{font-size:15px;font-weight:700;color:#1A0A2E;}
-.card-body{padding:12px 18px 16px;}
-.card-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #F0EBF8;}
-.card-item:last-child{border-bottom:none;}
-.card-item-name{font-size:14px;font-weight:700;color:#1A0A2E;margin-bottom:3px;}
-.card-item-desc{font-size:13px;color:#5A3070;line-height:1.6;font-family:Arial,sans-serif;}
-.card-item-num{width:26px;height:26px;border-radius:50%;background:#1A0A2E;color:#D4B483;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-family:Arial,sans-serif;}
+/* ACTIVITY / FOOD ITEMS */
+.item-list{display:flex;flex-direction:column;gap:0;}
+.item{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid #F0EBF8;}
+.item:last-child{border-bottom:none;}
+.item-num{width:28px;height:28px;border-radius:50%;background:#1A0A2E;color:#D4B483;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:Arial,sans-serif;}
+.item-body{}
+.item-name{font-size:14px;font-weight:700;color:#1A0A2E;margin-bottom:3px;}
+.item-desc{font-size:13px;color:#5A3070;line-height:1.6;font-family:Arial,sans-serif;}
+.item-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:4px;font-family:Arial,sans-serif;}
+.tag-vv{background:#FFE5ED;color:#8C0027;}
+.tag-book{background:#E6F1FB;color:#0C447C;}
+.tag-free{background:#EAF3DE;color:#27500A;}
+.tag-tip{background:#FFF8EC;color:#7A5800;}
 
-/* ── KIM'S TIP ── */
-.kims-tip{background:#1A0A2E;margin:14px 16px;border-radius:14px;padding:18px;border-left:4px solid #D4B483;}
+/* KIM'S TIP */
+.kims-tip-box{background:#1A0A2E;border-radius:12px;padding:16px 18px;border-left:4px solid #D4B483;}
 .tip-label{font-size:11px;font-weight:700;color:#D4B483;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:Arial,sans-serif;}
 .tip-text{font-size:14px;color:#E8D8F8;line-height:1.75;}
 
-/* ── PORT DIVIDER ── */
-.port-divider{height:8px;background:linear-gradient(90deg,#1A0A2E,#C9003C,#1A0A2E);}
+/* EXCURSIONS */
+.excursion-item{background:#FAF8F5;border-radius:10px;padding:14px 16px;margin-bottom:10px;border:0.5px solid #E8E0D0;}
+.excursion-item:last-child{margin-bottom:0;}
+.exc-name{font-size:14px;font-weight:700;color:#1A0A2E;margin-bottom:3px;}
+.exc-desc{font-size:13px;color:#5A3070;line-height:1.6;margin-bottom:8px;font-family:Arial,sans-serif;}
+.exc-meta{display:flex;gap:8px;flex-wrap:wrap;}
+.exc-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;font-family:Arial,sans-serif;}
+.exc-book-btn{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:#C9003C;text-decoration:none;padding:6px 16px;border:1.5px solid #F9B8C8;border-radius:20px;background:#FFF0F3;font-family:Arial,sans-serif;}
 
-/* ── BACK BUTTON ── */
-.back-bar{background:#FAF8F5;padding:12px 16px;border-bottom:1px solid #E8E0D0;}
-.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#C9003C;text-decoration:none;font-family:Arial,sans-serif;}
-
-/* ── CTA ── */
-.cta-block{margin:20px 16px 24px;background:#1A0A2E;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 4px 24px rgba(26,10,46,0.3);}
+/* CTA */
+.cta-block{margin:0 16px 24px;background:#1A0A2E;border-radius:16px;padding:24px 20px;text-align:center;}
 .cta-text{font-size:15px;color:#C9B8E8;line-height:1.75;margin-bottom:16px;}
 .cta-btn{display:inline-block;background:linear-gradient(135deg,#C8942A,#D4B483);color:#1A0A2E;font-size:14px;font-weight:700;padding:13px 28px;border-radius:25px;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;font-family:Arial,sans-serif;}
 .cta-contact{font-size:13px;color:#8070A0;line-height:2;margin-top:12px;font-family:Arial,sans-serif;}
 .cta-contact a{color:#D4B483;text-decoration:none;}
 
-/* ── FOOTER ── */
 .footer{background:#0F0718;padding:20px;text-align:center;border-top:1px solid #2D1060;}
 .footer p{font-size:11px;color:#4A3060;line-height:1.9;font-family:Arial,sans-serif;}
 
-/* ── MODAL ── */
+/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.open{display:flex;}
-.modal-box{background:#fff;border-radius:16px;width:100%;max-width:700px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,0.6);}
+.modal-box{background:#fff;border-radius:16px;width:100%;max-width:700px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;}
 .modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#1A0A2E;flex-shrink:0;border-bottom:2px solid #D4B483;}
-.modal-title{font-size:14px;font-weight:600;color:#fff;font-family:Arial,sans-serif;}
+.modal-title{font-size:15px;font-weight:600;color:#fff;font-family:Arial,sans-serif;}
 .modal-close{background:none;border:none;color:#D4B483;font-size:24px;cursor:pointer;line-height:1;padding:0;}
 .modal-body{flex:1;overflow-y:auto;}
 .modal-body iframe{width:100%;border:none;height:560px;}
-.port-vv-btn{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:#D4B483;padding:7px 18px;border:1.5px solid #D4B483;border-radius:20px;background:transparent;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:0.04em;}
 </style>
 </head>
 <body>
@@ -92,10 +107,10 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A0A2E;min-height:100
   <div class="hero-title">Your Port Guide &#127758;</div>
   <div class="hero-sub">Scarlet Lady &nbsp;·&nbsp; Caribbean Calling &nbsp;·&nbsp; March 14 to 21, 2026</div>
   <div class="hero-pills">
-    <span class="hero-pill">&#127463;&#127480; Bimini, Bahamas</span>
-    <span class="hero-pill">&#127465;&#127476; Puerto Plata, DR</span>
-    <span class="hero-pill">&#127477;&#127479; San Juan, PR</span>
-    <span class="hero-pill">&#127483;&#127470; St. Croix, USVI</span>
+    <span class="hero-pill">&#127463;&#127480; Bimini</span>
+    <span class="hero-pill">&#127465;&#127476; Puerto Plata</span>
+    <span class="hero-pill">&#127477;&#127479; San Juan</span>
+    <span class="hero-pill">&#127483;&#127470; St. Croix</span>
   </div>
 </div>
 
@@ -103,283 +118,303 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A0A2E;min-height:100
   <a href="../vv-girls-trip/" class="back-btn">&#8592; Back to your trip page</a>
 </div>
 
-<nav class="port-nav">
-  <a href="#bimini" class="active">Bimini</a>
-  <a href="#puerto-plata">Puerto Plata</a>
-  <a href="#san-juan">San Juan</a>
-  <a href="#st-croix">St. Croix</a>
-</nav>
-
-<!-- ═══════════════════ BIMINI ═══════════════════ -->
-<div class="port-section" id="bimini">
-  <img class="port-hero" src="https://drive.google.com/uc?export=view&id=1a_SUURRq6h17q5i38UKsMaMMiPGquGj0" alt="Bimini Beach Club">
-  <div class="port-header">
-    <div class="port-day">Day 3 &nbsp;·&nbsp; Bahamas</div>
-    <div class="port-name">Bimini &#127463;&#127480;</div>
-    <div class="port-tagline">Crystal clear water, white sand, and the Virgin Voyages exclusive Beach Club</div>
-    <button class="port-vv-btn" onclick="openModal('Bimini Beach Club', 'https://www.virginvoyages.com/destinations/caribbean-cruises/bimini')">View on Virgin Voyages &#8250;</button>
+<!-- ═══ BIMINI ═══ -->
+<div class="section-label">Day 3 &nbsp;·&nbsp; Bimini, Bahamas</div>
+<div class="port-card" id="card-bimini">
+  <div class="port-card-header">
+    <img src="https://drive.google.com/uc?export=view&id=1a_SUURRq6h17q5i38UKsMaMMiPGquGj0" alt="Bimini Beach Club">
+    <div class="port-card-overlay"></div>
+    <div class="port-card-info">
+      <div class="port-day-badge">Day 3 &nbsp;·&nbsp; Bahamas</div>
+      <div class="port-card-name">Bimini &#127463;&#127480;</div>
+      <div class="port-card-tagline">Virgin's exclusive Beach Club &nbsp;·&nbsp; crystal clear Caribbean water</div>
+    </div>
+    <button class="port-vv-btn" onclick="openModal('Bimini','https://www.virginvoyages.com/destinations/caribbean-cruises/bimini')">View on VV &#8250;</button>
   </div>
-  <div class="port-body">
-    <div class="quick-facts">
-      <div class="fact"><div class="fact-label">Currency</div><div class="fact-value">Bahamian Dollar / USD accepted</div></div>
+  <div class="port-tabs" id="tabs-bimini">
+    <button class="port-tab active" onclick="showTab('bimini','overview',this)">Overview</button>
+    <button class="port-tab" onclick="showTab('bimini','todo',this)">Things to Do</button>
+    <button class="port-tab" onclick="showTab('bimini','eat',this)">Where to Eat</button>
+    <button class="port-tab" onclick="showTab('bimini','excursions',this)">Excursions</button>
+    <button class="port-tab" onclick="showTab('bimini','tip',this)">Kim's Tip</button>
+  </div>
+  <div id="bimini-overview" class="port-tab-content active">
+    <div class="facts-grid">
+      <div class="fact"><div class="fact-label">Currency</div><div class="fact-value">USD accepted</div></div>
       <div class="fact"><div class="fact-label">Language</div><div class="fact-value">English</div></div>
       <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">EST (same as Miami)</div></div>
-      <div class="fact"><div class="fact-label">VV exclusive</div><div class="fact-value">Beach Club included</div></div>
+      <div class="fact"><div class="fact-label">VV Exclusive</div><div class="fact-value">Private Beach Club</div></div>
+      <div class="fact"><div class="fact-label">Distance from ship</div><div class="fact-value">Free tram to Beach Club</div></div>
+      <div class="fact"><div class="fact-label">Best for</div><div class="fact-value">Beach day and relaxing</div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#E6F1FB;">&#127958;</div>
-        <div class="card-title">Things to do</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">Virgin Voyages Beach Club</div><div class="card-item-desc">Your home base for the day — two pools, private beach, cabanas, and food and drinks all included. The RockStar area has private loungers and dedicated service.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">Snorkeling</div><div class="card-item-desc">The waters around Bimini are some of the clearest in the Bahamas. Book a snorkel excursion through the Virgin Voyages app before you sail.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">3</div>
-          <div><div class="card-item-name">Kayaking and paddleboarding</div><div class="card-item-desc">Available through the Beach Club — calm, shallow water makes it perfect for all skill levels.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">4</div>
-          <div><div class="card-item-name">Bimini town</div><div class="card-item-desc">A short walk from the Beach Club. Small, charming, and worth a quick stroll for local shops and a taste of authentic Bahamian village life.</div></div>
-        </div>
-      </div>
+    <p style="font-size:14px;color:#5A3070;line-height:1.75;font-family:Arial,sans-serif;">Barely 50 miles from Miami, Bimini is a small Bahamian island that Virgin Voyages has made its own. The private Beach Club here is unlike anything else at sea — two pools, a beachfront DJ, cabanas, and included food and drinks. This is a true beach day done right.</p>
+  </div>
+  <div id="bimini-todo" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">Virgin Voyages Beach Club</div><div class="item-desc">Your home base — two pools, private beach, loungers, food and drinks all included. The RockStar area has private cabanas and dedicated service.</div><span class="item-tag tag-vv">VV Included</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">Snorkeling</div><div class="item-desc">Crystal clear shallow water makes Bimini one of the best snorkeling spots in the Bahamas. Book through the VV app before sailing.</div><span class="item-tag tag-book">Book in advance</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">Kayaking and paddleboarding</div><div class="item-desc">Available through the Beach Club. Calm, warm water — perfect for all skill levels including beginners.</div><span class="item-tag tag-vv">At Beach Club</span></div></div>
+      <div class="item"><div class="item-num">4</div><div class="item-body"><div class="item-name">North Bimini Heritage Tour</div><div class="item-desc">Open-air tram cart tour through the island hitting 6 historical spots. A great way to see more than just the beach.</div><span class="item-tag tag-book">Book in VV app</span></div></div>
+      <div class="item"><div class="item-num">5</div><div class="item-body"><div class="item-name">Bimini town stroll</div><div class="item-desc">A short walk from the Beach Club — small shops, local vendors, and authentic Bahamian village charm.</div><span class="item-tag tag-free">Free</span></div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#EAF3DE;">&#127829;</div>
-        <div class="card-title">Where to eat and drink</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">Beach Club restaurant and bars</div><div class="card-item-desc">Food and beverages at the Beach Club are covered — enjoy fresh seafood, tropical cocktails, and light bites without worrying about the bill.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">Conch salad at the dock</div><div class="card-item-desc">Fresh conch salad made right in front of you by local vendors near the pier. A Bahamian tradition you should not miss.</div></div>
-        </div>
-      </div>
+  </div>
+  <div id="bimini-eat" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">Beach Club restaurant and bars</div><div class="item-desc">Food and beverages at the Beach Club are covered — fresh seafood, tropical cocktails, and light bites all day without worrying about the bill.</div><span class="item-tag tag-vv">Included</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">Conch salad at the dock</div><div class="item-desc">Fresh conch salad made right in front of you by local vendors near the pier. A Bahamian tradition you should not miss — order it spicy.</div><span class="item-tag tag-tip">Local favorite</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">Healing Hole Rum Bar</div><div class="item-desc">Laid-back waterfront bar at Fisherman's Village. Tropical drinks, live music, and marina views. Worth a stop on your way back to the ship.</div><span class="item-tag tag-tip">Local gem</span></div></div>
     </div>
-
-    <div class="kims-tip">
-      <div class="tip-label">Kim's tip</div>
-      <div class="tip-text">Get to the Beach Club early and claim your loungers — the prime spots by the pool go fast. If you are in the RockStar Suite, your dedicated service team will have you set up before most people even arrive. And do not skip the conch salad at the dock on your way back to the ship!</div>
+  </div>
+  <div id="bimini-excursions" class="port-tab-content">
+    <div class="excursion-item">
+      <div class="exc-name">Sapona Shipwreck and Shark Snorkel</div>
+      <div class="exc-desc">Dive with nurse and reef sharks at Triangle Rock then explore the famous Sapona shipwreck — one of the most storied dive sites in Bimini.</div>
+      <div class="exc-meta"><span class="exc-tag tag-book" style="background:#E6F1FB;color:#0C447C;">Book early</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">Stingray and Snorkel Adventure</div>
+      <div class="exc-desc">Swim with stingrays in the harbor then snorkel the pristine reefs. Great for first-timers — guided and safe.</div>
+      <div class="exc-meta"><span class="exc-tag tag-book" style="background:#E6F1FB;color:#0C447C;">Popular</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">2–3 hours</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">North Bimini Heritage Tram Tour</div>
+      <div class="exc-desc">Open-air tram through the island's history, culture, and hidden gems with a knowledgeable local guide.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">1–2 hours</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+  </div>
+  <div id="bimini-tip" class="port-tab-content">
+    <div class="kims-tip-box">
+      <div class="tip-label">Kim's Tip</div>
+      <div class="tip-text">Get to the Beach Club early and claim your loungers — the prime spots go fast. If you are in the RockStar Suite, your dedicated service team will have you set up before most people even arrive. Do not skip the conch salad at the dock on your way back, and if you want to do a snorkel excursion book it through the VV app before you board — they sell out!</div>
     </div>
   </div>
 </div>
 
-<div class="port-divider"></div>
-
-<!-- ═══════════════════ PUERTO PLATA ═══════════════════ -->
-<div class="port-section" id="puerto-plata">
-  <img class="port-hero" src="https://images.unsplash.com/photo-f2t9cL67aU8?w=800&q=80&fit=crop" alt="Puerto Plata coastline Dominican Republic">
-  <div class="port-header">
-    <div class="port-day">Day 4 &nbsp;·&nbsp; Dominican Republic</div>
-    <div class="port-name">Puerto Plata &#127465;&#127476;</div>
-    <div class="port-tagline">Cable cars, waterfalls, and the charm of the Silver Coast</div>
-    <button class="port-vv-btn" onclick="openModal('Puerto Plata', 'https://www.virginvoyages.com/destinations/caribbean-cruises/puerto-plata')">View on Virgin Voyages &#8250;</button>
+<!-- ═══ PUERTO PLATA ═══ -->
+<div class="section-label">Day 4 &nbsp;·&nbsp; Puerto Plata, Dominican Republic</div>
+<div class="port-card" id="card-puerto-plata">
+  <div class="port-card-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Plaza_Independencia_de_Puerto_Plata.jpg/1280px-Plaza_Independencia_de_Puerto_Plata.jpg" alt="Puerto Plata Dominican Republic">
+    <div class="port-card-overlay"></div>
+    <div class="port-card-info">
+      <div class="port-day-badge">Day 4 &nbsp;·&nbsp; Dominican Republic</div>
+      <div class="port-card-name">Puerto Plata &#127465;&#127476;</div>
+      <div class="port-card-tagline">Cable cars, waterfalls, and the charm of the Silver Coast</div>
+    </div>
+    <button class="port-vv-btn" onclick="openModal('Puerto Plata','https://www.virginvoyages.com/destinations/caribbean-cruises/puerto-plata')">View on VV &#8250;</button>
   </div>
-  <div class="port-body">
-    <div class="quick-facts">
-      <div class="fact"><div class="fact-label">Currency</div><div class="fact-value">Dominican Peso (USD widely accepted)</div></div>
+  <div class="port-tabs" id="tabs-puerto-plata">
+    <button class="port-tab active" onclick="showTab('puerto-plata','overview',this)">Overview</button>
+    <button class="port-tab" onclick="showTab('puerto-plata','todo',this)">Things to Do</button>
+    <button class="port-tab" onclick="showTab('puerto-plata','eat',this)">Where to Eat</button>
+    <button class="port-tab" onclick="showTab('puerto-plata','excursions',this)">Excursions</button>
+    <button class="port-tab" onclick="showTab('puerto-plata','tip',this)">Kim's Tip</button>
+  </div>
+  <div id="puerto-plata-overview" class="port-tab-content active">
+    <div class="facts-grid">
+      <div class="fact"><div class="fact-label">Currency</div><div class="fact-value">Dominican Peso (USD OK)</div></div>
       <div class="fact"><div class="fact-label">Language</div><div class="fact-value">Spanish</div></div>
-      <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">AST (1 hour ahead of Miami)</div></div>
+      <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">AST (1hr ahead of Miami)</div></div>
       <div class="fact"><div class="fact-label">Best for</div><div class="fact-value">Adventure and scenery</div></div>
+      <div class="fact"><div class="fact-label">Port area</div><div class="fact-value">Amber Cove terminal</div></div>
+      <div class="fact"><div class="fact-label">Must do</div><div class="fact-value">27 Waterfalls or cable car</div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#FAECE7;">&#127984;</div>
-        <div class="card-title">Things to do</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">Cable car to Mount Isabel de Torres</div><div class="card-item-desc">Ride the teleferico up to 2,600 feet for breathtaking panoramic views over Puerto Plata and the Atlantic. There is a botanical garden and a replica of the Christ the Redeemer statue at the top.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">27 Waterfalls of Damajagua</div><div class="card-item-desc">One of the most exhilarating excursions in the Caribbean — hike through the jungle and jump and slide through 27 natural waterfalls. Book through the Virgin Voyages app.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">3</div>
-          <div><div class="card-item-name">Playa Dorada</div><div class="card-item-desc">A beautiful golden sand beach about 15 minutes from the port. Calm waters, beach bars, and a very relaxed vibe.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">4</div>
-          <div><div class="card-item-name">Victorian Malecón</div><div class="card-item-desc">Stroll the historic waterfront boulevard lined with Victorian gingerbread architecture, local shops, and colorful street art.</div></div>
-        </div>
-      </div>
+    <p style="font-size:14px;color:#5A3070;line-height:1.75;font-family:Arial,sans-serif;">Tucked between the Cordillera Mountains and the Atlantic coast, Puerto Plata is one of the most underrated ports in the Caribbean. Victorian architecture, a famous cable car, and some of the most exhilarating natural adventures in the region — this port rewards guests who go beyond the ship.</p>
+  </div>
+  <div id="puerto-plata-todo" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">Cable car to Mount Isabel de Torres</div><div class="item-desc">Ride the teleferico up 2,600 feet for panoramic views over Puerto Plata and the Atlantic. Botanical garden and a replica of Christ the Redeemer at the top.</div><span class="item-tag tag-tip">Go early — clouds roll in midday</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">27 Waterfalls of Damajagua</div><div class="item-desc">One of the most exhilarating excursions in the Caribbean — hike through the jungle and jump and slide through 27 natural waterfalls. An absolute must for the adventurous.</div><span class="item-tag tag-book">Book in advance — sells out</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">Playa Dorada</div><div class="item-desc">Beautiful golden sand beach about 15 minutes from port. Calm waters, beach bars, and a very relaxed vibe if you want a quieter day.</div><span class="item-tag tag-free">Short taxi ride</span></div></div>
+      <div class="item"><div class="item-num">4</div><div class="item-body"><div class="item-name">Victorian Malecón walk</div><div class="item-desc">Stroll the historic waterfront boulevard lined with colorful Victorian gingerbread architecture, local shops, and street art.</div><span class="item-tag tag-free">Free</span></div></div>
+      <div class="item"><div class="item-num">5</div><div class="item-body"><div class="item-name">Fort San Felipe</div><div class="item-desc">The oldest fort in the Americas, dating to the 16th century. A quick visit with great views of the harbor.</div><span class="item-tag tag-free">Low cost entry</span></div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#EAF3DE;">&#127829;</div>
-        <div class="card-title">Where to eat and drink</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">La Llave del Mar</div><div class="card-item-desc">Waterfront restaurant on the Malecón serving fresh Dominican seafood. Order the pescado con coco — fish in coconut sauce. Outdoor seating with great views.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">Mambos Cafe</div><div class="card-item-desc">A local favorite near the port for authentic Dominican breakfast and lunch. Try the mangú — mashed plantains with pickled onions. Casual, cheap, and delicious.</div></div>
-        </div>
-      </div>
+  </div>
+  <div id="puerto-plata-eat" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">La Llave del Mar</div><div class="item-desc">Waterfront restaurant on the Malecón with fresh Dominican seafood. Order the pescado con coco — fish in coconut sauce. Outdoor seating with harbor views.</div><span class="item-tag tag-tip">Local favorite</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">Mambos Cafe</div><div class="item-desc">Authentic Dominican breakfast and lunch near the port. Try the mangú — mashed plantains with pickled onions. Casual, affordable, and delicious.</div><span class="item-tag tag-tip">Very local</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">Amber Cove terminal restaurants</div><div class="item-desc">If you prefer to stay close to the ship, the Amber Cove terminal has a pool area and several dining options right at port.</div><span class="item-tag tag-free">At port</span></div></div>
     </div>
-
-    <div class="kims-tip">
-      <div class="tip-label">Kim's tip</div>
-      <div class="tip-text">Book the 27 Waterfalls excursion before you board — it sells out fast and it is absolutely worth it. Wear clothes you do not mind getting soaked and bring water shoes if you have them. The cable car is best in the morning before clouds roll in around midday.</div>
+  </div>
+  <div id="puerto-plata-excursions" class="port-tab-content">
+    <div class="excursion-item">
+      <div class="exc-name">27 Waterfalls of Damajagua</div>
+      <div class="exc-desc">Hike through tropical jungle then jump, slide, and swim through 27 stunning natural waterfalls. One of the best excursions in the entire Caribbean.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#FFE5ED;color:#8C0027;">Must book early</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">Cable Car and City Tour</div>
+      <div class="exc-desc">Ride the famous teleferico to the summit of Mount Isabel de Torres then explore the city's Victorian architecture and Fort San Felipe.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#E6F1FB;color:#0C447C;">Popular</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">Playa Dorada Beach Break</div>
+      <div class="exc-desc">A relaxed beach day at one of the Dominican Republic's most beautiful stretches of golden sand. Perfect if the waterfalls are too adventurous.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Full day option</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+  </div>
+  <div id="puerto-plata-tip" class="port-tab-content">
+    <div class="kims-tip-box">
+      <div class="tip-label">Kim's Tip</div>
+      <div class="tip-text">Book the 27 Waterfalls before you board — it sells out fast and it is absolutely worth it. Wear clothes you do not mind getting soaked and bring water shoes if you have them. The cable car is best in the morning before clouds roll in around midday. If you only have time for one thing, do the waterfalls. You will talk about it for years.</div>
     </div>
   </div>
 </div>
 
-<div class="port-divider"></div>
-
-<!-- ═══════════════════ SAN JUAN ═══════════════════ -->
-<div class="port-section" id="san-juan">
-  <img class="port-hero" src="https://images.unsplash.com/photo-CBldU-D5CRI?w=800&q=80&fit=crop" alt="Colorful streets of San Juan Puerto Rico">
-  <div class="port-header">
-    <div class="port-day">Day 5 &nbsp;·&nbsp; Puerto Rico</div>
-    <div class="port-name">San Juan &#127477;&#127479;</div>
-    <div class="port-tagline">Cobblestone streets, Spanish forts, and legendary nightlife</div>
-    <button class="port-vv-btn" onclick="openModal('San Juan, Puerto Rico', 'https://www.virginvoyages.com/destinations/caribbean-cruises/san-juan')">View on Virgin Voyages &#8250;</button>
+<!-- ═══ SAN JUAN ═══ -->
+<div class="section-label">Day 5 &nbsp;·&nbsp; San Juan, Puerto Rico</div>
+<div class="port-card" id="card-san-juan">
+  <div class="port-card-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Aerial_View_Of_Old_San_Juan.jpg/1280px-Aerial_View_Of_Old_San_Juan.jpg" alt="Old San Juan Puerto Rico">
+    <div class="port-card-overlay"></div>
+    <div class="port-card-info">
+      <div class="port-day-badge">Day 5 &nbsp;·&nbsp; Puerto Rico</div>
+      <div class="port-card-name">San Juan &#127477;&#127479;</div>
+      <div class="port-card-tagline">Cobblestone streets, Spanish forts, and legendary nightlife</div>
+    </div>
+    <button class="port-vv-btn" onclick="openModal('San Juan','https://www.virginvoyages.com/destinations/caribbean-cruises/san-juan')">View on VV &#8250;</button>
   </div>
-  <div class="port-body">
-    <div class="quick-facts">
+  <div class="port-tabs" id="tabs-san-juan">
+    <button class="port-tab active" onclick="showTab('san-juan','overview',this)">Overview</button>
+    <button class="port-tab" onclick="showTab('san-juan','todo',this)">Things to Do</button>
+    <button class="port-tab" onclick="showTab('san-juan','eat',this)">Where to Eat</button>
+    <button class="port-tab" onclick="showTab('san-juan','excursions',this)">Excursions</button>
+    <button class="port-tab" onclick="showTab('san-juan','tip',this)">Kim's Tip</button>
+  </div>
+  <div id="san-juan-overview" class="port-tab-content active">
+    <div class="facts-grid">
       <div class="fact"><div class="fact-label">Currency</div><div class="fact-value">US Dollar</div></div>
       <div class="fact"><div class="fact-label">Language</div><div class="fact-value">Spanish and English</div></div>
-      <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">AST (1 hour ahead of Miami)</div></div>
-      <div class="fact"><div class="fact-label">Best for</div><div class="fact-value">History, food, and nightlife</div></div>
+      <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">AST (1hr ahead of Miami)</div></div>
+      <div class="fact"><div class="fact-label">Best for</div><div class="fact-value">History, food, nightlife</div></div>
+      <div class="fact"><div class="fact-label">Overnight</div><div class="fact-value">Ship stays overnight</div></div>
+      <div class="fact"><div class="fact-label">Must do</div><div class="fact-value">El Morro and Old San Juan</div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#EEEDFE;">&#127963;</div>
-        <div class="card-title">Things to do</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">El Morro Fortress</div><div class="card-item-desc">The iconic 16th-century Spanish citadel sitting at the tip of Old San Juan. Walk the grounds, explore the tunnels, and take in the stunning views of the Atlantic. One of the most photogenic spots in the Caribbean.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">Old San Juan walking tour</div><div class="card-item-desc">Wander the blue cobblestone streets lined with colorful 16th and 17th century buildings. Pop into the boutiques, grab a coffee, and soak up the history.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">3</div>
-          <div><div class="card-item-name">La Fortaleza</div><div class="card-item-desc">The oldest executive mansion still in use in the Western Hemisphere. Free guided tours available on weekdays.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">4</div>
-          <div><div class="card-item-name">Condado Beach</div><div class="card-item-desc">A short Uber ride from Old San Juan. Beautiful beach strip with beach bars, restaurants, and a livelier scene if you want to venture beyond the old city.</div></div>
-        </div>
-      </div>
+    <p style="font-size:14px;color:#5A3070;line-height:1.75;font-family:Arial,sans-serif;">San Juan is one of those rare ports where you genuinely need the full day and then some. The ship stays overnight which means you can experience the legendary nightlife. Old San Juan is a UNESCO World Heritage Site with 500-year-old Spanish forts, blue cobblestone streets, and one of the best food scenes in the Caribbean.</p>
+  </div>
+  <div id="san-juan-todo" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">El Morro Fortress</div><div class="item-desc">The iconic 16th-century Spanish citadel at the tip of Old San Juan. Walk the grounds, explore the tunnels, and take in stunning Atlantic views. One of the most photogenic spots in the Caribbean.</div><span class="item-tag tag-free">Low cost entry</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">Old San Juan walking tour</div><div class="item-desc">Wander the blue cobblestone streets lined with colorful 16th and 17th century buildings. Pop into boutiques, grab a coffee, and soak up 500 years of history.</div><span class="item-tag tag-free">Free to explore</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">La Fortaleza (Umbrella Street)</div><div class="item-desc">The official residence of the Governor and one of the most photographed streets in Puerto Rico — colorful umbrellas hanging overhead, pastel colonial buildings lining the cobblestones.</div><span class="item-tag tag-free">Free</span></div></div>
+      <div class="item"><div class="item-num">4</div><div class="item-body"><div class="item-name">Condado Beach</div><div class="item-desc">A short Uber ride from Old San Juan. Beautiful beach strip with bars, restaurants, and a livelier scene. Great option if you want beach time in San Juan.</div><span class="item-tag tag-tip">Short Uber ride</span></div></div>
+      <div class="item"><div class="item-num">5</div><div class="item-body"><div class="item-name">Overnight nightlife</div><div class="item-desc">The ship stays overnight — San Juan's nightlife is legendary. La Factoría cocktail bar, Calle San Sebastián, and the Old San Juan bar scene are all worth experiencing.</div><span class="item-tag tag-tip">Ship stays overnight</span></div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#EAF3DE;">&#127829;</div>
-        <div class="card-title">Where to eat and drink</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">El Jibarito</div><div class="card-item-desc">A beloved Old San Juan institution since 1970. Classic Puerto Rican comfort food — mofongo, pernil, and tostones. Cash only and always busy, but worth the wait.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">Barrachina</div><div class="card-item-desc">The birthplace of the pina colada. Order one at the outdoor bar where it was invented in 1963. A must-do for any first-time visitor.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">3</div>
-          <div><div class="card-item-name">La Factoria</div><div class="card-item-desc">Award-winning cocktail bar in Old San Juan with hidden rooms and incredible craft drinks. Perfect for the evening if the ship's schedule allows.</div></div>
-        </div>
-      </div>
+  </div>
+  <div id="san-juan-eat" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">El Jibarito</div><div class="item-desc">A beloved Old San Juan institution since 1970. Classic Puerto Rican comfort food — mofongo, pernil, and tostones. Cash only and always busy, worth every minute of the wait.</div><span class="item-tag tag-tip">Cash only</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">Barrachina — birthplace of the pina colada</div><div class="item-desc">The original pina colada was invented here in 1963. Order one at the outdoor bar. A must-do for any first-time visitor to San Juan.</div><span class="item-tag tag-tip">A San Juan tradition</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">La Factoria</div><div class="item-desc">Award-winning craft cocktail bar with hidden rooms and incredible drinks. Perfect for the evening since the ship stays overnight in San Juan.</div><span class="item-tag tag-tip">Evening option</span></div></div>
+      <div class="item"><div class="item-num">4</div><div class="item-body"><div class="item-name">Santaella</div><div class="item-desc">Modern Puerto Rican cuisine from James Beard-nominated chef Jose Santaella. One of the best meals on the island — make a reservation.</div><span class="item-tag tag-book">Reserve ahead</span></div></div>
     </div>
-
-    <div class="kims-tip">
-      <div class="tip-label">Kim's tip</div>
-      <div class="tip-text">San Juan is one of those ports where you truly need the whole day. Head to El Morro first thing in the morning when it is cool and uncrowded, then wander into Old San Juan for lunch and a pina colada at Barrachina. The ship is docked overnight so you can enjoy the evening too — the nightlife in San Juan is legendary.</div>
+  </div>
+  <div id="san-juan-excursions" class="port-tab-content">
+    <div class="excursion-item">
+      <div class="exc-name">El Yunque Rainforest and Waterfall</div>
+      <div class="exc-desc">The only tropical rainforest in the US National Forest system. Hike to waterfalls and natural swimming holes through lush jungle. Stunning and unique.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#E6F1FB;color:#0C447C;">Popular</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">Old San Juan Walking Food Tour</div>
+      <div class="exc-desc">Sample mofongo, tostones, local rum, and traditional Puerto Rican dishes while a local guide takes you through the history of Old San Juan.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">2–3 hours</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">Catamaran Snorkel to Icacos Island</div>
+      <div class="exc-desc">Sail to a nearby uninhabited island for snorkeling, sunbathing, and open bar on the catamaran. A perfect combination of adventure and relaxation.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#FFE5ED;color:#8C0027;">Book early</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+  </div>
+  <div id="san-juan-tip" class="port-tab-content">
+    <div class="kims-tip-box">
+      <div class="tip-label">Kim's Tip</div>
+      <div class="tip-text">San Juan is one of those ports where you truly need the whole day — and the night. Head to El Morro first thing in the morning when it is cool and uncrowded, then wander into Old San Juan for lunch and a pina colada at Barrachina. The ship stays overnight so you can experience the evening — the nightlife in San Juan is legendary and La Factoría is worth seeking out. Do not miss Umbrella Street on La Fortaleza for photos.</div>
     </div>
   </div>
 </div>
 
-<div class="port-divider"></div>
-
-<!-- ═══════════════════ ST. CROIX ═══════════════════ -->
-<div class="port-section" id="st-croix">
-  <img class="port-hero" src="https://images.unsplash.com/photo-l3VKZP7wHBw?w=800&q=80&fit=crop" alt="Aerial view St. Croix beach">
-  <div class="port-header">
-    <div class="port-day">Day 6 &nbsp;·&nbsp; U.S. Virgin Islands</div>
-    <div class="port-name">St. Croix &#127483;&#127470;</div>
-    <div class="port-tagline">The largest Virgin Island, with world-class snorkeling and a charming colonial capital</div>
-    <button class="port-vv-btn" onclick="openModal('St. Croix, U.S. Virgin Islands', 'https://www.virginvoyages.com/destinations/caribbean-cruises/st-croix')">View on Virgin Voyages &#8250;</button>
+<!-- ═══ ST. CROIX ═══ -->
+<div class="section-label">Day 6 &nbsp;·&nbsp; St. Croix, U.S. Virgin Islands</div>
+<div class="port-card" id="card-st-croix">
+  <div class="port-card-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Christiansted_from_Fort_Christiansvaern.jpg/1280px-Christiansted_from_Fort_Christiansvaern.jpg" alt="Christiansted St. Croix">
+    <div class="port-card-overlay"></div>
+    <div class="port-card-info">
+      <div class="port-day-badge">Day 6 &nbsp;·&nbsp; U.S. Virgin Islands</div>
+      <div class="port-card-name">St. Croix &#127483;&#127470;</div>
+      <div class="port-card-tagline">World-class snorkeling, Danish colonial charm, and rum</div>
+    </div>
+    <button class="port-vv-btn" onclick="openModal('St. Croix','https://www.virginvoyages.com/destinations/caribbean-cruises/st-croix')">View on VV &#8250;</button>
   </div>
-  <div class="port-body">
-    <div class="quick-facts">
+  <div class="port-tabs" id="tabs-st-croix">
+    <button class="port-tab active" onclick="showTab('st-croix','overview',this)">Overview</button>
+    <button class="port-tab" onclick="showTab('st-croix','todo',this)">Things to Do</button>
+    <button class="port-tab" onclick="showTab('st-croix','eat',this)">Where to Eat</button>
+    <button class="port-tab" onclick="showTab('st-croix','excursions',this)">Excursions</button>
+    <button class="port-tab" onclick="showTab('st-croix','tip',this)">Kim's Tip</button>
+  </div>
+  <div id="st-croix-overview" class="port-tab-content active">
+    <div class="facts-grid">
       <div class="fact"><div class="fact-label">Currency</div><div class="fact-value">US Dollar</div></div>
       <div class="fact"><div class="fact-label">Language</div><div class="fact-value">English</div></div>
-      <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">AST (1 hour ahead of Miami)</div></div>
-      <div class="fact"><div class="fact-label">Best for</div><div class="fact-value">Snorkeling and beach days</div></div>
+      <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">AST (1hr ahead of Miami)</div></div>
+      <div class="fact"><div class="fact-label">Best for</div><div class="fact-value">Snorkeling and beaches</div></div>
+      <div class="fact"><div class="fact-label">Capital</div><div class="fact-value">Christiansted</div></div>
+      <div class="fact"><div class="fact-label">Must do</div><div class="fact-value">Buck Island snorkeling</div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#E1F5EE;">&#127940;</div>
-        <div class="card-title">Things to do</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">Buck Island National Monument</div><div class="card-item-desc">One of the most spectacular snorkeling spots in the Caribbean — a protected underwater trail through a pristine coral reef. Book a boat excursion through the Virgin Voyages app.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">Christiansted historic district</div><div class="card-item-desc">A beautifully preserved Danish colonial town with pastel buildings, waterfront boardwalk, and Fort Christiansvaern. Walkable and very charming.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">3</div>
-          <div><div class="card-item-name">Cane Bay Beach</div><div class="card-item-desc">Famous for the Cane Bay Wall — a dramatic drop-off just 150 yards offshore that draws divers from around the world. Great for snorkeling too.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">4</div>
-          <div><div class="card-item-name">Whim Plantation Museum</div><div class="card-item-desc">A beautifully restored 18th-century sugar plantation that tells the complex history of the island. Worth a visit for the architecture and grounds alone.</div></div>
-        </div>
-      </div>
+    <p style="font-size:14px;color:#5A3070;line-height:1.75;font-family:Arial,sans-serif;">The largest of the US Virgin Islands, St. Croix is less touristy than St. Thomas and that is one of its biggest charms. Beautifully preserved Danish colonial architecture in Christiansted, some of the best snorkeling in the Caribbean at Buck Island, and a rum culture that runs deep through the island's history.</p>
+  </div>
+  <div id="st-croix-todo" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">Buck Island National Monument</div><div class="item-desc">One of the most spectacular snorkeling spots in the Caribbean — a protected underwater trail through pristine coral reef. Requires a boat excursion.</div><span class="item-tag tag-book">Book in advance</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">Christiansted historic district</div><div class="item-desc">A beautifully preserved Danish colonial town with pastel buildings, waterfront boardwalk, and Fort Christiansvaern. Walkable and genuinely charming.</div><span class="item-tag tag-free">Free to explore</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">Cane Bay Beach and Wall</div><div class="item-desc">Famous for the Cane Bay Wall — a dramatic drop-off just 150 yards offshore that draws divers from around the world. Also great for snorkeling.</div><span class="item-tag tag-tip">Short taxi ride</span></div></div>
+      <div class="item"><div class="item-num">4</div><div class="item-body"><div class="item-name">Cruzan Rum Distillery</div><div class="item-desc">Tour the distillery where Cruzan Rum has been made since 1760. Ends with a tasting — a fun and authentic St. Croix experience.</div><span class="item-tag tag-tip">Local tradition</span></div></div>
+      <div class="item"><div class="item-num">5</div><div class="item-body"><div class="item-name">Whim Plantation Museum</div><div class="item-desc">A beautifully restored 18th-century sugar plantation telling the complex history of the island. Worth a visit for the architecture and grounds alone.</div><span class="item-tag tag-free">Low cost entry</span></div></div>
     </div>
-
-    <div class="content-card">
-      <div class="card-header">
-        <div class="card-icon" style="background:#EAF3DE;">&#127829;</div>
-        <div class="card-title">Where to eat and drink</div>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-item-num">1</div>
-          <div><div class="card-item-name">Savant</div><div class="card-item-desc">A beloved Christiansted restaurant set in a restored 18th-century building. Creative Caribbean-Asian fusion menu with an excellent rum selection. Make a reservation if you can.</div></div>
-        </div>
-        <div class="card-item">
-          <div class="card-item-num">2</div>
-          <div><div class="card-item-name">Rum Hut at Cane Bay</div><div class="card-item-desc">Casual beachside bar right on the water at Cane Bay. Cold rum punches, fresh conch fritters, and some of the best views on the island. Perfect after snorkeling.</div></div>
-        </div>
-      </div>
+  </div>
+  <div id="st-croix-eat" class="port-tab-content">
+    <div class="item-list">
+      <div class="item"><div class="item-num">1</div><div class="item-body"><div class="item-name">Savant</div><div class="item-desc">A beloved Christiansted restaurant set in a restored 18th-century building. Creative Caribbean-Asian fusion with an excellent rum list. Make a reservation if you can.</div><span class="item-tag tag-book">Reserve ahead</span></div></div>
+      <div class="item"><div class="item-num">2</div><div class="item-body"><div class="item-name">Rum Hut at Cane Bay</div><div class="item-desc">Casual beachside bar right on the water at Cane Bay. Cold rum punches, fresh conch fritters, and some of the best views on the island. Perfect after snorkeling.</div><span class="item-tag tag-tip">Beachside</span></div></div>
+      <div class="item"><div class="item-num">3</div><div class="item-body"><div class="item-name">Galangal</div><div class="item-desc">Creative Asian-Caribbean fusion in Christiansted with locally sourced ingredients. One of the most talked-about restaurants on the island.</div><span class="item-tag tag-tip">Local favorite</span></div></div>
     </div>
-
-    <div class="kims-tip">
-      <div class="tip-label">Kim's tip</div>
-      <div class="tip-text">Buck Island is the highlight of St. Croix — do not skip it. Book the excursion early because it fills up. If you want a beach day instead of sightseeing, Cane Bay is spectacular and the Rum Hut makes it even better. St. Croix is less touristy than many Caribbean islands which is actually one of its biggest charms.</div>
+  </div>
+  <div id="st-croix-excursions" class="port-tab-content">
+    <div class="excursion-item">
+      <div class="exc-name">Buck Island Snorkel Adventure</div>
+      <div class="exc-desc">Sail to the protected Buck Island National Monument and follow the underwater snorkel trail through one of the most pristine coral reefs in the Caribbean.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#FFE5ED;color:#8C0027;">Top rated</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">Cane Bay Scuba Dive</div>
+      <div class="exc-desc">Dive the famous Cane Bay Wall — a dramatic underwater cliff that drops hundreds of feet. One of the most acclaimed dive sites in the world.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#E6F1FB;color:#0C447C;">Certified divers</span><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+    <div class="excursion-item">
+      <div class="exc-name">Island History and Rum Tour</div>
+      <div class="exc-desc">Tour the Cruzan Rum distillery and key historic sites including Christiansted and Whim Plantation. A well-rounded introduction to the real St. Croix.</div>
+      <div class="exc-meta"><span class="exc-tag" style="background:#EAF3DE;color:#27500A;">Half day</span></div>
+      <a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn">Book in Virgin Voyages app &#8250;</a>
+    </div>
+  </div>
+  <div id="st-croix-tip" class="port-tab-content">
+    <div class="kims-tip-box">
+      <div class="tip-label">Kim's Tip</div>
+      <div class="tip-text">Buck Island is the highlight of St. Croix — do not skip it. Book the excursion before you board because it fills up fast. If you want a beach day instead of a structured excursion, Cane Bay is spectacular and the Rum Hut makes it even better. St. Croix is far less touristy than most Caribbean ports which is actually one of its biggest charms — lean into it and explore Christiansted on foot.</div>
     </div>
   </div>
 </div>
@@ -396,42 +431,11 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A0A2E;min-height:100
 
 <div class="footer">
   <p>Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet &nbsp;·&nbsp; MMV Travel Collection<br>
-  All information is based on current knowledge and subject to change. Contact Kim to confirm details and book.<br>
+  All information is based on current knowledge and subject to change. Contact Kim to confirm and book.<br>
   &copy; 2026 Magical Moments Vacations</p>
 </div>
 
-<script>
-// Smooth scroll nav highlighting
-const sections = ['bimini','puerto-plata','san-juan','st-croix'];
-const navLinks = document.querySelectorAll('.port-nav a');
-window.addEventListener('scroll', function(){
-  let current = '';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if(el && window.scrollY >= el.offsetTop - 100) current = id;
-  });
-  navLinks.forEach(a => {
-    a.classList.remove('active');
-    if(a.getAttribute('href') === '#' + current) a.classList.add('active');
-  });
-  window.openModal = function(name, url){
-    document.getElementById('modal-title').textContent = name + ' — Virgin Voyages Port Guide';
-    document.getElementById('port-iframe').src = url;
-    document.getElementById('modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-  window.closeModal = function(){
-    document.getElementById('modal').classList.remove('open');
-    document.getElementById('port-iframe').src = '';
-    document.body.style.overflow = '';
-  };
-  window.handleModalClick = function(e){
-    if(e.target === document.getElementById('modal')) closeModal();
-  };
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
-});
-</script>
-
+<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="handleModalClick(event)">
   <div class="modal-box">
     <div class="modal-header">
@@ -443,5 +447,33 @@ window.addEventListener('scroll', function(){
     </div>
   </div>
 </div>
+
+<script>
+function showTab(port, tab, btn) {
+  // Hide all content for this port
+  const card = document.getElementById('card-' + port);
+  card.querySelectorAll('.port-tab-content').forEach(c => c.classList.remove('active'));
+  card.querySelectorAll('.port-tab').forEach(t => t.classList.remove('active'));
+  // Show selected
+  document.getElementById(port + '-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
+function openModal(name, url) {
+  document.getElementById('modal-title').textContent = name + ' — Virgin Voyages';
+  document.getElementById('port-iframe').src = url;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('port-iframe').src = '';
+  document.body.style.overflow = '';
+}
+function handleModalClick(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+</script>
 </body>
 </html>
