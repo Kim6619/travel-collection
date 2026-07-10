@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bimini, Bahamas Port Guide | Magical Moments Vacations</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A0A2E;min-height:100vh;}
+.hero{position:relative;height:280px;overflow:hidden;}
+.hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,10,46,0.3) 0%,rgba(26,10,46,0.78) 100%);}
+.hero-content{position:absolute;bottom:0;left:0;right:0;padding:20px 18px;}
+.hero-agency{font-size:11px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;font-family:Arial,sans-serif;}
+.hero-badge{display:inline-block;background:#C9003C;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:6px;font-family:Arial,sans-serif;letter-spacing:0.05em;}
+.hero-name{font-size:26px;font-weight:700;color:#fff;margin-bottom:4px;}
+.hero-tagline{font-size:13px;color:#F9B8C8;font-family:Arial,sans-serif;}
+.hero-gold-line{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#D4B483,transparent);}
+.back-bar{background:#1A0A2E;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#D4B483;text-decoration:none;font-family:Arial,sans-serif;}
+.vv-btn{font-size:11px;font-weight:700;color:#1A0A2E;background:#D4B483;padding:6px 14px;border-radius:20px;text-decoration:none;font-family:Arial,sans-serif;border:none;cursor:pointer;}
+.port-tabs{display:flex;background:#1A0A2E;border-bottom:2px solid #D4B483;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.port-tabs::-webkit-scrollbar{display:none;}
+.port-tab{flex-shrink:0;padding:13px 18px;font-size:12px;font-weight:700;color:#8070A0;text-transform:uppercase;letter-spacing:0.07em;cursor:pointer;border-bottom:3px solid transparent;font-family:Arial,sans-serif;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap;}
+.port-tab.active{color:#D4B483;border-bottom-color:#D4B483;}
+.port-tab:hover{color:#C9B8E8;}
+.tab-content{display:none;padding:18px 16px;}
+.tab-content.active{display:block;}
+.facts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E8E0D0;border-radius:10px;overflow:hidden;margin-bottom:16px;}
+.fact{background:#FAF8F5;padding:11px 14px;}
+.fact-label{font-size:10px;font-weight:700;color:#D4B483;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;font-family:Arial,sans-serif;}
+.fact-value{font-size:13px;color:#1A0A2E;font-weight:600;font-family:Arial,sans-serif;}
+.overview-text{font-size:14px;color:#5A3070;line-height:1.8;font-family:Arial,sans-serif;}
+.item-list{display:flex;flex-direction:column;}
+.item{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid #F0EBF8;}
+.item:last-child{border-bottom:none;}
+.item-num{width:28px;height:28px;border-radius:50%;background:#1A0A2E;color:#D4B483;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:Arial,sans-serif;}
+.item-name{font-size:14px;font-weight:700;color:#1A0A2E;margin-bottom:3px;}
+.item-desc{font-size:13px;color:#5A3070;line-height:1.6;font-family:Arial,sans-serif;}
+.item-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:5px;font-family:Arial,sans-serif;}
+.tag-vv{background:#FFE5ED;color:#8C0027;}
+.tag-book{background:#E6F1FB;color:#0C447C;}
+.tag-free{background:#EAF3DE;color:#27500A;}
+.tag-tip{background:#FFF8EC;color:#7A5800;}
+.kims-tip-box{background:#1A0A2E;border-radius:12px;padding:18px;border-left:4px solid #D4B483;}
+.tip-label{font-size:11px;font-weight:700;color:#D4B483;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:Arial,sans-serif;}
+.tip-text{font-size:14px;color:#E8D8F8;line-height:1.8;}
+.exc-item{background:#FAF8F5;border-radius:10px;padding:14px 16px;margin-bottom:10px;border:0.5px solid #E8E0D0;}
+.exc-item:last-child{margin-bottom:0;}
+.exc-name{font-size:14px;font-weight:700;color:#1A0A2E;margin-bottom:4px;}
+.exc-desc{font-size:13px;color:#5A3070;line-height:1.6;margin-bottom:8px;font-family:Arial,sans-serif;}
+.exc-book-btn{display:inline-block;font-size:12px;font-weight:700;color:#C9003C;text-decoration:none;padding:6px 16px;border:1.5px solid #F9B8C8;border-radius:20px;background:#FFF0F3;font-family:Arial,sans-serif;}
+.cta-block{margin:20px 16px 24px;background:#1A0A2E;border-radius:16px;padding:24px 20px;text-align:center;}
+.cta-text{font-size:15px;color:#C9B8E8;line-height:1.75;margin-bottom:16px;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#C8942A,#D4B483);color:#1A0A2E;font-size:14px;font-weight:700;padding:13px 28px;border-radius:25px;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;font-family:Arial,sans-serif;}
+.cta-contact{font-size:13px;color:#8070A0;line-height:2;margin-top:12px;font-family:Arial,sans-serif;}
+.cta-contact a{color:#D4B483;text-decoration:none;}
+.footer{background:#0F0718;padding:18px;text-align:center;border-top:1px solid #2D1060;}
+.footer p{font-size:11px;color:#4A3060;line-height:1.9;font-family:Arial,sans-serif;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:10000;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:16px;width:100%;max-width:700px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#1A0A2E;flex-shrink:0;border-bottom:2px solid #D4B483;}
+.modal-title{font-size:15px;font-weight:600;color:#fff;font-family:Arial,sans-serif;}
+.modal-close{background:none;border:none;color:#D4B483;font-size:24px;cursor:pointer;line-height:1;padding:0;}
+.modal-body{flex:1;overflow-y:auto;}
+.modal-body iframe{width:100%;border:none;height:560px;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <img src="Bimni_Beach_1.jpeg" alt="Bimini, Bahamas">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-agency">Kim Gamet &nbsp;·&nbsp; MMV Travel Collection</div>
+    <div class="hero-badge">Day 3 &nbsp;·&nbsp; Your Port Guide</div>
+    <div class="hero-name">Bimini, Bahamas 🇧🇸</div>
+    <div class="hero-tagline">Virgin's exclusive Beach Club · crystal clear Caribbean water</div>
+  </div>
+  <div class="hero-gold-line"></div>
+</div>
+<div class="back-bar">
+  <a href="../vv-girls-trip/" class="back-btn">&#8592; Back to your trip</a>
+  <button class="vv-btn" onclick="openModal('https://www.virginvoyages.com/destinations/caribbean-cruises/bimini')">View on Virgin Voyages ›</button>
+</div>
+<div class="port-tabs">
+  <button class="port-tab active" onclick="showTab('overview',this)">Overview</button>
+  <button class="port-tab" onclick="showTab('todo',this)">Things to Do</button>
+  <button class="port-tab" onclick="showTab('eat',this)">Where to Eat</button>
+  <button class="port-tab" onclick="showTab('excursions',this)">Excursions</button>
+  <button class="port-tab" onclick="showTab('tip',this)">Kim's Tip</button>
+</div>
+<div id="tab-overview" class="tab-content active">
+  <div class="facts-grid"><div class="fact"><div class="fact-label">Currency</div><div class="fact-value">USD accepted</div></div><div class="fact"><div class="fact-label">Language</div><div class="fact-value">English</div></div><div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">EST (same as Miami)</div></div><div class="fact"><div class="fact-label">VV Exclusive</div><div class="fact-value">Private Beach Club</div></div><div class="fact"><div class="fact-label">Distance from ship</div><div class="fact-value">Free tram ride</div></div><div class="fact"><div class="fact-label">Best for</div><div class="fact-value">Beach day and relaxing</div></div></div>
+  <p class="overview-text">Barely 50 miles from Miami, Bimini is a small Bahamian island that Virgin Voyages has made its own. The private Beach Club here is unlike anything else at sea — two pools, a beachfront DJ, cabanas, and included food and drinks. This is a true beach day done right.</p>
+</div>
+<div id="tab-todo" class="tab-content">
+  <div class="item-list"><div class="item"><div class="item-num">1</div><div><div class="item-name">Virgin Voyages Beach Club</div><div class="item-desc">Your home base — two pools, private beach, loungers, food and drinks all included. The RockStar area has private cabanas and dedicated service.</div><span class="item-tag tag-vv">VV Included</span></div></div><div class="item"><div class="item-num">2</div><div><div class="item-name">Snorkeling</div><div class="item-desc">Crystal clear shallow water makes Bimini one of the best snorkeling spots in the Bahamas. Book through the VV app before sailing.</div><span class="item-tag tag-book">Book in advance</span></div></div><div class="item"><div class="item-num">3</div><div><div class="item-name">Kayaking and paddleboarding</div><div class="item-desc">Available through the Beach Club. Calm, warm water perfect for all skill levels.</div><span class="item-tag tag-vv">At Beach Club</span></div></div><div class="item"><div class="item-num">4</div><div><div class="item-name">North Bimini Heritage Tour</div><div class="item-desc">Open-air tram cart tour through the island hitting 6 historical spots. A great way to see more than just the beach.</div><span class="item-tag tag-book">Book in VV app</span></div></div><div class="item"><div class="item-num">5</div><div><div class="item-name">Bimini town stroll</div><div class="item-desc">A short walk from the Beach Club — small shops, local vendors, and authentic Bahamian village charm.</div><span class="item-tag tag-free">Free</span></div></div></div>
+</div>
+<div id="tab-eat" class="tab-content">
+  <div class="item-list"><div class="item"><div class="item-num">1</div><div><div class="item-name">Beach Club restaurant and bars</div><div class="item-desc">Food and beverages at the Beach Club are covered — fresh seafood, tropical cocktails, and light bites all day.</div><span class="item-tag tag-vv">Included</span></div></div><div class="item"><div class="item-num">2</div><div><div class="item-name">Conch salad at the dock</div><div class="item-desc">Fresh conch salad made right in front of you by local vendors near the pier. A Bahamian tradition you should not miss.</div><span class="item-tag tag-tip">Local favorite</span></div></div><div class="item"><div class="item-num">3</div><div><div class="item-name">Healing Hole Rum Bar</div><div class="item-desc">Laid-back waterfront bar at Fisherman's Village. Tropical drinks, live music, and marina views.</div><span class="item-tag tag-tip">Local gem</span></div></div></div>
+</div>
+<div id="tab-excursions" class="tab-content">
+  <div class="exc-item"><div class="exc-name">Sapona Shipwreck and Shark Snorkel</div><div class="exc-desc">Dive with nurse and reef sharks at Triangle Rock then explore the famous Sapona shipwreck.</div><span class="item-tag tag-book" style="margin-right:4px;">Book early</span><span class="item-tag tag-free" style="margin-right:4px;">Half day</span><br><a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn" style="margin-top:10px;display:inline-block;">Book in Virgin Voyages app ›</a></div><div class="exc-item"><div class="exc-name">Stingray and Snorkel Adventure</div><div class="exc-desc">Swim with stingrays in the harbor then snorkel the pristine reefs. Great for first-timers.</div><span class="item-tag tag-book" style="margin-right:4px;">Popular</span><span class="item-tag tag-free" style="margin-right:4px;">2 to 3 hours</span><br><a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn" style="margin-top:10px;display:inline-block;">Book in Virgin Voyages app ›</a></div><div class="exc-item"><div class="exc-name">North Bimini Heritage Tram Tour</div><div class="exc-desc">Open-air tram through the island's history, culture, and hidden gems with a knowledgeable local guide.</div><span class="item-tag tag-free" style="margin-right:4px;">1 to 2 hours</span><br><a href="https://www.virginvoyages.com/shore-things" target="_blank" class="exc-book-btn" style="margin-top:10px;display:inline-block;">Book in Virgin Voyages app ›</a></div>
+</div>
+<div id="tab-tip" class="tab-content">
+  <div class="kims-tip-box">
+    <div class="tip-label">Kim's Tip</div>
+    <div class="tip-text">Get to the Beach Club early and claim your loungers — the prime spots go fast. If you are in the RockStar Suite, your dedicated service team will have you set up before most people even arrive. Do not skip the conch salad at the dock on your way back, and if you want to do a snorkel excursion book it through the VV app before you board — they sell out!</div>
+  </div>
+</div>
+<div class="cta-block">
+  <div class="cta-text">Ready to book your cabin and make this trip official? I handle everything from start to finish.</div>
+  <a href="https://calendly.com/kim-gamet-mmv/30min" class="cta-btn">Schedule a call with Kim</a>
+  <div class="cta-contact">&#9993; <a href="mailto:kim.gamet@mmvagent.com">kim.gamet@mmvagent.com</a><br>&#128222; (313) 290-0567</div>
+</div>
+<div class="footer"><p>Magical Moments Vacations &nbsp;·&nbsp; Kim Gamet &nbsp;·&nbsp; MMV Travel Collection<br>&copy; 2026 Magical Moments Vacations</p></div>
+<div class="modal-overlay" id="modal" onclick="handleModalClick(event)">
+  <div class="modal-box">
+    <div class="modal-header"><span class="modal-title">Bimini, Bahamas — Virgin Voyages</span><button class="modal-close" onclick="closeModal()">&#10005;</button></div>
+    <div class="modal-body"><iframe id="modal-iframe" src="" scrolling="yes"></iframe></div>
+  </div>
+</div>
+<script>
+function showTab(tab, btn) {
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.port-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+function openModal(url) {
+  document.getElementById('modal-iframe').src = url;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal-iframe').src = '';
+  document.body.style.overflow = '';
+}
+function handleModalClick(e) { if(e.target===document.getElementById('modal'))closeModal(); }
+document.addEventListener('keydown', function(e){ if(e.key==='Escape')closeModal(); });
+</script>
+</body>
+</html>
