@@ -6,86 +6,107 @@
 <title>Michelin Family Disney Vacation | Magical Moments Vacations</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,Helvetica,sans-serif;background:#f9f7f4;color:#1a1a1a;min-height:100vh;font-size:15px;}
-#lock{position:fixed;inset:0;background:#993556;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:24px;}
+body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100vh;}
+
+/* ── LOCK ── */
+#lock{position:fixed;inset:0;background:linear-gradient(160deg,#1E1433 0%,#4A2060 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:24px;}
 #lock.hidden{display:none;}
-.lock-logo{font-size:13px;color:#F4C0D1;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:32px;text-align:center;}
+.lock-logo{font-size:12px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:28px;text-align:center;}
 .lock-title{font-size:26px;font-weight:700;color:#fff;text-align:center;margin-bottom:8px;line-height:1.3;}
-.lock-sub{font-size:14px;color:#F4C0D1;text-align:center;margin-bottom:36px;}
-.lock-box{background:#fff;border-radius:16px;padding:28px 24px;width:100%;max-width:340px;}
-.lock-box label{font-size:12px;font-weight:600;color:#5F5E5A;letter-spacing:0.05em;text-transform:uppercase;display:block;margin-bottom:8px;}
+.lock-sub{font-size:14px;color:#C9B8E8;text-align:center;margin-bottom:32px;}
+.lock-box{background:#fff;border-radius:16px;padding:28px 24px;width:100%;max-width:340px;box-shadow:0 8px 40px rgba(0,0,0,0.4);}
+.lock-box label{font-size:11px;font-weight:700;color:#888780;letter-spacing:0.07em;text-transform:uppercase;display:block;margin-bottom:8px;font-family:Arial,sans-serif;}
 .lock-box input{width:100%;padding:12px 14px;border:1.5px solid #D3D1C7;border-radius:10px;font-size:16px;outline:none;margin-bottom:16px;font-family:Arial,sans-serif;}
-.lock-box input:focus{border-color:#993556;}
-.lock-btn{width:100%;background:#993556;color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;font-family:Arial,sans-serif;}
-.lock-error{font-size:13px;color:#A32D2D;text-align:center;margin-top:10px;min-height:18px;}
-.lock-footer{font-size:12px;color:#F4C0D1;text-align:center;margin-top:24px;}
+.lock-box input:focus{border-color:#4A2060;}
+.lock-btn{width:100%;background:#1E1433;color:#D4B483;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:0.05em;text-transform:uppercase;}
+.lock-error{font-size:13px;color:#A32D2D;text-align:center;margin-top:10px;min-height:18px;font-family:Arial,sans-serif;}
+.lock-footer{font-size:12px;color:#C9B8E8;text-align:center;margin-top:24px;font-family:Arial,sans-serif;}
+
+/* ── PAGE ── */
 #page{display:none;}
 #page.visible{display:block;}
-.hero{background:#993556;padding:28px 20px 24px;text-align:center;}
-.hero-agency{font-size:11px;color:#F4C0D1;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;}
-.hero-title{font-size:26px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:6px;}
-.hero-sub{font-size:13px;color:#F4C0D1;margin-bottom:12px;}
-.hero-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);color:#FBEAF0;font-size:11px;padding:5px 14px;border-radius:20px;}
-.hero-inner{display:flex;align-items:center;gap:16px;}
-.hero-headshot{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 15%;border:3px solid rgba(255,255,255,0.6);flex-shrink:0;box-shadow:0 2px 12px rgba(0,0,0,0.2);}
-.hero-content{flex:1;text-align:center;}
-.note-card{background:#fff;margin:16px;border-radius:12px;border:0.5px solid #D3D1C7;padding:18px;}
-.note-label{font-size:12px;font-weight:700;color:#993556;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;}
-.note-text{font-size:15px;color:#3d3d3a;line-height:1.75;}
-.note-sig{margin-top:12px;font-size:13px;font-weight:600;color:#993556;}
-.note-sig-sub{font-size:11px;color:#888780;}
-.section-label{font-size:11px;font-weight:700;color:#888780;letter-spacing:0.08em;text-transform:uppercase;padding:14px 16px 6px;background:#f9f7f4;}
-.resort-grid{display:flex;flex-direction:column;gap:10px;padding:0 16px 4px;}
-.resort-card{background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
-.resort-card.featured{border:2px solid #185FA5;}
-.resort-header{padding:14px 16px 10px;border-bottom:0.5px solid #F1EFE8;}
-.resort-tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:6px;}
-.tag-blue{background:#E6F1FB;color:#0C447C;}
-.tag-pink{background:#FBEAF0;color:#72243E;}
-.tag-green{background:#EAF3DE;color:#27500A;}
-.tag-purple{background:#EEEDFE;color:#3C3489;}
-.tag-teal{background:#E1F5EE;color:#0F6E56;}
-.resort-name{font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:4px;}
-.resort-desc{font-size:14px;color:#5F5E5A;line-height:1.5;}
-.overview-btn{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;color:#185FA5;text-decoration:none;padding:4px 12px;border:0.5px solid #B5D4F4;border-radius:20px;background:#E6F1FB;cursor:pointer;border:0.5px solid #B5D4F4;}
-.resort-body{padding:12px 16px;}
-.resort-fl{font-size:10px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:7px;}
-.resort-f{display:flex;align-items:center;gap:7px;font-size:14px;color:#3d3d3a;margin-bottom:6px;}
-.resort-f:before{content:'';width:6px;height:6px;border-radius:50%;background:#993556;flex-shrink:0;}
-.resort-price-row{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#f9f7f4;border-top:0.5px solid #F1EFE8;}
-.resort-price-label{font-size:11px;color:#888780;}
-.resort-price{font-size:20px;font-weight:700;color:#993556;}
-.resort-note{font-size:10px;color:#888780;margin-top:2px;}
-.addons-list{margin:0 16px 4px;background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
-.addon-row{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 16px;border-bottom:0.5px solid #F1EFE8;gap:12px;}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,#1E1433 0%,#3D1A5C 100%);padding:36px 20px 32px;text-align:center;position:relative;}
+.hero:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#D4B483,transparent);}
+.hero-agency{font-size:11px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;font-family:Arial,sans-serif;}
+.hero-title{font-size:28px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:6px;}
+.hero-sub{font-size:14px;color:#C9B8E8;margin-bottom:16px;font-family:Arial,sans-serif;}
+.hero-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(212,180,131,0.15);color:#F5E6C8;font-size:12px;padding:6px 18px;border-radius:20px;border:1px solid rgba(212,180,131,0.35);font-family:Arial,sans-serif;}
+
+/* ── SECTION LABELS ── */
+.section-label{font-size:11px;font-weight:700;color:#888780;letter-spacing:0.1em;text-transform:uppercase;padding:28px 20px 10px;background:#FAF8F5;font-family:Arial,sans-serif;}
+
+/* ── NOTE CARD ── */
+.note-card{background:#fff;margin:20px 16px;border-radius:16px;border:none;padding:24px;box-shadow:0 2px 20px rgba(30,20,51,0.08),0 0 0 1px rgba(30,20,51,0.06);}
+.note-label{font-size:11px;font-weight:700;color:#D4B483;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-family:Arial,sans-serif;}
+.note-text{font-size:15px;color:#2C1A3E;line-height:1.85;}
+.note-sig{margin-top:4px;font-size:15px;font-weight:700;color:#1E1433;}
+.note-sig-sub{font-size:12px;color:#888780;font-family:Arial,sans-serif;}
+
+/* ── RESORT CARDS ── */
+.resort-grid{display:flex;flex-direction:column;gap:14px;padding:0 16px 4px;}
+.resort-card{background:#fff;border-radius:16px;border:none;overflow:hidden;box-shadow:0 2px 20px rgba(30,20,51,0.08),0 0 0 1px rgba(30,20,51,0.06);}
+.resort-card.featured{box-shadow:0 4px 24px rgba(74,32,96,0.2),0 0 0 2px #D4B483;}
+.resort-header{padding:18px 18px 14px;border-bottom:1px solid #F0EBF8;}
+.resort-tag{display:inline-block;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:8px;font-family:Arial,sans-serif;letter-spacing:0.04em;}
+.tag-blue{background:#EDF5FF;color:#1A4F8A;}
+.tag-pink{background:#F5EAF8;color:#4A2060;}
+.tag-green{background:#EAF5ED;color:#1A5C2A;}
+.tag-purple{background:#EDE9FC;color:#3C1478;}
+.tag-teal{background:#E6F7F2;color:#0A5C42;}
+.resort-name{font-size:18px;font-weight:700;color:#1E1433;margin-bottom:5px;}
+.resort-desc{font-size:14px;color:#5A4070;line-height:1.65;font-family:Arial,sans-serif;}
+.overview-btn{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;color:#4A2060;padding:6px 16px;border:1.5px solid #C9B8E8;border-radius:20px;background:#FAF8F5;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:0.04em;}
+.overview-btn:hover{background:#EDE9FC;border-color:#4A2060;}
+.resort-body{padding:16px 18px;background:#FDFBF9;}
+.resort-fl{font-size:11px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;font-family:Arial,sans-serif;}
+.resort-f{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#2C1A3E;margin-bottom:8px;line-height:1.5;font-family:Arial,sans-serif;}
+.resort-f:before{content:'';width:5px;height:5px;border-radius:50%;background:#D4B483;flex-shrink:0;margin-top:7px;}
+.resort-price-row{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#FAF8F5;border-top:1px solid #F0EBF8;}
+.resort-price-label{font-size:12px;color:#888780;font-family:Arial,sans-serif;}
+.resort-price{font-size:22px;font-weight:700;color:#1E1433;}
+.resort-note{font-size:11px;color:#888780;margin-top:2px;font-family:Arial,sans-serif;}
+
+/* ── ADD-ONS ── */
+.addons-list{margin:0 16px 4px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(30,20,51,0.08),0 0 0 1px rgba(30,20,51,0.06);}
+.addon-row{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 18px;border-bottom:1px solid #F0EBF8;gap:14px;}
 .addon-row:last-child{border-bottom:none;}
 .addon-left{flex:1;min-width:0;}
-.addon-name{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:3px;}
-.addon-desc{font-size:13px;color:#5F5E5A;line-height:1.6;}
-.addon-price{font-size:16px;font-weight:700;color:#185FA5;white-space:nowrap;flex-shrink:0;margin-top:2px;}
-.party-note{background:#FAEEDA;border-radius:10px;padding:8px 12px;margin:8px 16px 0;font-size:11px;color:#633806;line-height:1.5;}
-.tip-grid{display:flex;flex-direction:column;gap:0;margin:0 16px 4px;background:#fff;border-radius:12px;border:0.5px solid #D3D1C7;overflow:hidden;}
-.tip-row{display:flex;align-items:center;padding:12px 14px;border-bottom:0.5px solid #F1EFE8;text-decoration:none;gap:12px;}
+.addon-name{font-size:15px;font-weight:700;color:#1E1433;margin-bottom:4px;}
+.addon-desc{font-size:13px;color:#5A4070;line-height:1.65;font-family:Arial,sans-serif;}
+.addon-price{font-size:17px;font-weight:700;color:#4A2060;white-space:nowrap;flex-shrink:0;margin-top:2px;font-family:Arial,sans-serif;}
+.party-note{background:#F5EAF8;border-radius:10px;padding:10px 14px;margin:10px 16px 0;font-size:12px;color:#4A2060;line-height:1.6;font-family:Arial,sans-serif;border-left:3px solid #D4B483;}
+
+/* ── TIP SHEETS ── */
+.tip-grid{display:flex;flex-direction:column;margin:0 16px 4px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(30,20,51,0.08),0 0 0 1px rgba(30,20,51,0.06);}
+.tip-row{display:flex;align-items:center;padding:14px 18px;border-bottom:1px solid #F0EBF8;text-decoration:none;gap:14px;cursor:pointer;}
 .tip-row:last-child{border-bottom:none;}
-.tip-row:hover{background:#FBEAF0;}
-.tip-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+.tip-row:hover{background:#FAF8F5;}
+.tip-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;}
 .tip-text{flex:1;min-width:0;}
-.tip-name{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:2px;}
-.tip-sub{font-size:13px;color:#888780;}
-.tip-arrow{font-size:18px;color:#D3D1C7;flex-shrink:0;}
-.cta-block{margin:16px;background:#FBEAF0;border-radius:12px;padding:20px;text-align:center;border:0.5px solid #F4C0D1;}
-.cta-text{font-size:15px;color:#72243E;line-height:1.6;margin-bottom:14px;}
-.cta-btn{display:inline-block;background:#993556;color:#fff;font-size:14px;font-weight:600;padding:12px 28px;border-radius:25px;text-decoration:none;margin-bottom:10px;}
-.cta-contact{font-size:12px;color:#888780;line-height:1.9;}
-.cta-contact a{color:#185FA5;text-decoration:none;}
-.footer{background:#2C2C2A;padding:16px;text-align:center;}
-.footer p{font-size:11px;color:#888780;line-height:1.8;}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;align-items:center;justify-content:center;padding:16px;}
+.tip-name{font-size:15px;font-weight:700;color:#1E1433;margin-bottom:2px;}
+.tip-sub{font-size:13px;color:#888780;font-family:Arial,sans-serif;}
+.tip-arrow{font-size:18px;color:#D4B483;flex-shrink:0;}
+
+/* ── CTA ── */
+.cta-block{margin:20px 16px;background:#1E1433;border-radius:16px;padding:28px 20px;text-align:center;box-shadow:0 4px 24px rgba(30,20,51,0.3);}
+.cta-text{font-size:16px;color:#C9B8E8;line-height:1.75;margin-bottom:18px;}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,#C8942A,#D4B483);color:#1E1433;font-size:14px;font-weight:700;padding:14px 32px;border-radius:25px;text-decoration:none;margin-bottom:14px;letter-spacing:0.05em;text-transform:uppercase;font-family:Arial,sans-serif;}
+.cta-contact{font-size:13px;color:#8070A0;line-height:2;font-family:Arial,sans-serif;}
+.cta-contact a{color:#D4B483;text-decoration:none;}
+
+/* ── FOOTER ── */
+.footer{background:#1E1433;padding:20px;text-align:center;margin-top:4px;}
+.footer p{font-size:11px;color:#4A3060;line-height:1.9;font-family:Arial,sans-serif;}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,20,0.88);z-index:10000;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.open{display:flex;}
-.modal-box{background:#fff;border-radius:16px;width:100%;max-width:700px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;}
-.modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#993556;flex-shrink:0;}
-.modal-title{font-size:15px;font-weight:600;color:#fff;}
-.modal-close{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;line-height:1;padding:0;}
+.modal-box{background:#fff;border-radius:16px;width:100%;max-width:700px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,0.6);}
+.modal-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:#1E1433;flex-shrink:0;border-bottom:2px solid #D4B483;}
+.modal-title{font-size:15px;font-weight:600;color:#fff;font-family:Arial,sans-serif;}
+.modal-close{background:none;border:none;color:#D4B483;font-size:24px;cursor:pointer;line-height:1;padding:0;}
 .modal-body{flex:1;overflow-y:auto;}
 .modal-body iframe{width:100%;border:none;height:560px;}
 </style>
