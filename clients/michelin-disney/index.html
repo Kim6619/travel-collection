@@ -428,8 +428,12 @@ function openResortModal(evt,url,el){
 
   clearTimeout(resortModalTimer);
   var loaded=false;
-  iframe.onload=function(){loaded=true;};
-  iframe.src=url;
+  iframe.onload=null;
+  iframe.src='about:blank';
+  setTimeout(function(){
+    iframe.onload=function(){loaded=true;};
+    iframe.src=url;
+  },30);
   resortModalTimer=setTimeout(function(){
     if(!loaded){
       iframe.style.display='none';
