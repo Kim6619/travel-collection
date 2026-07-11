@@ -57,7 +57,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
 .tag-teal{background:#E6F7F2;color:#0A5C42;}
 .resort-name{font-size:18px;font-weight:700;color:#1E1433;margin-bottom:5px;}
 .resort-desc{font-size:14px;color:#5A4070;line-height:1.65;font-family:Arial,sans-serif;}
-.overview-btn{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;color:#4A2060;padding:6px 16px;border:1.5px solid #C9B8E8;border-radius:20px;background:#FAF8F5;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:0.04em;}
+.overview-btn{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;color:#4A2060;padding:6px 16px;border:1.5px solid #C9B8E8;border-radius:20px;background:#FAF8F5;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:0.04em;text-decoration:none;}
 .overview-btn:hover{background:#EDE9FC;border-color:#4A2060;}
 .resort-body{padding:16px 18px;background:#FDFBF9;}
 .resort-fl{font-size:11px;font-weight:700;color:#888780;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;font-family:Arial,sans-serif;}
@@ -100,15 +100,6 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
 .footer{background:#1E1433;padding:20px;text-align:center;margin-top:4px;}
 .footer p{font-size:11px;color:#4A3060;line-height:1.9;font-family:Arial,sans-serif;}
 
-/* ── MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,20,0.88);z-index:10000;align-items:center;justify-content:center;padding:16px;}
-.modal-overlay.open{display:flex;}
-.modal-box{background:#fff;border-radius:16px;width:100%;max-width:700px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,0.6);}
-.modal-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:#1E1433;flex-shrink:0;border-bottom:2px solid #D4B483;}
-.modal-title{font-size:15px;font-weight:600;color:#fff;font-family:Arial,sans-serif;}
-.modal-close{background:none;border:none;color:#D4B483;font-size:24px;cursor:pointer;line-height:1;padding:0;}
-.modal-body{flex:1;overflow-y:auto;}
-.modal-body iframe{width:100%;border:none;height:560px;}
 </style>
 </head>
 <body>
@@ -123,7 +114,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
     <button class="lock-btn" onclick="unlock()">View my trip plan</button>
     <div class="lock-error" id="pw-error"></div>
   </div>
-  <div class="lock-footer">Kim Gamet &nbsp;·&nbsp; kim.gamet@mmvagent.com &nbsp;·&nbsp; 734-770-6554</div>
+  <div class="lock-footer">Kim Gamet &nbsp;·&nbsp; kim.gamet@mmvagent.com &nbsp;·&nbsp; (313) 290-0567</div>
 </div>
 
 <div id="page">
@@ -154,7 +145,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-purple">Most space &nbsp;·&nbsp; Full kitchen</span>
         <div class="resort-name">Saratoga Springs Resort &amp; Spa</div>
         <div class="resort-desc">1-bedroom villa with full kitchen. Disney Springs area with complimentary water taxi. Ideal for spreading out with young kids.</div>
-        <button class="overview-btn" onclick="openModal('Saratoga Springs Resort &amp; Spa','https://www.disneytravelcenter.com/ec22fa61ab/')">View resort details</button>
+        <a class="overview-btn" href="https://www.disneytravelcenter.com/ec22fa61ab/" target="_blank" rel="noopener noreferrer">View resort details</a>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -175,7 +166,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-blue">Most space &nbsp;·&nbsp; Best value</span>
         <div class="resort-name">Art of Animation &nbsp;·&nbsp; Family Suite</div>
         <div class="resort-desc">Oversized family suite themed around Disney and Pixar films. Two bathrooms, kitchenette, and sleeping for up to 6. One of the most popular choices for families with young kids.</div>
-        <button class="overview-btn" onclick="openModal('Art of Animation Family Suite','https://www.disneytravelcenter.com/ecd4f5137c/')">View resort details</button>
+        <a class="overview-btn" href="https://www.disneytravelcenter.com/ecd4f5137c/" target="_blank" rel="noopener noreferrer">View resort details</a>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -196,7 +187,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-green">Moderate resort &nbsp;·&nbsp; Fifth sleeper</span>
         <div class="resort-name">Disney's Caribbean Beach Resort</div>
         <div class="resort-desc">Colorful moderate resort with a Caribbean village feel. Great pool complex and easy Skyliner access to EPCOT and Hollywood Studios.</div>
-        <button class="overview-btn" onclick="openModal('Caribbean Beach Resort','https://www.disneytravelcenter.com/ec18832493/')">View resort details</button>
+        <a class="overview-btn" href="https://www.disneytravelcenter.com/ec18832493/" target="_blank" rel="noopener noreferrer">View resort details</a>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -217,7 +208,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-pink">Deluxe resort &nbsp;·&nbsp; Next to Magic Kingdom</span>
         <div class="resort-name">Disney's Contemporary Resort</div>
         <div class="resort-desc">Iconic A-frame tower steps from Magic Kingdom. The monorail runs directly through the building. A true bucket-list Disney experience with stunning views of Cinderella Castle.</div>
-        <button class="overview-btn" onclick="openModal('Contemporary Resort','https://www.disneytravelcenter.com/ecf58bd4d4/')">View resort details</button>
+        <a class="overview-btn" href="https://www.disneytravelcenter.com/ecf58bd4d4/" target="_blank" rel="noopener noreferrer">View resort details</a>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -238,7 +229,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-teal">Disney Vacation Club &nbsp;·&nbsp; Full kitchen</span>
         <div class="resort-name">The Cabins at Fort Wilderness Resort</div>
         <div class="resort-desc">A Disney Vacation Club Resort. Standalone 1-bedroom cabin nestled in a wooded setting. Feels like a cozy retreat with all the Disney magic right outside your door. Perfect for families who want space and privacy.</div>
-        <button class="overview-btn" onclick="openModal('The Cabins at Fort Wilderness Resort','https://www.disneytravelcenter.com/ec43663823/')">View resort details</button>
+        <a class="overview-btn" href="https://www.disneytravelcenter.com/ec43663823/" target="_blank" rel="noopener noreferrer">View resort details</a>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -305,7 +296,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
 
   <div class="section-label">Planning tip sheets</div>
   <div class="tip-grid">
-    <div class="tip-row" onclick="openModal('Lightning Lane Guide','https://www.disneytravelcenter.com/ecf351d075/')" style="cursor:pointer;">
+    <div class="tip-row" onclick="window.open('https://www.disneytravelcenter.com/ecf351d075/','_blank')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#E6F1FB;color:#185FA5;">&#9889;</div>
       <div class="tip-text"><div class="tip-name">Lightning Lane guide</div><div class="tip-sub">Multi Pass, Single Pass and Premier Pass explained</div></div>
       <div class="tip-arrow">&#8250;</div>
@@ -320,7 +311,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
       <div class="tip-text"><div class="tip-name">Character dining guide</div><div class="tip-sub">Every character dining experience by park and resort</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-    <div class="tip-row" onclick="openModal('Dining Plan','https://www.disneytravelcenter.com/ec7120cfc2/')" style="cursor:pointer;">
+    <div class="tip-row" onclick="window.open('https://www.disneytravelcenter.com/ec7120cfc2/','_blank')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#EAF3DE;color:#3B6D11;">&#128211;</div>
       <div class="tip-text"><div class="tip-name">Disney Dining Plan details</div><div class="tip-sub">Full plan and Quick-Service plan inclusions</div></div>
       <div class="tip-arrow">&#8250;</div>
@@ -335,22 +326,22 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
       <div class="tip-text"><div class="tip-name">Disney MagicMobile setup</div><div class="tip-sub">Use your phone instead of a MagicBand</div></div>
       <div class="tip-arrow">&#8250;</div>
     </a>
-    <div class="tip-row" onclick="openModal('Memory Maker','https://www.disneytravelcenter.com/ecafd402d5/')" style="cursor:pointer;">
+    <div class="tip-row" onclick="window.open('https://www.disneytravelcenter.com/ecafd402d5/','_blank')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#FBEAF0;color:#993556;">&#128247;</div>
       <div class="tip-text"><div class="tip-name">Memory Maker and PhotoPass</div><div class="tip-sub">How to capture every magical moment</div></div>
       <div class="tip-arrow">&#8250;</div>
     </div>
-    <div class="tip-row" onclick="openModal('Mickey\'s Very Merry Christmas Party','https://www.disneytravelcenter.com/ec1ffc6794/')" style="cursor:pointer;">
+    <div class="tip-row" onclick="window.open('https://www.disneytravelcenter.com/ec1ffc6794/','_blank')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#FBEAF0;color:#993556;">&#127876;</div>
       <div class="tip-text"><div class="tip-name">Mickey's Very Merry Christmas Party tips</div><div class="tip-sub">Entertainment schedule, characters and timing guide</div></div>
       <div class="tip-arrow">&#8250;</div>
     </div>
-    <div class="tip-row" onclick="openModal('Property Maps','https://www.disneytravelcenter.com/ecfea59f82/')" style="cursor:pointer;">
+    <div class="tip-row" onclick="window.open('https://www.disneytravelcenter.com/ecfea59f82/','_blank')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#E6F1FB;color:#185FA5;">&#128506;</div>
       <div class="tip-text"><div class="tip-name">Property Maps</div><div class="tip-sub">Maps for all 4 parks and resort areas</div></div>
       <div class="tip-arrow">&#8250;</div>
     </div>
-    <div class="tip-row" onclick="openModal('EPCOT Festival of the Holidays','https://www.disneytravelcenter.com/ec290fe1a2/')" style="cursor:pointer;">
+    <div class="tip-row" onclick="window.open('https://www.disneytravelcenter.com/ec290fe1a2/','_blank')" style="cursor:pointer;">
       <div class="tip-icon" style="background:#FAECE7;color:#993C1D;">&#127747;</div>
       <div class="tip-text"><div class="tip-name">EPCOT International Festival of the Holidays</div><div class="tip-sub">Holiday kitchens, Candlelight Processional, and more</div></div>
       <div class="tip-arrow">&#8250;</div>
@@ -362,7 +353,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
     <a href="https://calendly.com/kim-gamet-mmv/30min" class="cta-btn">Schedule a call with Kim</a>
     <div class="cta-contact">
       &#9993; <a href="mailto:kim.gamet@mmvagent.com">kim.gamet@mmvagent.com</a><br>
-      &#128222; 734-770-6554<br>
+      &#128222; (313) 290-0567<br>
       <a href="https://www.magicalmomentsvacations.com/quote" target="_blank">www.magicalmomentsvacations.com/quote</a>
     </div>
   </div>
@@ -375,17 +366,6 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
 
 </div>
 
-<div class="modal-overlay" id="modal" onclick="handleModalClick(event)">
-  <div class="modal-box">
-    <div class="modal-header">
-      <span class="modal-title" id="modal-title">Resort Details</span>
-      <button class="modal-close" onclick="closeModal()">&#10005;</button>
-    </div>
-    <div class="modal-body">
-      <iframe id="resort-iframe" src="" scrolling="yes"></iframe>
-    </div>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -400,21 +380,6 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
   };
 })();
 
-function openModal(name, url){
-  document.getElementById('modal-title').textContent = name;
-  document.getElementById('resort-iframe').src = url;
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(){
-  document.getElementById('modal').classList.remove('open');
-  document.getElementById('resort-iframe').src = '';
-  document.body.style.overflow = '';
-}
-function handleModalClick(e){
-  if(e.target === document.getElementById('modal')) closeModal();
-}
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
 </script>
 </body>
 </html>
