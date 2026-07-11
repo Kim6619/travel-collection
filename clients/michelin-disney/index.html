@@ -115,6 +115,22 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
 .resort-modal-fallback p{font-size:14px;color:#5A4070;line-height:1.6;max-width:340px;}
 .resort-modal-fallback a{background:#1E1433;color:#D4B483;text-decoration:none;font-size:13px;font-weight:700;padding:12px 24px;border-radius:25px;letter-spacing:0.04em;text-transform:uppercase;}
 
+
+/* ── MODAL ── */
+#resort-modal-overlay{position:fixed;inset:0;background:rgba(30,20,51,0.55);z-index:9998;display:none;align-items:flex-end;justify-content:center;}
+#resort-modal-overlay.open{display:flex;}
+#resort-modal{background:#fff;width:100%;max-width:600px;height:88vh;border-radius:16px 16px 0 0;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 -8px 40px rgba(0,0,0,0.3);}
+@media(min-width:640px){
+  #resort-modal-overlay{align-items:center;}
+  #resort-modal{height:85vh;border-radius:16px;}
+}
+.resort-modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #F0EBF8;background:#FAF8F5;gap:10px;flex-shrink:0;}
+.resort-modal-title{font-size:14px;font-weight:700;color:#1E1433;font-family:Arial,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.resort-modal-actions{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.resort-modal-openlink{font-size:12px;color:#4A2060;text-decoration:none;font-family:Arial,sans-serif;font-weight:700;white-space:nowrap;}
+.resort-modal-close{background:none;border:none;font-size:22px;line-height:1;color:#5A4070;cursor:pointer;padding:2px 4px;}
+#resort-modal iframe{flex:1;width:100%;border:none;background:#fff;}
+
 /* ── FOOTER ── */
 .footer{background:#1E1433;padding:20px;text-align:center;margin-top:4px;}
 .footer p{font-size:11px;color:#4A3060;line-height:1.9;font-family:Arial,sans-serif;}
@@ -182,7 +198,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-purple">Most space &nbsp;·&nbsp; Full kitchen</span>
         <div class="resort-name">Saratoga Springs Resort &amp; Spa</div>
         <div class="resort-desc">1-bedroom villa with full kitchen. Disney Springs area with complimentary water taxi. Ideal for spreading out with young kids.</div>
-        <a class="overview-btn" href="https://www.disneytravelcenter.com/ec22fa61ab/" target="_blank" rel="noopener noreferrer" onclick="return openResortModal(event,'https://www.disneytravelcenter.com/ec22fa61ab/',this)">View resort details</a>
+        <button class="overview-btn" onclick="openSmart('https://www.disneytravelcenter.com/ec22fa61ab/',this)">View resort details</button>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -203,7 +219,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-blue">Most space &nbsp;·&nbsp; Best value</span>
         <div class="resort-name">Art of Animation &nbsp;·&nbsp; Family Suite</div>
         <div class="resort-desc">Oversized family suite themed around Disney and Pixar films. Two bathrooms, kitchenette, and sleeping for up to 6. One of the most popular choices for families with young kids.</div>
-        <a class="overview-btn" href="https://www.disneytravelcenter.com/ecd4f5137c/" target="_blank" rel="noopener noreferrer" onclick="return openResortModal(event,'https://www.disneytravelcenter.com/ecd4f5137c/',this)">View resort details</a>
+        <button class="overview-btn" onclick="openSmart('https://www.disneytravelcenter.com/ecd4f5137c/',this)">View resort details</button>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -224,7 +240,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-green">Moderate resort &nbsp;·&nbsp; Fifth sleeper</span>
         <div class="resort-name">Disney's Caribbean Beach Resort</div>
         <div class="resort-desc">Colorful moderate resort with a Caribbean village feel. Great pool complex and easy Skyliner access to EPCOT and Hollywood Studios.</div>
-        <a class="overview-btn" href="https://www.disneytravelcenter.com/ec18832493/" target="_blank" rel="noopener noreferrer" onclick="return openResortModal(event,'https://www.disneytravelcenter.com/ec18832493/',this)">View resort details</a>
+        <button class="overview-btn" onclick="openSmart('https://www.disneytravelcenter.com/ec18832493/',this)">View resort details</button>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -245,7 +261,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-pink">Deluxe resort &nbsp;·&nbsp; Next to Magic Kingdom</span>
         <div class="resort-name">Disney's Contemporary Resort</div>
         <div class="resort-desc">Iconic A-frame tower steps from Magic Kingdom. The monorail runs directly through the building. A true bucket-list Disney experience with stunning views of Cinderella Castle.</div>
-        <a class="overview-btn" href="https://www.disneytravelcenter.com/ecf58bd4d4/" target="_blank" rel="noopener noreferrer" onclick="return openResortModal(event,'https://www.disneytravelcenter.com/ecf58bd4d4/',this)">View resort details</a>
+        <button class="overview-btn" onclick="openSmart('https://www.disneytravelcenter.com/ecf58bd4d4/',this)">View resort details</button>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -266,7 +282,7 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
         <span class="resort-tag tag-teal">Disney Vacation Club &nbsp;·&nbsp; Full kitchen</span>
         <div class="resort-name">The Cabins at Fort Wilderness Resort</div>
         <div class="resort-desc">A Disney Vacation Club Resort. Standalone 1-bedroom cabin nestled in a wooded setting. Feels like a cozy retreat with all the Disney magic right outside your door. Perfect for families who want space and privacy.</div>
-        <a class="overview-btn" href="https://www.disneytravelcenter.com/ec43663823/" target="_blank" rel="noopener noreferrer" onclick="return openResortModal(event,'https://www.disneytravelcenter.com/ec43663823/',this)">View resort details</a>
+        <button class="overview-btn" onclick="openSmart('https://www.disneytravelcenter.com/ec43663823/',this)">View resort details</button>
       </div>
       <div class="resort-body">
         <div class="resort-fl">What's included</div>
@@ -403,55 +419,20 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
 
 </div>
 
+<div id="resort-modal-overlay" onclick="if(event.target===this)closeResortModal()">
+  <div id="resort-modal">
+    <div class="resort-modal-header">
+      <span class="resort-modal-title" id="resort-modal-title">Resort Details</span>
+      <div class="resort-modal-actions">
+        <a id="resort-modal-openlink" href="#" target="_blank" rel="noopener" class="resort-modal-openlink">Open in browser &#8250;</a>
+        <button class="resort-modal-close" onclick="closeResortModal()">&#10005;</button>
+      </div>
+    </div>
+    <iframe id="resort-modal-iframe" src="" scrolling="yes"></iframe>
+  </div>
+</div>
 
 <script>
-var resortModalTimer=null;
-function openResortModal(evt,url,el){
-  evt.preventDefault();
-  var overlay=document.getElementById('resort-modal-overlay');
-  var iframe=document.getElementById('resort-modal-iframe');
-  var title=document.getElementById('resort-modal-title');
-  var openlink=document.getElementById('resort-modal-openlink');
-  var fallback=document.getElementById('resort-modal-fallback');
-  var fallbackLink=document.getElementById('resort-modal-fallback-link');
-
-  var card=el.closest('.resort-header');
-  var nameEl=card?card.querySelector('.resort-name'):null;
-  title.textContent=nameEl?nameEl.textContent:'Resort details';
-  openlink.href=url;
-  fallbackLink.href=url;
-
-  fallback.classList.remove('show');
-  iframe.style.display='block';
-  overlay.classList.add('open');
-  document.body.style.overflow='hidden';
-
-  clearTimeout(resortModalTimer);
-  var loaded=false;
-  iframe.onload=null;
-  iframe.src='about:blank';
-  setTimeout(function(){
-    iframe.onload=function(){loaded=true;};
-    iframe.src=url;
-  },30);
-  resortModalTimer=setTimeout(function(){
-    if(!loaded){
-      iframe.style.display='none';
-      fallback.classList.add('show');
-    }
-  },2500);
-
-  return false;
-}
-function closeResortModal(){
-  var overlay=document.getElementById('resort-modal-overlay');
-  var iframe=document.getElementById('resort-modal-iframe');
-  overlay.classList.remove('open');
-  document.body.style.overflow='';
-  iframe.src='';
-  clearTimeout(resortModalTimer);
-}
-
 (function(){
   var PW='CMich2026';
   var KEY='mmv_michelin_auth';
@@ -464,6 +445,32 @@ function closeResortModal(){
   };
 })();
 
+function openSmart(url, el){
+  var isMobile = window.innerWidth < 768 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if(isMobile){
+    window.open(url, '_blank');
+  } else {
+    var overlay = document.getElementById('resort-modal-overlay');
+    var iframe = document.getElementById('resort-modal-iframe');
+    var title = document.getElementById('resort-modal-title');
+    var openlink = document.getElementById('resort-modal-openlink');
+    var card = el.closest('.resort-header');
+    var nameEl = card ? card.querySelector('.resort-name') : null;
+    title.textContent = nameEl ? nameEl.textContent : 'Resort Details';
+    openlink.href = url;
+    iframe.src = url;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeResortModal(){
+  document.getElementById('resort-modal-overlay').classList.remove('open');
+  document.getElementById('resort-modal-iframe').src = '';
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeResortModal(); });
 </script>
 </body>
 </html>
