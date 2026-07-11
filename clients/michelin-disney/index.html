@@ -382,50 +382,39 @@ body{font-family:'Georgia',serif;background:#FAF8F5;color:#1E1433;min-height:100
       <button class="modal-close" onclick="closeModal()">&#10005;</button>
     </div>
     <div class="modal-body">
-      <iframe id="resort-iframe" src="https://www.disneytravelcenter.com/ec43663823/" scrolling="yes"></iframe>
+      <iframe id="resort-iframe" src="" scrolling="yes"></iframe>
     </div>
   </div>
 </div>
 
 <script>
 (function(){
-  const PW='CMich2026';
-  const KEY='mmv_michelin_auth';
+  var PW='CMich2026';
+  var KEY='mmv_michelin_auth';
   if(sessionStorage.getItem(KEY)==='1'){show();}
   function show(){document.getElementById('lock').classList.add('hidden');document.getElementById('page').classList.add('visible');}
   window.unlock=function(){
-    const v=document.getElementById('pw-input').value;
+    var v=document.getElementById('pw-input').value;
     if(v===PW){sessionStorage.setItem(KEY,'1');show();}
     else{document.getElementById('pw-error').textContent='Incorrect password. Please check with Kim and try again.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}
   };
-  const modalUrls = {
-    'Saratoga Springs Resort & Spa': 'https://www.disneytravelcenter.com/ec22fa61ab/',
-    'Art of Animation Family Suite': 'https://www.disneytravelcenter.com/ecd4f5137c/',
-    'Caribbean Beach Resort': 'https://www.disneytravelcenter.com/ec18832493/',
-    'Contemporary Resort': 'https://www.disneytravelcenter.com/ecf58bd4d4/',
-    'The Cabins at Fort Wilderness Resort': 'https://www.disneytravelcenter.com/ec43663823/',
-    'Lightning Lane Guide': 'https://www.disneytravelcenter.com/ecf351d075/',
-    'Memory Maker': 'https://www.disneytravelcenter.com/ecafd402d5/',
-    'Dining Plan': 'https://www.disneytravelcenter.com/ec7120cfc2/',
-    'Mickey\'s Very Merry Christmas Party': 'https://www.disneytravelcenter.com/ec1ffc6794/',
-    'Property Maps': 'https://www.disneytravelcenter.com/ecfea59f82/',
-    'EPCOT Festival of the Holidays': 'https://www.disneytravelcenter.com/ec290fe1a2/',
-  };
-  window.openModal=function(name, url){
-    document.getElementById('modal-title').textContent=name;
-    document.getElementById('resort-iframe').src = url;
-    document.getElementById('modal').classList.add('open');
-    document.body.style.overflow='hidden';
-  };
-  window.closeModal=function(){
-    document.getElementById('modal').classList.remove('open');
-    document.body.style.overflow='';
-  };
-  window.handleModalClick=function(e){
-    if(e.target===document.getElementById('modal'))closeModal();
-  };
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 })();
+
+function openModal(name, url){
+  document.getElementById('modal-title').textContent = name;
+  document.getElementById('resort-iframe').src = url;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('resort-iframe').src = '';
+  document.body.style.overflow = '';
+}
+function handleModalClick(e){
+  if(e.target === document.getElementById('modal')) closeModal();
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
 </script>
 </body>
 </html>
