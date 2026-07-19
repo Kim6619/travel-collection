@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kim's Italy & Mediterranean Cruise | August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Georgia',serif;background:#FAF8F5;color:#1A1A2E;min-height:100vh;}
+
+/* LOCK */
+#lock{position:fixed;inset:0;background:linear-gradient(160deg,#1A1A2E 0%,#C9003C 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:24px;}
+#lock.hidden{display:none;}
+.lock-logo{font-size:12px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;font-family:Arial,sans-serif;}
+.lock-title{font-size:24px;font-weight:700;color:#fff;text-align:center;margin-bottom:6px;}
+.lock-sub{font-size:14px;color:#F9B8C8;margin-bottom:28px;font-family:Arial,sans-serif;}
+.lock-box{background:#fff;border-radius:16px;padding:24px;width:100%;max-width:320px;}
+.lock-box label{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;font-family:Arial,sans-serif;}
+.lock-box input{width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:10px;font-size:16px;outline:none;margin-bottom:14px;font-family:Arial,sans-serif;}
+.lock-btn{width:100%;background:#1A1A2E;color:#D4B483;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;letter-spacing:0.05em;text-transform:uppercase;}
+.lock-error{font-size:13px;color:#c00;text-align:center;margin-top:8px;min-height:16px;font-family:Arial,sans-serif;}
+
+/* PAGE */
+#page{display:none;}
+#page.visible{display:block;}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#1A1A2E 0%,#8B0000 100%);padding:32px 20px 28px;text-align:center;position:relative;}
+.hero:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#D4B483,transparent);}
+.hero-label{font-size:11px;color:#D4B483;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;font-family:Arial,sans-serif;}
+.hero-title{font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;}
+.hero-sub{font-size:13px;color:#F9B8C8;margin-bottom:14px;font-family:Arial,sans-serif;}
+.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+.hero-pill{background:rgba(212,180,131,0.15);border:1px solid rgba(212,180,131,0.3);border-radius:20px;padding:5px 14px;font-size:12px;color:#F5E6C8;font-family:Arial,sans-serif;}
+
+/* SECTION */
+.section-label{font-size:11px;font-weight:700;color:#888;letter-spacing:0.1em;text-transform:uppercase;padding:22px 16px 8px;font-family:Arial,sans-serif;}
+
+/* BOOKING CARDS */
+.booking-grid{display:flex;flex-direction:column;gap:10px;padding:0 16px 4px;}
+.booking-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(26,26,46,0.07),0 0 0 1px rgba(26,26,46,0.05);}
+.booking-header{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid #F0EBF8;}
+.booking-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.booking-title{font-size:15px;font-weight:700;color:#1A1A2E;}
+.booking-sub{font-size:12px;color:#888;margin-top:2px;font-family:Arial,sans-serif;}
+.booking-body{padding:12px 16px;}
+.booking-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid #F8F5F0;gap:10px;}
+.booking-row:last-child{border-bottom:none;}
+.booking-key{font-size:12px;color:#888;font-family:Arial,sans-serif;flex-shrink:0;}
+.booking-val{font-size:13px;color:#1A1A2E;font-weight:600;text-align:right;font-family:Arial,sans-serif;}
+.booking-val a{color:#8B0000;text-decoration:none;font-weight:600;}
+.conf{font-size:11px;font-family:'Courier New',monospace;background:#F5EAF8;color:#4A2060;padding:2px 8px;border-radius:6px;font-weight:700;}
+
+/* DAY CARDS */
+.day-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(26,26,46,0.07),0 0 0 1px rgba(26,26,46,0.05);margin:0 16px 10px;}
+.day-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;border-bottom:1px solid #F0EBF8;}
+.day-header:hover{background:#FDFBF9;}
+.day-date{background:#1A1A2E;color:#D4B483;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;font-family:Arial,sans-serif;white-space:nowrap;}
+.day-port{font-size:15px;font-weight:700;color:#1A1A2E;flex:1;}
+.day-hours{font-size:12px;color:#888;font-family:Arial,sans-serif;}
+.day-chevron{font-size:16px;color:#D4B483;transition:transform 0.2s;}
+.day-chevron.open{transform:rotate(180deg);}
+.day-body{display:none;padding:14px 16px;}
+.day-body.open{display:block;}
+.time-item{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid #F8F5F0;}
+.time-item:last-child{border-bottom:none;}
+.time{font-size:11px;font-weight:700;color:#8B0000;font-family:Arial,sans-serif;width:56px;flex-shrink:0;padding-top:2px;}
+.time-content{}
+.time-title{font-size:13px;font-weight:700;color:#1A1A2E;margin-bottom:2px;}
+.time-desc{font-size:12px;color:#5A3070;line-height:1.6;font-family:Arial,sans-serif;}
+.time-conf{margin-top:4px;}
+.excursion-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:4px;font-family:Arial,sans-serif;}
+.badge-vv{background:#FFE5ED;color:#8C0027;}
+.badge-viator{background:#E6F1FB;color:#0C447C;}
+.badge-gyg{background:#EAF3DE;color:#27500A;}
+.badge-free{background:#F5EAF8;color:#4A2060;}
+.badge-res{background:#FFF8EC;color:#7A5800;}
+.sea-day{background:linear-gradient(135deg,#1A1A2E,#2D2D5C);padding:16px;text-align:center;margin:0 16px 10px;border-radius:14px;}
+.sea-day-text{color:#C9B8E8;font-size:14px;font-family:Arial,sans-serif;}
+.sea-day-icon{font-size:24px;margin-bottom:4px;}
+
+/* CABIN CARD */
+.cabin-card{background:linear-gradient(135deg,#1A1A2E,#8B0000);border-radius:14px;margin:0 16px 10px;padding:18px;color:#fff;}
+.cabin-label{font-size:10px;color:#D4B483;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;font-family:Arial,sans-serif;}
+.cabin-name{font-size:18px;font-weight:700;margin-bottom:4px;}
+.cabin-detail{font-size:13px;color:#C9B8E8;font-family:Arial,sans-serif;}
+
+/* FOOTER */
+.footer{background:#1A1A2E;padding:16px;text-align:center;margin-top:8px;}
+.footer p{font-size:11px;color:#4A3060;font-family:Arial,sans-serif;line-height:1.8;}
+</style>
+</head>
+<body>
+
+<div id="lock">
+  <div class="lock-logo">Kim's Personal Trip Dashboard</div>
+  <div class="lock-title">Italy & Mediterranean 2026 &#9973;</div>
+  <div class="lock-sub">August 21 to 31, 2026</div>
+  <div class="lock-box">
+    <label>Access code</label>
+    <input type="password" id="pw-input" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()">
+    <button class="lock-btn" onclick="unlock()">Open my trip &#127955;</button>
+    <div class="lock-error" id="pw-error"></div>
+  </div>
+</div>
+
+<div id="page">
+
+  <div class="hero">
+    <div class="hero-label">Personal Trip Dashboard</div>
+    <div class="hero-title">Italy & Mediterranean Cruise &#9973;</div>
+    <div class="hero-sub">Virgin Voyages &nbsp;·&nbsp; August 21 to 31, 2026 &nbsp;·&nbsp; Kim & Harper</div>
+    <div class="hero-pills">
+      <span class="hero-pill">&#127470;&#127481; Rome</span>
+      <span class="hero-pill">&#127466;&#127482; Sicily</span>
+      <span class="hero-pill">&#127470;&#127481; Naples</span>
+      <span class="hero-pill">&#127467;&#127479; Corsica</span>
+      <span class="hero-pill">&#127467;&#127479; Cannes</span>
+      <span class="hero-pill">&#127470;&#127481; Florence/Pisa</span>
+    </div>
+  </div>
+
+  <!-- CABIN -->
+  <div class="section-label">Your cabin</div>
+  <div class="cabin-card">
+    <div class="cabin-label">Virgin Voyages &nbsp;·&nbsp; Sea Terrace</div>
+    <div class="cabin-name">Central Sea Terrace &nbsp;·&nbsp; Cabin 10 142 A</div>
+    <div class="cabin-detail">Deck 10 &nbsp;·&nbsp; Port Amerigo Vespucci Terminal, Civitavecchia &nbsp;·&nbsp; Board August 22 by 3:45pm</div>
+  </div>
+
+  <!-- KEY BOOKINGS -->
+  <div class="section-label">Key bookings & confirmations</div>
+  <div class="booking-grid">
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#E6F1FB;">&#9992;</div>
+        <div><div class="booking-title">Flights</div><div class="booking-sub">Arriving Rome &nbsp;·&nbsp; August 21</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Arrives Rome</span><span class="booking-val">11:00am, August 21</span></div>
+        <div class="booking-row"><div class="booking-key">Departs</div><div class="booking-val">Check Delta app for details</div></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#EAF3DE;">&#128652;</div>
+        <div><div class="booking-title">Rome Airport Transfer</div><div class="booking-sub">Viator &nbsp;·&nbsp; Aug 21, 11:30am</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">BR-1423631673</span></span></div>
+        <div class="booking-row"><span class="booking-key">Service</span><span class="booking-val">Airport to Hotel Transfer</span></div>
+        <div class="booking-row"><span class="booking-key">Link</span><span class="booking-val"><a href="https://www.viator.com" target="_blank">Viator booking &#8250;</a></span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#F5EAF8;">&#127963;</div>
+        <div><div class="booking-title">Minerva Relais &nbsp;·&nbsp; Rome</div><div class="booking-sub">Hotels.com &nbsp;·&nbsp; Aug 21 to 22</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">72076774043990</span></span></div>
+        <div class="booking-row"><span class="booking-key">Address</span><span class="booking-val"><a href="https://maps.google.com/?q=Via+Piè+di+Marmo+16+Rome" target="_blank">Via Piè di Marmo, 16 &#8250;</a></span></div>
+        <div class="booking-row"><span class="booking-key">Check-in</span><span class="booking-val">Fri Aug 21 &nbsp;·&nbsp; 1:00pm</span></div>
+        <div class="booking-row"><span class="booking-key">Check-out</span><span class="booking-val">Sat Aug 22 &nbsp;·&nbsp; 11:00am</span></div>
+        <div class="booking-row"><span class="booking-key">Link</span><span class="booking-val"><a href="https://www.hotels.com" target="_blank">Hotels.com booking &#8250;</a></span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#FAECE7;">&#127963;</div>
+        <div><div class="booking-title">Vatican Tour</div><div class="booking-sub">Aug 21 &nbsp;·&nbsp; 3:30pm</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">2L2N0T7K3TTG95HDT1</span></span></div>
+        <div class="booking-row"><span class="booking-key">Tickets</span><span class="booking-val">In kimgamet79 account</span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#EAF3DE;">&#127912;</div>
+        <div><div class="booking-title">Borghese Gallery</div><div class="booking-sub">Viator &nbsp;·&nbsp; Aug 22, 9:00am</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">BR-1423334087</span></span></div>
+        <div class="booking-row"><span class="booking-key">Provider</span><span class="booking-val">Viator</span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#E6F1FB;">&#128663;</div>
+        <div><div class="booking-title">Rome to Civitavecchia Transfer</div><div class="booking-sub">GetYourGuide &nbsp;·&nbsp; Aug 22, 2:00pm</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">GYGZGZX89QW7</span></span></div>
+        <div class="booking-row"><span class="booking-key">Pickup</span><span class="booking-val">From hotel, 2:00pm</span></div>
+        <div class="booking-row"><span class="booking-key">Arrive port</span><span class="booking-val">3:45pm &nbsp;·&nbsp; Amerigo Vespucci Terminal</span></div>
+        <div class="booking-row"><span class="booking-key">Link</span><span class="booking-val"><a href="https://www.getyourguide.com" target="_blank">GetYourGuide booking &#8250;</a></span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#EAF3DE;">&#127907;</div>
+        <div><div class="booking-title">Herculaneum Tour</div><div class="booking-sub">GetYourGuide &nbsp;·&nbsp; Aug 25, 1:30pm</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">GYGMX4FX5AVG</span></span></div>
+        <div class="booking-row"><span class="booking-key">Meeting point</span><span class="booking-val">Molo Beverello Snack Bar Pic Nic</span></div>
+        <div class="booking-row"><span class="booking-key">Meet</span><span class="booking-val">1:00pm (tour 1:30pm)</span></div>
+        <div class="booking-row"><span class="booking-key">Link</span><span class="booking-val"><a href="https://www.getyourguide.com" target="_blank">GetYourGuide booking &#8250;</a></span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#FFE5ED;">&#9973;</div>
+        <div><div class="booking-title">VV Excursions</div><div class="booking-sub">Virgin Voyages app</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Aug 27 Corsica</span><span class="booking-val">Kayak the Gulf of Ajaccio &nbsp;·&nbsp; 8:45am</span></div>
+        <div class="booking-row"><span class="booking-key">Aug 28 Cannes</span><span class="booking-val">Provençal Olive Oil & St. Paul de Vence &nbsp;·&nbsp; 9:45am</span></div>
+        <div class="booking-row"><span class="booking-key">Aug 29 Florence</span><span class="booking-val">Pisa by Trolley & Boat &nbsp;·&nbsp; 8:45am</span></div>
+        <div class="booking-row"><span class="booking-key">Link</span><span class="booking-val"><a href="https://www.virginvoyages.com" target="_blank">Virgin Voyages app &#8250;</a></span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#E6F1FB;">&#128663;</div>
+        <div><div class="booking-title">Civitavecchia to Rome Transfer</div><div class="booking-sub">Viator &nbsp;·&nbsp; Aug 31, 9:30am</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">BR-1423572091</span></span></div>
+        <div class="booking-row"><span class="booking-key">Type</span><span class="booking-val">Shared transfer, pier to Rome hotel/airport</span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#F5EAF8;">&#127963;</div>
+        <div><div class="booking-title">Rome Hotel &nbsp;·&nbsp; Aug 31</div><div class="booking-sub">Hilton &nbsp;·&nbsp; Disembark day</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Confirmation</span><span class="booking-val"><span class="conf">3495219376</span></span></div>
+        <div class="booking-row"><span class="booking-key">Hilton Honors</span><span class="booking-val"><span class="conf">2841822410</span></span></div>
+        <div class="booking-row"><span class="booking-key">Link</span><span class="booking-val"><a href="https://www.hilton.com" target="_blank">Hilton booking &#8250;</a></span></div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <div class="booking-header">
+        <div class="booking-icon" style="background:#EAF3DE;">&#128646;</div>
+        <div><div class="booking-title">Train &nbsp;·&nbsp; Civitavecchia to Rome</div><div class="booking-sub">Trenitalia &nbsp;·&nbsp; Aug 31</div></div>
+      </div>
+      <div class="booking-body">
+        <div class="booking-row"><span class="booking-key">Train</span><span class="booking-val">Trenitalia 4683 &nbsp;·&nbsp; 10:53am</span></div>
+        <div class="booking-row"><span class="booking-key">Tickets</span><span class="booking-val">Purchase at station</span></div>
+        <div class="booking-row"><span class="booking-key">Link</span><span class="booking-val"><a href="https://www.trenitalia.com" target="_blank">Trenitalia website &#8250;</a></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DAY BY DAY -->
+  <div class="section-label">Day by day itinerary</div>
+
+  <!-- AUG 21 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug21')">
+      <span class="day-date">Thu Aug 21</span>
+      <span class="day-port">&#127470;&#127481; Rome — Arrival Day</span>
+      <span class="day-chevron" id="chev-aug21">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug21">
+      <div class="time-item"><div class="time">11:00am</div><div class="time-content"><div class="time-title">Flight arrives Rome</div></div></div>
+      <div class="time-item"><div class="time">11:30am</div><div class="time-content"><div class="time-title">Transfer to Hotel</div><div class="time-desc">Viator airport transfer to Minerva Relais</div><div class="time-conf"><span class="excursion-badge badge-viator">BR-1423631673</span></div></div></div>
+      <div class="time-item"><div class="time">1:00pm</div><div class="time-content"><div class="time-title">Check in &nbsp;·&nbsp; Minerva Relais</div><div class="time-desc">Via Piè di Marmo, 16 &nbsp;·&nbsp; Hotels.com #72076774043990</div></div></div>
+      <div class="time-item"><div class="time">Afternoon</div><div class="time-content"><div class="time-title">Heart of Rome Walk</div><div class="time-desc">Colosseum area &rarr; Piazza Venezia &rarr; Piazza Navona &rarr; Trevi Fountain &rarr; Spanish Steps<br>Tip: Return to Trevi Fountain after 10pm for smaller crowds and beautiful lighting</div><span class="excursion-badge badge-free">Free sights</span></div></div>
+      <div class="time-item"><div class="time">3:30pm</div><div class="time-content"><div class="time-title">Vatican Tour</div><div class="time-desc">Tickets in kimgamet79 account</div><div class="time-conf"><span class="excursion-badge badge-res">2L2N0T7K3TTG95HDT1</span></div></div></div>
+      <div class="time-item"><div class="time">Evening</div><div class="time-content"><div class="time-title">Dinner in Trastevere</div><div class="time-desc">Cross the Tiber into Trastevere — bohemian neighborhood with ivy-draped alleyways, perfect for a classic Roman dinner</div><span class="excursion-badge badge-free">No reservation needed</span></div></div>
+    </div>
+  </div>
+
+  <!-- AUG 22 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug22')">
+      <span class="day-date">Fri Aug 22</span>
+      <span class="day-port">&#127470;&#127481; Rome & Embarkation</span>
+      <span class="day-chevron" id="chev-aug22">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug22">
+      <div class="time-item"><div class="time">9:00am</div><div class="time-content"><div class="time-title">Borghese Gallery</div><div class="time-conf"><span class="excursion-badge badge-viator">BR-1423334087</span></div></div></div>
+      <div class="time-item"><div class="time">11:00am</div><div class="time-content"><div class="time-title">Check out &nbsp;·&nbsp; Minerva Relais</div><div class="time-desc">Check-out by 11:00am</div></div></div>
+      <div class="time-item"><div class="time">12:00pm</div><div class="time-content"><div class="time-title">Pantheon Tour</div><div class="time-desc">To be scheduled &nbsp;·&nbsp; Book time slot online in advance &nbsp;·&nbsp; World's largest unreinforced concrete dome</div><span class="excursion-badge badge-res">Book online</span></div></div>
+      <div class="time-item"><div class="time">2:00pm</div><div class="time-content"><div class="time-title">Private Transfer to Civitavecchia</div><div class="time-desc">Hotel to port &nbsp;·&nbsp; GetYourGuide</div><div class="time-conf"><span class="excursion-badge badge-gyg">GYGZGZX89QW7</span></div></div></div>
+      <div class="time-item"><div class="time">3:45pm</div><div class="time-content"><div class="time-title">Board Scarlet Lady &#9973;</div><div class="time-desc">Port Amerigo Vespucci Terminal &nbsp;·&nbsp; Civitavecchia<br>Cabin: Central Sea Terrace 10 142 A &nbsp;·&nbsp; Deck 10</div><span class="excursion-badge badge-vv">Virgin Voyages</span></div></div>
+    </div>
+  </div>
+
+  <!-- AUG 23 -->
+  <div class="sea-day">
+    <div class="sea-day-icon">&#127754;</div>
+    <div class="sea-day-text"><strong style="color:#D4B483;">Sat Aug 23 &nbsp;·&nbsp; Day at Sea</strong><br>Pool deck, spa, restaurants, shows</div>
+  </div>
+
+  <!-- AUG 24 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug24')">
+      <span class="day-date">Sun Aug 24</span>
+      <span class="day-port">&#127470;&#127481; Catania, Sicily &nbsp;<span style="font-size:12px;color:#888;font-weight:400;">8:30am to 5pm</span></span>
+      <span class="day-chevron" id="chev-aug24">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug24">
+      <div class="time-item"><div class="time">Morning</div><div class="time-content"><div class="time-title">Walk to Piazza del Duomo</div><div class="time-desc">15 to 20 minute walk from ship &nbsp;·&nbsp; La Pescheria fish market &nbsp;·&nbsp; Via Etnea shopping street</div><span class="excursion-badge badge-free">Self-guided</span></div></div>
+      <div class="time-item"><div class="time">Lunch</div><div class="time-content"><div class="time-title">A Putia dell'Ostello</div><div class="time-desc">Local restaurant in Catania &nbsp;·&nbsp; Check wheat/dairy options</div><span class="excursion-badge badge-res">Lunch reservation recommended</span></div></div>
+      <div class="time-item"><div class="time">5:00pm</div><div class="time-content"><div class="time-title">Back on ship</div></div></div>
+    </div>
+  </div>
+
+  <!-- AUG 25 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug25')">
+      <span class="day-date">Mon Aug 25</span>
+      <span class="day-port">&#127470;&#127481; Naples &nbsp;<span style="font-size:12px;color:#888;font-weight:400;">9:30am to 8pm</span></span>
+      <span class="day-chevron" id="chev-aug25">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug25">
+      <div class="time-item"><div class="time">9:30am</div><div class="time-content"><div class="time-title">Off ship &nbsp;·&nbsp; Walk to centro storico</div><div class="time-desc">Head toward Piazza del Gesù Nuovo</div></div></div>
+      <div class="time-item"><div class="time">10:00am</div><div class="time-content"><div class="time-title">Spaccanapoli wander</div><div class="time-desc">San Gregorio Armeno (Christmas alley) &nbsp;·&nbsp; Peek at the Duomo</div><span class="excursion-badge badge-free">Self-guided</span></div></div>
+      <div class="time-item"><div class="time">11:15am</div><div class="time-content"><div class="time-title">Pizza lunch &nbsp;·&nbsp; Da Michele or Sorbillo</div><div class="time-desc">Arrive 11:15 to 11:30 to beat the worst of the lunch line</div><span class="excursion-badge badge-res">Arrive early</span></div></div>
+      <div class="time-item"><div class="time">12:15pm</div><div class="time-content"><div class="time-title">Walk to Molo Beverello</div><div class="time-desc">10 to 15 minute walk &nbsp;·&nbsp; Meet at Snack Bar Pic Nic by 1:00pm</div></div></div>
+      <div class="time-item"><div class="time">1:30pm</div><div class="time-content"><div class="time-title">Herculaneum Half Day Tour</div><div class="time-desc">With guide and tickets &nbsp;·&nbsp; Meeting at Molo Beverello</div><div class="time-conf"><span class="excursion-badge badge-gyg">GYGMX4FX5AVG</span></div></div></div>
+      <div class="time-item"><div class="time">4:00pm</div><div class="time-content"><div class="time-title">Free time in Naples</div><div class="time-desc">Via Toledo wander &nbsp;·&nbsp; Coffee &nbsp;·&nbsp; Pasticceria stop (gluten-free options available) &nbsp;·&nbsp; Or relax somewhere with a view</div></div></div>
+      <div class="time-item"><div class="time">7:00pm</div><div class="time-content"><div class="time-title">Head back to ship</div><div class="time-desc">All aboard 8:00pm</div></div></div>
+    </div>
+  </div>
+
+  <!-- AUG 26 -->
+  <div class="sea-day">
+    <div class="sea-day-icon">&#127754;</div>
+    <div class="sea-day-text"><strong style="color:#D4B483;">Tue Aug 26 &nbsp;·&nbsp; Day at Sea</strong><br>Pool deck, spa, restaurants, shows</div>
+  </div>
+
+  <!-- AUG 27 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug27')">
+      <span class="day-date">Wed Aug 27</span>
+      <span class="day-port">&#127467;&#127479; Ajaccio, Corsica &nbsp;<span style="font-size:12px;color:#888;font-weight:400;">8:30am to 6pm</span></span>
+      <span class="day-chevron" id="chev-aug27">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug27">
+      <div class="time-item"><div class="time">8:45am</div><div class="time-content"><div class="time-title">Kayak the Gulf of Ajaccio</div><div class="time-desc">Virgin Voyages excursion</div><span class="excursion-badge badge-vv">VV Excursion</span></div></div>
+      <div class="time-item"><div class="time">Afternoon</div><div class="time-content"><div class="time-title">Ajaccio old town</div><div class="time-desc">Maison Bonaparte (30 to 45 min) &nbsp;·&nbsp; Citadel and old streets &nbsp;·&nbsp; Lunch at local spot in historic center</div><span class="excursion-badge badge-free">Self-guided</span></div></div>
+      <div class="time-item"><div class="time">Optional</div><div class="time-content"><div class="time-title">Sanguinaires Islands</div><div class="time-desc">15 to 20 min taxi &nbsp;·&nbsp; Lighthouse and dramatic red rock views &nbsp;·&nbsp; More scenic, a bit more effort</div></div></div>
+      <div class="time-item"><div class="time">Late</div><div class="time-content"><div class="time-title">Waterfront café</div><div class="time-desc">Coffee or rosé at a waterfront café &nbsp;·&nbsp; Easy unrushed end to the day</div></div></div>
+    </div>
+  </div>
+
+  <!-- AUG 28 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug28')">
+      <span class="day-date">Thu Aug 28</span>
+      <span class="day-port">&#127467;&#127479; Cannes, France &nbsp;<span style="font-size:12px;color:#888;font-weight:400;">8:30am to 8pm</span></span>
+      <span class="day-chevron" id="chev-aug28">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug28">
+      <div class="time-item"><div class="time">9:45am</div><div class="time-content"><div class="time-title">Provençal Olive Oil & St. Paul de Vence</div><div class="time-desc">Virgin Voyages excursion &nbsp;·&nbsp; 6 hours 30 minutes</div><span class="excursion-badge badge-vv">VV Excursion</span></div></div>
+      <div class="time-item"><div class="time">4:15pm</div><div class="time-content"><div class="time-title">Walk to Le Suquet</div><div class="time-desc">Uphill from tender dock &nbsp;·&nbsp; Or grab a taxi/bus if you'd rather skip the climb after a full day</div></div></div>
+      <div class="time-item"><div class="time">4:45pm</div><div class="time-content"><div class="time-title">Wander Le Suquet</div><div class="time-desc">Quiet upper streets &nbsp;·&nbsp; Musée de la Castre for bay views &nbsp;·&nbsp; Local art galleries &nbsp;·&nbsp; Neighborhood cafes most cruise passengers miss</div><span class="excursion-badge badge-free">Hidden gem</span></div></div>
+      <div class="time-item"><div class="time">6:00pm</div><div class="time-content"><div class="time-title">La Croisette dinner or aperitif</div><div class="time-desc">Relax by the harbor watching the yachts</div></div></div>
+      <div class="time-item"><div class="time">7:00pm</div><div class="time-content"><div class="time-title">Tender back to ship</div><div class="time-desc">All aboard 8:00pm</div></div></div>
+    </div>
+  </div>
+
+  <!-- AUG 29 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug29')">
+      <span class="day-date">Fri Aug 29</span>
+      <span class="day-port">&#127470;&#127481; Florence/Pisa (Livorno) &nbsp;<span style="font-size:12px;color:#888;font-weight:400;">8:30am to 6pm</span></span>
+      <span class="day-chevron" id="chev-aug29">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug29">
+      <div class="time-item"><div class="time">8:45am</div><div class="time-content"><div class="time-title">Pisa by Trolley & Boat</div><div class="time-desc">Virgin Voyages excursion &nbsp;·&nbsp; 4 hours</div><span class="excursion-badge badge-vv">VV Excursion</span></div></div>
+      <div class="time-item"><div class="time">1:30pm</div><div class="time-content"><div class="time-title">Port shuttle back to Livorno</div><div class="time-desc">Check shuttle pass with Virgin Voyages</div><span class="excursion-badge badge-vv">Check VV app</span></div></div>
+      <div class="time-item"><div class="time">Afternoon</div><div class="time-content"><div class="time-title">Livorno &nbsp;·&nbsp; Venezia Nuova quarter</div><div class="time-desc">Lunch at a trattoria (1 to 1.5 hours) &nbsp;·&nbsp; Wander the canals &nbsp;·&nbsp; Mercato Centrale &nbsp;·&nbsp; Unhurried pace</div><span class="excursion-badge badge-free">Self-guided</span></div></div>
+    </div>
+  </div>
+
+  <!-- AUG 30 -->
+  <div class="sea-day">
+    <div class="sea-day-icon">&#127754;</div>
+    <div class="sea-day-text"><strong style="color:#D4B483;">Sat Aug 30 &nbsp;·&nbsp; Day at Sea</strong><br>Last sea day &nbsp;·&nbsp; Pack up &nbsp;·&nbsp; Enjoy the ship</div>
+  </div>
+
+  <!-- AUG 31 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleDay('aug31')">
+      <span class="day-date">Sun Aug 31</span>
+      <span class="day-port">&#127470;&#127481; Disembark &amp; Rome</span>
+      <span class="day-chevron" id="chev-aug31">&#8964;</span>
+    </div>
+    <div class="day-body" id="aug31">
+      <div class="time-item"><div class="time">9:30am</div><div class="time-content"><div class="time-title">Shared Transfer &nbsp;·&nbsp; Civitavecchia to Rome</div><div class="time-desc">Pier to Rome hotel or airport &nbsp;·&nbsp; Viator</div><div class="time-conf"><span class="excursion-badge badge-viator">BR-1423572091</span></div></div></div>
+      <div class="time-item"><div class="time">10:53am</div><div class="time-content"><div class="time-title">Train option &nbsp;·&nbsp; Trenitalia 4683</div><div class="time-desc">Civitavecchia to Rome &nbsp;·&nbsp; Purchase tickets at station</div><span class="excursion-badge badge-res">Buy at station</span></div></div>
+      <div class="time-item"><div class="time">Check-in</div><div class="time-content"><div class="time-title">Hilton Rome Hotel</div><div class="time-desc">Confirmation: 3495219376 &nbsp;·&nbsp; Hilton Honors: 2841822410</div><div class="time-conf"><span class="excursion-badge badge-res">3495219376</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Kim's Personal Trip Dashboard &nbsp;·&nbsp; Italy & Mediterranean &nbsp;·&nbsp; August 2026<br>Keep this page bookmarked for easy access to all your bookings on the go</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var PW = 'Italy2026';
+  var KEY = 'kim_italy_2026';
+  if(sessionStorage.getItem(KEY)==='1') show();
+  function show(){
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('page').classList.add('visible');
+  }
+  window.unlock = function(){
+    var v = document.getElementById('pw-input').value;
+    if(v === PW){ sessionStorage.setItem(KEY,'1'); show(); }
+    else{ document.getElementById('pw-error').textContent = 'Incorrect password.'; document.getElementById('pw-input').value=''; }
+  };
+})();
+
+function toggleDay(id){
+  var body = document.getElementById(id);
+  var chev = document.getElementById('chev-'+id);
+  var open = body.classList.contains('open');
+  body.classList.toggle('open', !open);
+  chev.classList.toggle('open', !open);
+}
+</script>
+</body>
+</html>
