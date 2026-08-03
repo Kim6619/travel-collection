@@ -1,1 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Harmony of the Seas Game Plan | MMV Travel Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0B2A45;
+    --navy-deep: #071B2E;
+    --brass: #C7972B;
+    --brass-light: #E3C77A;
+    --sand: #F3ECDD;
+    --sand-line: #E2D6B8;
+    --white: #FFFDF9;
+    --ink: #142333;
+    --ink-soft: #4A5A6B;
+    --good: #2F6B4F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background: var(--sand); color: var(--ink);
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  a{ color: var(--navy); }
 
+  header.hero{
+    position:relative;
+    background: radial-gradient(140% 100% at 15% 0%, #163C5E 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    color: var(--sand); padding: 60px 24px 80px; overflow:hidden;
+  }
+  header.hero::after{
+    content:""; position:absolute; left:0; right:0; bottom:-1px; height:56px; background: var(--sand);
+    clip-path: polygon(0 100%, 100% 100%, 100% 40%, 92% 55%, 84% 38%, 76% 58%, 68% 36%, 60% 56%, 52% 34%, 44% 58%, 36% 36%, 28% 56%, 20% 34%, 12% 58%, 4% 38%, 0 50%);
+  }
+  .hero-inner{ max-width: 880px; margin:0 auto; position:relative; z-index:2; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; font-family:'Inter Tight',sans-serif;
+    font-weight:600; font-size:0.78rem; letter-spacing:2.5px; text-transform:uppercase;
+    color: var(--brass-light); margin-bottom:20px;
+  }
+  .eyebrow::before{ content:""; width:26px; height:1px; background: var(--brass-light); display:inline-block; }
+  .hero h1{ font-family:'Fraunces',serif; font-weight:600; font-size: clamp(2rem,4.5vw,2.9rem); line-height:1.1; margin:0 0 14px; }
+  .hero p.sub{ font-size:1.05rem; color:#C9D6E2; max-width:600px; line-height:1.6; margin:0; }
+
+  nav.jump{
+    max-width: 960px; margin: -34px auto 0; position:relative; z-index:5;
+    background: var(--white); border-radius:14px; box-shadow:0 14px 34px rgba(11,42,69,0.1);
+    display:flex; flex-wrap:wrap; gap:4px; padding:10px; justify-content:center;
+  }
+  nav.jump a{
+    text-decoration:none; color:var(--ink-soft); font-size:0.82rem; font-weight:600;
+    padding:8px 14px; border-radius:8px; font-family:'Inter Tight',sans-serif;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  nav.jump a:hover{ background: var(--sand); color:var(--navy); }
+
+  main{ max-width: 880px; margin: 0 auto; padding: 70px 24px 100px; }
+
+  section{ margin-bottom: 66px; scroll-margin-top: 24px; }
+  .sec-head{ margin-bottom: 26px; }
+  .sec-head .eyebrow{ color: var(--brass); }
+  .sec-head .eyebrow::before{ background: var(--brass); }
+  .sec-head h2{ font-family:'Fraunces',serif; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight:600; margin: 8px 0 6px; color: var(--navy); }
+  .sec-head p{ color: var(--ink-soft); line-height:1.6; margin:0; max-width:620px; }
+
+  .tip-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width:700px){ .tip-grid{ grid-template-columns: 1fr; } }
+
+  .tip{
+    background: var(--white); border:1px solid var(--sand-line); border-radius:12px;
+    padding: 16px 18px; display:flex; gap:12px; align-items:flex-start;
+  }
+  .tip .ico{ font-size:1.15rem; line-height:1.3; flex-shrink:0; }
+  .tip p{ margin:0; font-size:0.92rem; line-height:1.55; color: var(--ink); }
+  .tip p b{ color: var(--navy); }
+
+  .callout{
+    background:#FBF5E6; border:1px solid var(--sand-line); border-radius:14px;
+    padding: 20px 24px; margin: 30px 0; display:flex; gap:14px; align-items:flex-start;
+  }
+  .callout .ico{ font-size:1.3rem; }
+  .callout h4{ margin:0 0 4px; font-family:'Inter Tight',sans-serif; font-size:0.95rem; color:var(--navy); }
+  .callout p{ margin:0; font-size:0.88rem; color: var(--ink-soft); line-height:1.6; }
+
+  table.dine{ width:100%; border-collapse:collapse; background:var(--white); border-radius:14px; overflow:hidden; box-shadow:0 6px 20px rgba(11,42,69,0.05); font-size:0.86rem; }
+  table.dine th, table.dine td{ padding: 12px 16px; text-align:left; border-bottom:1px solid var(--sand-line); vertical-align:top; }
+  table.dine th{ background: var(--navy); color: var(--sand); font-family:'Inter Tight',sans-serif; font-weight:600; text-transform:uppercase; font-size:0.72rem; letter-spacing:0.4px; }
+  table.dine tr:last-child td{ border-bottom:none; }
+  table.dine td.name{ font-weight:600; color: var(--navy); }
+  table.dine td.tag{ color: var(--ink-soft); }
+
+  .video-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width:700px){ .video-grid{ grid-template-columns:1fr; } }
+  .video-card{ background: var(--white); border:1px solid var(--sand-line); border-radius:14px; overflow:hidden; }
+  .video-card .frame{ position:relative; padding-bottom:56.25%; height:0; }
+  .video-card .frame iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+  .video-card .label{ padding: 12px 16px; font-family:'Inter Tight',sans-serif; font-weight:600; font-size:0.88rem; color: var(--navy); }
+
+  .doc-box{
+    background: var(--white); border:1px solid var(--sand-line); border-radius:14px; padding: 22px 24px;
+  }
+  .doc-box p{ font-size:0.92rem; line-height:1.65; color: var(--ink); margin: 0 0 12px; }
+  .doc-box p:last-child{ margin-bottom:0; }
+  .doc-box a{ color: var(--brass); font-weight:600; text-decoration:none; border-bottom:1px solid var(--brass-light); }
+
+  .extras-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  @media (max-width:700px){ .extras-grid{ grid-template-columns:1fr; } }
+  .extra{ background: var(--white); border:1px solid var(--sand-line); border-radius:12px; padding: 18px 20px; }
+  .extra .ico{ font-size:1.3rem; margin-bottom:8px; }
+  .extra h4{ margin:0 0 6px; font-family:'Inter Tight',sans-serif; font-size:0.92rem; color: var(--navy); }
+  .extra p{ margin:0; font-size:0.84rem; color: var(--ink-soft); line-height:1.5; }
+
+  footer{ text-align:center; padding: 40px 24px 60px; color: var(--ink-soft); font-size:0.82rem; }
+  footer .brand{ font-family:'Fraunces', serif; color: var(--navy); font-size:1rem; margin-bottom:6px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">MMV Travel Collection · Prepared for Stacy</div>
+    <h1>Your Harmony of the Seas Game Plan</h1>
+    <p class="sub">Everything to know before you sail, what to pack, and how to make embarkation day painless. Sailing October 8, 2026.</p>
+  </div>
+</header>
+
+<nav class="jump">
+  <a href="#before">Before You Go</a>
+  <a href="#day-of">Embarkation Day</a>
+  <a href="#onboard">Onboard Tips</a>
+  <a href="#packing">Packing Tricks</a>
+  <a href="#dining">Specialty Dining</a>
+  <a href="#extras">Extras to Consider</a>
+  <a href="#videos">See It First</a>
+  <a href="#documents">Travel Documents</a>
+</nav>
+
+<main>
+
+  <section id="before">
+    <div class="sec-head">
+      <div class="eyebrow">Step one</div>
+      <h2>Before You Go</h2>
+      <p>A few things to knock out in the days leading up to sailing so embarkation morning is smooth.</p>
+    </div>
+    <div class="tip-grid">
+      <div class="tip"><span class="ico">🎭</span><p><b>Book shows now.</b> Royal Caribbean opens show reservations the 1st of the month before sailing, but on Harmony, popular slots often disappear 30 to 60 days out. Don't wait.</p></div>
+      <div class="tip"><span class="ico">🍽️</span><p><b>Book specialty dining now too.</b> Same idea: the best times fill up fast, especially for a group.</p></div>
+      <div class="tip"><span class="ico">🎥</span><p><b>Watch the safety video early.</b> You can knock this out from the app on the drive to the terminal, one less thing to do once you're there.</p></div>
+      <div class="tip"><span class="ico">🏷️</span><p><b>Print your luggage tags</b> ahead of time and attach them before you leave the house. It saves a step at drop-off.</p></div>
+    </div>
+  </section>
+
+  <section id="day-of">
+    <div class="sec-head">
+      <div class="eyebrow">Embarkation morning</div>
+      <h2>Day-Of Tips</h2>
+      <p>Here's the order of operations once you arrive at the terminal.</p>
+    </div>
+    <div class="tip-grid">
+      <div class="tip"><span class="ico">🧳</span><p>Drop off your luggage with the pre-printed color tags on it.</p></div>
+      <div class="tip"><span class="ico">🦺</span><p>When you board, report to your muster station and show that you've watched the safety video.</p></div>
+      <div class="tip"><span class="ico">✈️</span><p>Put your phone in <b>airplane mode</b> right away to avoid surprise international charges.</p></div>
+      <div class="tip"><span class="ico">🎒</span><p>Pack a carry-on or backpack with swim clothes and shoes. You can swim while you wait for your room to be ready.</p></div>
+      <div class="tip"><span class="ico">🍔</span><p>The buffet is open for lunch the moment you board. Go ahead and eat as soon as you're on!</p></div>
+      <div class="tip"><span class="ico">💬</span><p>Want to message the boys around the ship? There's a <b>free</b> way to do it. See the step-by-step below.</p></div>
+    </div>
+
+    <div class="callout" style="background:var(--white); border:1.5px solid var(--brass);">
+      <div class="ico">📱</div>
+      <div>
+        <h4>Staying in Touch With the Boys, For Free</h4>
+        <p>
+          You do <b>not</b> need to buy a Voom internet package for this. The app's chat works over the ship's free guest Wi-Fi.<br><br>
+          <b>1.</b> Connect your phone to the ship's guest Wi-Fi network (usually named "Royal_Guest_Wi-Fi").<br>
+          <b>2.</b> Open the Royal Caribbean app and log into your account with your cruise details.<br>
+          <b>3.</b> Add each of the boys by entering their stateroom number and birthdate.<br>
+          <b>4.</b> Turn on your phone notifications so you'll see their messages even while walking around the ship.<br><br>
+          Once they're linked, you can message each other free the entire cruise. No internet package required.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="onboard">
+    <div class="sec-head">
+      <div class="eyebrow">Pack smart, sail smoother</div>
+      <h2>Onboard Tips</h2>
+      <p>Little things that make a real difference once you're actually on the ship. See the full <a href="#packing">Packing Tricks list here</a>.</p>
+    </div>
+    <div class="tip-grid">
+      <div class="tip"><span class="ico">💧</span><p>Onboard tap water is safe and free (it's been through desalination, so it's a bit higher in sodium and can cause some puffiness). If you'd rather have bottled water in your cabin, Royal Caribbean sells a Water Package (12 or 24 bottles of Evian) that gets delivered on embarkation day. It's not complimentary, so decide ahead of time if it's worth it to you.</p></div>
+      <div class="tip"><span class="ico">🧊</span><p>You can also bring your own water on board for free. Royal Caribbean allows up to 12 sealed, unopened bottles or cans per stateroom, but they must be carried on (not packed in your checked luggage) since bags going through the porters get X-rayed and water bottles can be mistaken for liquor.</p></div>
+      <div class="tip"><span class="ico">🍷</span><p>If you like wine, pack 1 to 2 bottles with a corkscrew (or ask your steward for one). There's a charge to open a bottle in the dining room, but it's free if you drink it in your stateroom.</p></div>
+      <div class="tip"><span class="ico">🏊</span><p>Your room key is required to get a pool towel. <b>Return it</b> and make sure they scan it back in, or you'll be charged a $25 fee.</p></div>
+      <div class="tip"><span class="ico">🏖️</span><p>Bring 2 large towel clips per person to keep pool towels from sliding off (or blowing away) on windy days.</p></div>
+      <div class="tip"><span class="ico">🥤</span><p>Bring a refillable cup with a lid. Especially handy in the pool area.</p></div>
+      <div class="tip"><span class="ico">🚪</span><p>Decorate your cabin door. It's a fun tradition!</p></div>
+      <div class="tip"><span class="ico">🛂</span><p>At each port, bring your passport to the info booth for a tourist stamp. It's free at some ports and a small donation at others. Ask them to stamp an already-used page to save your clean pages for future international travel.</p></div>
+      <div class="tip"><span class="ico">💵</span><p>Gratuities are already included, but extra tips for standout service (your room steward, dining staff) are always appreciated. Totally optional.</p></div>
+    </div>
+  </section>
+
+  <section id="packing">
+    <div class="sec-head">
+      <div class="eyebrow">Small items, big difference</div>
+      <h2>Packing Tricks</h2>
+      <p>A short list of items that make cabin life easier.</p>
+    </div>
+    <div class="doc-box">
+      <p><b>1. Charging station.</b> Some cruise cabins only have one or two outlets for everyone to share. A charging station lets you charge all of your devices without fighting over the outlet.</p>
+      <p><b>2. Magnetic hooks.</b> Great for hats and lanyards on the wall above your bed. <a href="https://a.co/d/09tbo8xY" target="_blank">See these on Amazon</a>.</p>
+      <p><b>3. Lanyards.</b> During your sailing, you'll be provided with a cruise card. This primarily serves as your cabin key and doubles as your identification card for boarding and disembarking in ports of call. You'll also use your cruise card for all onboard purchases, so keep it on hand at all times.</p>
+      <p><b>4. Cosmetic organizer.</b> If you think your cruise cabin is small, wait until you see the bathroom. Newer cruise ships have more spacious bathrooms with additional storage, but older ships can feel especially cramped. Storage can be limited, especially if you're sharing the space with multiple people.</p>
+      <p><b>5. Reusable water bottle.</b> It's always a good idea to stay hydrated when traveling, but especially when you're cruising. Between hot days in the sun and poolside piña coladas, it's easy to get dehydrated quickly. Bottled water is typically an added cost while cruising, unless you've purchased a beverage package.</p>
+      <p><b>6. Luggage tag holders.</b> Just like an airport, you'll need to check your larger suitcases at the cruise terminal before boarding the ship. Plan to print your luggage tags before embarkation day and place them on your suitcase. The cruise porters will take your luggage, which will be delivered to your stateroom later in the afternoon. <a href="https://a.co/d/0eoIGK6V" target="_blank">See these on Amazon</a>.</p>
+      <p><b>7. Basic over-the-counter medication.</b></p>
+      <p><b>8. Wrinkle release spray.</b> Fire is a huge concern for cruise ships. As such, irons and steamers aren't allowed because they're potential fire hazards. Because of this, cruisers rely on wrinkle spray to smooth out large wrinkles from tightly packed clothes.</p>
+      <p><b>9. Sunscreen.</b></p>
+      <p><b>10. Beach bag.</b> Most cruise lines don't provide bags to use during your vacation. You'll need something to carry your belongings, such as sunglasses, sunscreen, and towels. Because of this, a beach bag is a cruise essential, even if you're planning to stay onboard the ship.</p>
+      <p><b>11. Poo-Pourri Before-You-Go toilet spray.</b> A must-have for seasoned cruisers. <a href="https://www.amazon.com/dp/B07CN6ZDVY?social_share=cm_sw_r_cp_ud_dp_Q7G4ZY8E07J2W1CNYXMW&th=1&linkCode=ll1&tag=cruisepackinglist-20&linkId=8ab052bd7aa210c328d14ffc67b26b43&language=en_US&ref_=as_li_ss_tl" target="_blank">See it on Amazon</a>.</p>
+      <p><b>12. Apple AirTag.</b> A tiny device that tracks your belongings using Bluetooth technology. Particularly helpful when cruising. <a href="https://www.amazon.com/Apple-AirTag-2nd-Generation-Precision/dp/B0GJTFXNRX?th=1&linkCode=ll2&tag=cruisepackinglist-20&linkId=4999b47521835d11b3d49a96c0539c81&language=en_US&ref_=as_li_ss_tl" target="_blank">See it on Amazon</a>.</p>
+      <p><b>13. Natural motion sickness patches or Sea-Bands.</b></p>
+      <p><b>14. Travel clothesline.</b> You'll end up with plenty of wet towels and swimsuits every day on your cruise, and you won't have tons of room in the bathroom to dry things. Pack a compact clothesline to extend your laundry system.</p>
+      <p><b>15. Universal waterproof phone case.</b> Between docking on flimsy transit boats, playing along the shore, boating on excursions, and swimming at the ship's pool, your phone is more vulnerable to water than usual.</p>
+      <p><b>16. Floating wrist strap.</b> Attach one of these brightly colored flotation straps so your device floats and is easy to spot if it goes overboard.</p>
+      <p><b>17. Slip-on mesh water shoes.</b> In tropical locations, you'll likely be in and out of the water while exploring or taking part in shore activities, and flip-flops won't cut it. You'll want something comfortable that can go from land to sea, so you can wear them walking around beachside towns or trails and then hop right into the water for some snorkeling.</p>
+    </div>
+  </section>
+
+  <section id="dining">
+    <div class="sec-head">
+      <div class="eyebrow">Worth budgeting for</div>
+      <h2>Specialty Dining &amp; Cover Charges</h2>
+      <p>These venues on Harmony of the Seas aren't included in your cruise fare. A cover charge or à la carte pricing applies.</p>
+    </div>
+    <table class="dine">
+      <tr><th>Restaurant</th><th>Vibe / Cuisine</th><th>Pricing</th></tr>
+      <tr><td class="name">Chops Grille</td><td class="tag">Classic steakhouse</td><td>Flat cover charge</td></tr>
+      <tr><td class="name">150 Central Park</td><td class="tag">Upscale tasting menu</td><td>Flat cover charge</td></tr>
+      <tr><td class="name">Wonderland</td><td class="tag">Avant-garde / molecular</td><td>Flat cover charge</td></tr>
+      <tr><td class="name">Jamie's Italian</td><td class="tag">Modern Italian</td><td>Flat cover charge</td></tr>
+      <tr><td class="name">Izumi</td><td class="tag">Sushi &amp; live teppanyaki</td><td>À la carte (sushi) / flat fee (hibachi)</td></tr>
+      <tr><td class="name">Chef's Table</td><td class="tag">VIP wine-paired gala</td><td>Flat premium cover charge</td></tr>
+      <tr><td class="name">Sabor Taqueria</td><td class="tag">Mexican street food</td><td>À la carte</td></tr>
+      <tr><td class="name">Johnny Rockets</td><td class="tag">1950s diner / burgers</td><td>Free breakfast; cover charge for lunch/dinner</td></tr>
+      <tr><td class="name">Starbucks</td><td class="tag">Coffee &amp; pastries</td><td>Individual item pricing</td></tr>
+    </table>
+  </section>
+
+  <section id="extras">
+    <div class="sec-head">
+      <div class="eyebrow">Optional upgrades</div>
+      <h2>Extras Worth Considering</h2>
+      <p>None of these are required, but they're the most popular add-ons for a trip like yours.</p>
+    </div>
+    <div class="extras-grid">
+      <div class="extra"><div class="ico">📶</div><h4>Wi-Fi (Voom)</h4><p>Only needed for browsing, streaming, or social media. Messaging between your group is free over the ship's guest Wi-Fi and doesn't require a package.</p></div>
+      <div class="extra"><div class="ico">🍹</div><h4>Drink Packages</h4><p>Totally optional. You can also just pay as you go per drink at the bars if you're not a big drinker.</p></div>
+      <div class="extra"><div class="ico">🌊</div><h4>Shore Excursions</h4><p>Book early for popular ports. The best time slots go quickly.</p></div>
+      <div class="extra"><div class="ico">💆</div><h4>Spa Treatments</h4><p>Book early in the cruise for the best appointment availability.</p></div>
+      <div class="extra"><div class="ico">📸</div><h4>Photo Package</h4><p>Professional photos are taken throughout the cruise. A package can save money if you want several.</p></div>
+      <div class="extra"><div class="ico">🎳</div><h4>Onboard Activities</h4><p>Some activities (like certain arcade games or specialty classes) carry a small fee. Worth a quick look in the app.</p></div>
+    </div>
+    <div class="callout">
+      <div class="ico">💡</div>
+      <div>
+        <h4>My honest take</h4>
+        <p>If you already know you want a drink package, specialty dining, or an excursion, book it before you sail. Prices on all of these typically go up once you're onboard, so pre-booking locks in the lower rate. If you're still deciding, Wi-Fi and drink packages can be added later without losing much, but dining and shows are the two things you genuinely want locked in before you go since availability (not just price) gets tight.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="sec-head">
+      <div class="eyebrow">Get excited</div>
+      <h2>See It Before You Sail</h2>
+      <p>A quick preview of what's waiting for you onboard and at CocoCay.</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/qeEhBjB89KA" title="Staterooms" allowfullscreen></iframe></div>
+        <div class="label">Staterooms</div>
+      </div>
+      <div class="video-card">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/HUYzZUfPfpQ" title="Dining" allowfullscreen></iframe></div>
+        <div class="label">Dining</div>
+      </div>
+      <div class="video-card">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/u2kDjeLbpFM" title="Party & Nightlife" allowfullscreen></iframe></div>
+        <div class="label">Party &amp; Nightlife</div>
+      </div>
+      <div class="video-card">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/B8b0W41aV1o" title="Youth Activities" allowfullscreen></iframe></div>
+        <div class="label">Youth Activities</div>
+      </div>
+      <div class="video-card">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/I9d8hN1Tv6s" title="CocoCay" allowfullscreen></iframe></div>
+        <div class="label">CocoCay</div>
+      </div>
+      <div class="video-card">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/Im9npgu0L94" title="Splash Zone" allowfullscreen></iframe></div>
+        <div class="label">Splash Zone</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="documents">
+    <div class="sec-head">
+      <div class="eyebrow">Don't leave home without it</div>
+      <h2>Travel Documents</h2>
+    </div>
+    <div class="doc-box">
+      <p><b>U.S. Citizens:</b> Bring a passport <i>book</i> (not a passport card) valid for at least 6 months after your return date. This applies to every guest sailing, regardless of age. Without proper documentation, boarding will be denied. Some guests may need additional supporting documents. <a href="https://www.royalcaribbean.com/plan-a-cruise/travel-documents" target="_blank">See full requirements here</a>.</p>
+      <p>U.S. citizens on certain round-trip cruises that visit Canada may be able to use more flexible travel documents instead of a passport. <a href="https://www.royalcaribbean.com/plan-a-cruise/travel-documents" target="_blank">Check if this applies to your sailing</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="brand">MMV Travel Collection</div>
+  Kim Gamet, Independent Travel Advisor · kimgamet.com
+</footer>
+
+</body>
+</html>
