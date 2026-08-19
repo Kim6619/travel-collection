@@ -1,1 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy Trip — Full Plan for Jiffy Baker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F1EAD9;
+    --ink:#2B2420;
+    --ink-soft:#5C5347;
+    --amalfi:#2B5C73;
+    --amalfi-deep:#1D414F;
+    --gold:#C89B3C;
+    --rust:#A8482E;
+    --sage:#7C8B6F;
+    --line:#D8CDB2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    max-width:980px;
+    margin:0 auto;
+    padding:56px 48px 44px;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--amalfi);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:42px;
+    line-height:1.06;
+    margin:0 0 8px;
+  }
+  h1 em{ font-style:italic; color:var(--rust); }
+  .subhead{
+    font-size:15.5px;
+    color:var(--ink-soft);
+    max-width:640px;
+    line-height:1.55;
+  }
+  .trip-meta{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    margin-top:22px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .trip-meta strong{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:500;
+    color:var(--ink);
+  }
 
+  h2.section{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:24px;
+    margin:44px 0 16px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--amalfi);
+  }
+  h3.subsection{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:17px;
+    margin:26px 0 10px;
+    color:var(--amalfi-deep);
+  }
+
+  /* Day table */
+  table.days{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin-bottom:8px;
+  }
+  table.days th{
+    text-align:left;
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:8px 10px;
+    border-bottom:1px solid var(--line);
+  }
+  table.days td{
+    padding:11px 10px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.days tr.city-sorrento td:first-child{border-left:3px solid var(--rust);}
+  table.days tr.city-florence td:first-child{border-left:3px solid var(--gold);}
+  table.days tr.city-rome td:first-child{border-left:3px solid var(--amalfi);}
+  table.days td.date{font-weight:600; white-space:nowrap;}
+  table.days td.city{color:var(--ink-soft); font-size:11.5px; text-transform:uppercase; letter-spacing:.03em; white-space:nowrap;}
+
+  /* Hotel cards */
+  .hotel-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:16px;
+    margin:14px 0 8px;
+  }
+  .hotel-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:18px 20px;
+    position:relative;
+  }
+  .hotel-card.lead{
+    border-left:4px solid var(--sage);
+  }
+  .hotel-card .pick-badge{
+    position:absolute;
+    top:14px; right:14px;
+    font-size:9.5px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    background:var(--sage);
+    color:#fff;
+    padding:2px 8px;
+    border-radius:2px;
+  }
+  .hotel-card h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:16px;
+    margin:0 0 6px;
+    padding-right:70px;
+  }
+  .hotel-card .price{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    color:var(--amalfi-deep);
+    margin-bottom:8px;
+  }
+  .hotel-card .price span{
+    font-size:11px;
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink-soft);
+    font-weight:400;
+  }
+  .hotel-card p{
+    font-size:12.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    margin:0;
+  }
+
+  /* Activities list */
+  .activity-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+    font-size:13.5px;
+    gap:12px;
+  }
+  .activity-row .name{font-weight:500;}
+  .activity-row .note{color:var(--ink-soft); font-size:12px; display:block; margin-top:2px;}
+  .activity-row .price{font-weight:600; white-space:nowrap; color:var(--amalfi-deep);}
+  .activity-row .price.est{color:var(--gold);}
+
+  /* Budget summary */
+  table.budget{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  table.budget td{
+    padding:10px 4px;
+    border-bottom:1px solid var(--line);
+  }
+  table.budget td.amount{
+    text-align:right;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  table.budget tr.total td{
+    border-top:2px solid var(--ink);
+    border-bottom:none;
+    font-weight:600;
+    padding-top:14px;
+    font-size:16px;
+  }
+
+  .remaining-box{
+    margin-top:16px;
+    padding:24px 26px;
+    background:var(--amalfi-deep);
+    color:var(--cream);
+    border-radius:2px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .remaining-box .num{
+    font-family:'Fraunces', serif;
+    font-size:34px;
+    color:#fff;
+  }
+  .remaining-box .label{
+    font-size:12px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:#E8DFC9;
+  }
+  .remaining-box .sub{
+    font-size:12px;
+    max-width:280px;
+    color:#E8DFC9;
+    line-height:1.5;
+  }
+
+  .note-box{
+    margin-top:18px;
+    padding:16px 20px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:2px;
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--ink);
+  }
+
+  footer{
+    margin-top:38px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media print{
+    body{background:#fff;}
+    .sheet{padding:20px;}
+  }
+  @media (max-width:680px){
+    .sheet{padding:32px 20px;}
+    table.days{font-size:12px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow">MMV Travel Collection · Complete Trip Plan</div>
+  <h1>Sorrento, Florence <em>&amp;</em> Rome</h1>
+  <div class="subhead">A full look at your Italy trip — day by day, hotel picks, and where things stand on budget. Everything here is ready to book once you give the word.</div>
+
+  <div class="trip-meta">
+    <div><strong>9 Nights</strong>June 2 – June 11</div>
+    <div><strong>3 Travelers</strong>+ possible adult kids joining later</div>
+    <div><strong>NAP–FCO</strong>Delta Basic Economy, into Naples / out of Rome</div>
+    <div><strong>$12,000</strong>Total budget, meals not included</div>
+  </div>
+
+  <h2 class="section">Day-by-Day Itinerary</h2>
+  <table class="days">
+    <tr><th>Date</th><th>City</th><th>Plan</th></tr>
+    <tr class="city-sorrento">
+      <td class="date">Jun 2</td><td class="city">Sorrento</td>
+      <td>Land Naples 7:05am, private transfer to Sorrento. Arrival day — choose from: Marina Grande walk, limoncello tasting, sunset boat ride, or evening cooking class.</td>
+    </tr>
+    <tr class="city-sorrento">
+      <td class="date">Jun 3</td><td class="city">Sorrento</td>
+      <td>Pompeii — guided tour</td>
+    </tr>
+    <tr class="city-sorrento">
+      <td class="date">Jun 4</td><td class="city">Sorrento</td>
+      <td>Amalfi Coast by ferry — Amalfi town, then Positano</td>
+    </tr>
+    <tr class="city-sorrento">
+      <td class="date">Jun 5</td><td class="city">Sorrento</td>
+      <td>Path of the Gods hike, with private drop-off &amp; pickup transfer</td>
+    </tr>
+    <tr class="city-florence">
+      <td class="date">Jun 6</td><td class="city">Travel Day</td>
+      <td>Sorrento → Naples → Florence (~4–4.5 hrs total). Arrive early-mid afternoon. Evening: passeggiata &amp; aperitivo in Santo Spirito, or sunset at Piazzale Michelangelo.</td>
+    </tr>
+    <tr class="city-florence">
+      <td class="date">Jun 7</td><td class="city">Florence</td>
+      <td>Duomo, Ponte Vecchio, Uffizi Gallery (guided) and Accademia Gallery (guided)</td>
+    </tr>
+    <tr class="city-florence">
+      <td class="date">Jun 8</td><td class="city">Florence</td>
+      <td>Montecatini Terme day trip — thermal baths, funicular to Montecatini Alto</td>
+    </tr>
+    <tr class="city-rome">
+      <td class="date">Jun 9</td><td class="city">Travel Day</td>
+      <td>Florence → Rome (~1.5–2 hrs). Evening free — Trevi Fountain &amp; Pantheon walk.</td>
+    </tr>
+    <tr class="city-rome">
+      <td class="date">Jun 10</td><td class="city">Rome</td>
+      <td>Colosseum, Palatine Hill &amp; Roman Forum (guided), Vatican Museums &amp; Sistine Chapel (skip-the-line)</td>
+    </tr>
+    <tr class="city-rome">
+      <td class="date">Jun 11</td><td class="city">Departure</td>
+      <td>Private transfer to FCO for 12:15pm flight — depart hotel ~8:15am</td>
+    </tr>
+  </table>
+
+  <h2 class="section">Hotel Selections</h2>
+  <p style="font-size:13px; color:var(--ink-soft); margin-top:-6px; margin-bottom:20px;">Each hotel name links to its listing — real photos, current availability, and guest reviews. Prices shown are Kim's researched estimates and should be reconfirmed at booking.</p>
+
+  <h3 class="subsection">Sorrento — 4 Nights</h3>
+  <div class="hotel-grid">
+    <div class="hotel-card lead">
+      <span class="pick-badge">Recommended</span>
+      <h4><a href="https://www.booking.com/hotel/it/palazzo-abagnale-sorrento.html" target="_blank" style="color:inherit; text-decoration:underline;">Palazzo Tritone &amp; Abagnale</a></h4>
+      <div class="price">$1,761.00 <span>total, 4 nights</span></div>
+      <p>1 minute from Piazza Tasso, heart of Sorrento. Named Junior Triple Room (1 king + 1 twin) sleeps 3. Reviews: 9.4/10.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.tripadvisor.com/Hotel_Review-g187782-d17850779-Reviews-Maison_Il_Conservatorio-Sorrento_Province_of_Naples_Campania.html" target="_blank" style="color:inherit; text-decoration:underline;">Maison Il Conservatorio</a></h4>
+      <div class="price">$1,792.96 <span>total, 4 nights</span></div>
+      <p>16th-century building, steps from the beach and main square. Reviews: 4.9/5.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.travelocity.com/es/Sorrento-Hoteles-So-Lifestyle-Hotel-Sorrento.h919872.Opiniones-Hotel" target="_blank" style="color:inherit; text-decoration:underline;">So' Lifestyle Hotel</a></h4>
+      <div class="price">$2,113.97 <span>total, 4 nights</span></div>
+      <p>Family Triple Room (1 double + 1 double sofa bed), 3 min to Corso Italia. Reviews: 9.0/10.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.tripadvisor.com/Hotel_Review-g187782-d8831043-Reviews-La_Maison_des_Tout_le_Monde-Sorrento_Province_of_Naples_Campania.html" target="_blank" style="color:inherit; text-decoration:underline;">La Maison des Tout le Monde</a></h4>
+      <div class="price">$1,592.98 <span>total, 4 nights</span></div>
+      <p>Central, budget-friendly, 2 min to Corso Italia. Note: no elevator. Reviews: 8.2/10.</p>
+    </div>
+  </div>
+
+  <h3 class="subsection">Florence — 3 Nights</h3>
+  <div class="hotel-grid">
+    <div class="hotel-card lead">
+      <span class="pick-badge">Recommended</span>
+      <h4><a href="https://www.booking.com/hotel/it/perseo.html" target="_blank" style="color:inherit; text-decoration:underline;">Il Perseo</a></h4>
+      <div class="price">$1,285.00 <span>total, 3 nights</span></div>
+      <p>1 minute walk to the Duomo. Named Family Triple &amp; Quadruple rooms. Reviews: 9.1–9.2/10.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.arteboutiquehotel.com/" target="_blank" style="color:inherit; text-decoration:underline;">Artè Boutique Hotel</a></h4>
+      <div class="price">$1,667.00 <span>total, 3 nights</span></div>
+      <p>Named King Executive Triple &amp; Family Junior Suite. Upscale 17th-century palazzo. Reviews: 9.3–9.8/10. Breakfast not included.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.ortodeimedici.it/" target="_blank" style="color:inherit; text-decoration:underline;">Hotel Orto de' Medici</a></h4>
+      <div class="price">$1,445.00 <span>total, 3 nights</span></div>
+      <p>Quiet but central, 6 min to Duomo. Multiple reviews confirm comfortable fit for families of 3–4.</p>
+    </div>
+  </div>
+
+  <h3 class="subsection">Rome — 2 Nights</h3>
+  <div class="hotel-grid">
+    <div class="hotel-card lead">
+      <span class="pick-badge">Recommended</span>
+      <h4><a href="https://www.trevipalace.com/en/" target="_blank" style="color:inherit; text-decoration:underline;">Trevi Palace Luxury Inn</a></h4>
+      <div class="price">$978.08 <span>total, 2 nights</span></div>
+      <p>Steps from the Trevi Fountain, walkable to the Pantheon, Spanish Steps, and Colosseum. Most central option considered.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.viminalehill.com/" target="_blank" style="color:inherit; text-decoration:underline;">Al Viminale Hill Inn &amp; Hotel</a></h4>
+      <div class="price">$671.60 <span>total, 2 nights</span></div>
+      <p>Near Termini, closer to the historic core than most station hotels. Best reviews and lowest price of the Rome options. Some hills, small bathrooms.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.hotelmellini.com/" target="_blank" style="color:inherit; text-decoration:underline;">Hotel Dei Mellini</a></h4>
+      <div class="price">$826.38 <span>total, 2 nights</span></div>
+      <p>Prati district, near the Vatican. Confirmed interconnecting rooms. A different neighborhood than the historic center cluster.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.aghotels.it/independent-hotel" target="_blank" style="color:inherit; text-decoration:underline;">The Independent Hotel</a></h4>
+      <div class="price">$1,018.52 <span>total, 2 nights</span></div>
+      <p>Termini-adjacent, rooftop restaurant, strong reviews. Longer walk to the historic center.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Tours &amp; Experiences</h2>
+
+  <h3 class="subsection">Estimated Pricing</h3>
+  <p style="font-size:12.5px; color:var(--ink-soft); margin-top:-6px; margin-bottom:12px;">These are sample tour options Kim pulled to gauge cost, not locked-in bookings — the exact tour/operator for each can be narrowed down together once the budget direction is set.</p>
+  <div class="activity-row">
+    <div><span class="name">Pompeii Guided Tour</span><span class="note">June 3</span></div>
+    <div class="price est">~$169.83</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Path of the Gods — Private Transfer</span><span class="note">June 5, drop-off Bomerano / pickup Nocelle</span></div>
+    <div class="price est">~$559.02</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Uffizi Gallery — Guided</span><span class="note">June 7</span></div>
+    <div class="price est">~$194.60</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Accademia Gallery — Guided</span><span class="note">June 7</span></div>
+    <div class="price est">~$165.07</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Colosseum, Palatine Hill &amp; Roman Forum — Guided</span><span class="note">June 10</span></div>
+    <div class="price est">~$303.09</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Vatican Museums &amp; Sistine Chapel — Skip-the-Line</span><span class="note">June 10</span></div>
+    <div class="price est">~$220.54</div>
+  </div>
+
+  <h3 class="subsection">Also Estimated — Additional Options</h3>
+  <div class="activity-row">
+    <div><span class="name">Amalfi Coast Ferry Loop</span><span class="note">June 4, Sorrento → Amalfi → Positano → Sorrento, booked direct with ferry company</span></div>
+    <div class="price est">~$130–195</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Limoncello Tasting</span><span class="note">June 2 option</span></div>
+    <div class="price est">~$120–160</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Sunset Boat Ride</span><span class="note">June 2 option</span></div>
+    <div class="price est">~$175–220</div>
+  </div>
+  <div class="activity-row">
+    <div><span class="name">Evening Cooking Class</span><span class="note">June 2 option — Valentina &amp; Antonio</span></div>
+    <div class="price est">~$360</div>
+  </div>
+
+  <div class="note-box">
+    <strong>Note on June 2:</strong> the cooking class, limoncello tasting, and sunset boat are alternative options for arrival day, not all three together — pick one based on how the group is feeling after the overnight flight. Only one of these costs should be counted in the running total below.
+  </div>
+
+  <h2 class="section">Budget Summary</h2>
+  <table class="budget">
+    <tr><td>Flights — Delta Basic Economy (3 × $1,213)</td><td class="amount">$3,639.00</td></tr>
+    <tr><td>Hotels — Sorrento, Florence, Rome (combined)</td><td class="amount">$4,024.08</td></tr>
+    <tr><td>Ground transfers &amp; trains (4 legs)</td><td class="amount">~$550–660</td></tr>
+    <tr><td>Estimated tours (Pompeii, Path of the Gods, Uffizi, Accademia, Colosseum, Vatican)</td><td class="amount">~$1,612.15</td></tr>
+    <tr><td>Estimated extras (ferry loop + one June 2 activity)</td><td class="amount">~$305–415</td></tr>
+    <tr class="total"><td>Total</td><td class="amount">~$10,130–10,350</td></tr>
+  </table>
+
+  <div class="remaining-box">
+    <div>
+      <div class="label">Remaining Balance</div>
+      <div class="num">~$1,650–1,870</div>
+    </div>
+    <div class="sub">Out of the $12,000 total. Meals are not included in this budget — that comes from this remaining balance or separately, per your preference.</div>
+  </div>
+
+  <div class="note-box">
+    <strong>Before this is final:</strong> ground transfer costs are estimates and should be confirmed closer to booking. If the older adult kids join partway through the trip, additional rooms and activity costs for their portion of the trip are not reflected here.
+  </div>
+
+  <footer>
+    <div>Kim Gamet · MMV Travel Collection</div>
+    <div>kimgamet.com</div>
+  </footer>
+
+</div>
+</body>
+</html>
