@@ -270,6 +270,36 @@
 </style>
 </head>
 <body>
+
+<div id="gate" style="position:fixed; inset:0; background:#F1EAD9; display:flex; align-items:center; justify-content:center; z-index:999; font-family:'Work Sans', sans-serif;">
+  <div style="text-align:center; max-width:320px; padding:0 24px;">
+    <div style="font-family:'Fraunces', serif; font-size:26px; color:#2B2420; margin-bottom:6px;">Baker Family Trip</div>
+    <div style="font-size:13px; color:#5C5347; margin-bottom:20px;">Enter the passcode to view this page.</div>
+    <input id="gate-input" type="password" placeholder="Passcode" style="width:100%; padding:10px 12px; font-size:15px; border:1px solid #D8CDB2; border-radius:2px; margin-bottom:12px; box-sizing:border-box; font-family:'Work Sans', sans-serif;">
+    <button onclick="checkGatePassword()" style="width:100%; padding:10px 12px; font-size:14px; background:#1D414F; color:#F1EAD9; border:none; border-radius:2px; cursor:pointer; font-family:'Work Sans', sans-serif; font-weight:600;">Enter</button>
+    <div id="gate-error" style="color:#A8482E; font-size:12px; margin-top:10px; display:none;">Incorrect passcode — try again.</div>
+  </div>
+</div>
+
+<script>
+  const GATE_PASSWORD = "Baker2026";
+  function checkGatePassword(){
+    const val = document.getElementById('gate-input').value;
+    if(val === GATE_PASSWORD){
+      document.getElementById('gate').style.display = 'none';
+      sessionStorage.setItem('bakerGateOK','1');
+    } else {
+      document.getElementById('gate-error').style.display = 'block';
+    }
+  }
+  document.getElementById('gate-input')?.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ checkGatePassword(); }
+  });
+  if(sessionStorage.getItem('bakerGateOK') === '1'){
+    document.getElementById('gate').style.display = 'none';
+  }
+</script>
+
 <div class="sheet">
 
   <div class="eyebrow">MMV Travel Collection · Complete Trip Plan</div>
