@@ -207,6 +207,36 @@
     font-size:16px;
   }
 
+  .remaining-box{
+    margin-top:16px;
+    padding:24px 26px;
+    background:var(--amalfi-deep);
+    color:var(--cream);
+    border-radius:2px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .remaining-box .num{
+    font-family:'Fraunces', serif;
+    font-size:34px;
+    color:#fff;
+  }
+  .remaining-box .label{
+    font-size:12px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:#E8DFC9;
+  }
+  .remaining-box .sub{
+    font-size:12px;
+    max-width:280px;
+    color:#E8DFC9;
+    line-height:1.5;
+  }
+
   .note-box{
     margin-top:18px;
     padding:16px 20px;
@@ -237,38 +267,9 @@
     .sheet{padding:32px 20px;}
     table.days{font-size:12px;}
   }
-
-  /* LOCK */
-  #lock{position:fixed;inset:0;background:linear-gradient(160deg,var(--amalfi-deep) 0%,var(--rust) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:24px;}
-  #lock.hidden{display:none;}
-  .lock-logo{font-size:12px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;font-family:'Work Sans',sans-serif;}
-  .lock-title{font-family:'Fraunces',serif;font-size:26px;font-weight:500;color:#fff;text-align:center;margin-bottom:6px;}
-  .lock-sub{font-size:14px;color:#E8DFC9;margin-bottom:28px;font-family:'Work Sans',sans-serif;}
-  .lock-box{background:#fff;border-radius:4px;padding:24px;width:100%;max-width:320px;}
-  .lock-box label{font-size:11px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;font-family:'Work Sans',sans-serif;}
-  .lock-box input{width:100%;padding:11px 14px;border:1.5px solid var(--line);border-radius:4px;font-size:16px;outline:none;margin-bottom:14px;font-family:'Work Sans',sans-serif;}
-  .lock-btn{width:100%;background:var(--amalfi-deep);color:var(--gold);border:none;border-radius:4px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Work Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;}
-  .lock-error{font-size:13px;color:var(--rust);text-align:center;margin-top:8px;min-height:16px;font-family:'Work Sans',sans-serif;}
-
-  #page{display:none;}
-  #page.visible{display:block;}
 </style>
 </head>
 <body>
-
-<div id="lock">
-  <div class="lock-logo">MMV Travel Collection</div>
-  <div class="lock-title">Your Italy Trip Plan</div>
-  <div class="lock-sub">Sorrento, Florence &amp; Rome</div>
-  <div class="lock-box">
-    <label>Access code</label>
-    <input type="password" id="pw-input" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()">
-    <button class="lock-btn" onclick="unlock()">View my trip</button>
-    <div class="lock-error" id="pw-error"></div>
-  </div>
-</div>
-
-<div id="page">
 <div class="sheet">
 
   <div class="eyebrow">MMV Travel Collection · Complete Trip Plan</div>
@@ -334,24 +335,64 @@
   <div class="hotel-grid">
     <div class="hotel-card lead">
       <span class="pick-badge">Recommended</span>
-      <h4><a href="https://www.palazzotritonesorrento.com/" target="_blank" style="color:inherit; text-decoration:underline;">Palazzo Tritone &amp; Abagnale</a></h4>
-      <div class="price">$1,761.00 <span>total, 4 nights</span></div>
-      <p>1 minute from Piazza Tasso, heart of Sorrento. Named Junior Triple Room (1 king + 1 twin) sleeps 3. Reviews: 9.4/10.</p>
+      <h4><a href="https://www.sorrentocity.com/en/" target="_blank" style="color:inherit; text-decoration:underline;">Hotel Sorrento City</a></h4>
+      <div class="price">$1,483.54 <span>total, 4 nights</span></div>
+      <p>~5 min walk to Piazza Tasso. Named Family Room, 1 Bedroom — 1 double bed + 1 twin bunk bed, sleeps 4. Consistently strong reviews.</p>
     </div>
     <div class="hotel-card">
-      <h4><a href="https://www.conservatoriosorrento.com/" target="_blank" style="color:inherit; text-decoration:underline;">Maison Il Conservatorio</a></h4>
-      <div class="price">$1,792.96 <span>total, 4 nights</span></div>
-      <p>16th-century building, steps from the beach and main square. Reviews: 4.9/5.</p>
+      <h4><a href="https://boutiquesuites186.topsorrentohotels.com/en/" target="_blank" style="color:inherit; text-decoration:underline;">Boutique Suites 186</a></h4>
+      <div class="price">$1,757.53 <span>total, 4 nights — no breakfast</span></div>
+      <p>2 min walk to Piazza Tasso. 4 suites, each with private bathroom &amp; kitchenette — can house up to 12 guests. Reviews: 9.2–9.3/10.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://flowersuites.topsorrentohotels.com/en/" target="_blank" style="color:inherit; text-decoration:underline;">Flower Suites Sorrento</a></h4>
+      <div class="price">$1,470.61 <span>total, 4 nights — no breakfast</span></div>
+      <p>5 min walk, on Corso Italia. Suites sleep 4 (1 queen + 1 double sofa bed), full kitchen in each. Reviews: 8.6–9.0/10. Cheapest option.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.lameridianasorrento.com/en/" target="_blank" style="color:inherit; text-decoration:underline;">La Meridiana</a></h4>
+      <div class="price">$1,578.43 <span>total, 4 nights</span></div>
+      <p>5–8 min walk to Piazza Tasso, 5 min to the train station. Room configuration still to confirm.</p>
     </div>
     <div class="hotel-card">
       <h4><a href="https://www.so-sorrento.com/en/" target="_blank" style="color:inherit; text-decoration:underline;">So' Lifestyle Hotel</a></h4>
       <div class="price">$2,113.97 <span>total, 4 nights</span></div>
-      <p>Family Triple Room (1 double + 1 double sofa bed), 3 min to Corso Italia. Reviews: 9.0/10.</p>
+      <p>15–20 min walk. Family Triple Room (1 double + 1 double sofa bed). Bonus: beach club access via sister property. Reviews: 9.0/10.</p>
     </div>
     <div class="hotel-card">
       <h4><a href="https://www.maisontoutlemonde.com/en/" target="_blank" style="color:inherit; text-decoration:underline;">La Maison des Tout le Monde</a></h4>
       <div class="price">$1,592.98 <span>total, 4 nights</span></div>
-      <p>Central, budget-friendly, 2 min to Corso Italia. Note: no elevator. Reviews: 8.2/10.</p>
+      <p>Excellent location — 2 min to Corso Italia, steps from Piazza Tasso. Note: no elevator, worth confirming for luggage. Reviews: 8.2/10.</p>
+    </div>
+    <div class="hotel-card">
+      <h4><a href="https://www.vesuviosorrento.com/en/rooms" target="_blank" style="color:inherit; text-decoration:underline;">Grand Hotel Vesuvio</a></h4>
+      <div class="price">$1,919.60 <span>total, 4 nights</span></div>
+      <p>Overlooks Capo di Sorrento, close to Marina di Puolo beach — a good pick if the group wants easy beach access. Named Family Room with sea view, sleeps up to 5. Pool, garden, free shuttle into town.</p>
+    </div>
+  </div>
+
+  <h3 class="subsection">Sorrento — Flex / Splurge Options</h3>
+  <p style="font-size:12.5px; color:var(--ink-soft); margin-top:-6px; margin-bottom:16px;">A step up in price if there's room to go nicer. Prices shown are refundable rates — choosing non-refundable at booking would bring these down further.</p>
+  <div class="hotel-grid">
+    <div class="hotel-card">
+      <h4>Grand Hotel la Favorita</h4>
+      <div class="price">$3,259.30 <span>total, 4 nights</span></div>
+      <p>5-star, 4–6 min walk to Piazza Tasso. Rooftop pool, lemon-tree gardens, consistently glowing reviews — a romantic, central splurge.</p>
+    </div>
+    <div class="hotel-card">
+      <h4>Hilton Sorrento Palace</h4>
+      <div class="price">$3,176.88 <span>total, 4 nights</span></div>
+      <p>341 rooms, ~10 min walk to center. Dependable chain amenities; some rooms more dated than others.</p>
+    </div>
+    <div class="hotel-card">
+      <h4>Grand Hotel Europa Palace</h4>
+      <div class="price">$3,442.92 <span>total, 4 nights</span></div>
+      <p>5 min walk, cliffside pool reached by private lift, private beach/pier. Confirmed Classic Triple &amp; Deluxe Triple Room types.</p>
+    </div>
+    <div class="hotel-card">
+      <h4>Palazzo Marziale</h4>
+      <div class="price">$3,241.25 <span>total, 4 nights</span></div>
+      <p>Central Sorrento, near Bellevue Syrene. Well-reviewed (895+ reviews).</p>
     </div>
   </div>
 
@@ -359,7 +400,7 @@
   <div class="hotel-grid">
     <div class="hotel-card lead">
       <span class="pick-badge">Recommended</span>
-      <h4><a href="https://www.hotelperseo.it/en" target="_blank" style="color:inherit; text-decoration:underline;">Il Perseo</a></h4>
+      <h4><a href="https://www.booking.com/hotel/it/perseo.html" target="_blank" style="color:inherit; text-decoration:underline;">Il Perseo</a></h4>
       <div class="price">$1,285.00 <span>total, 3 nights</span></div>
       <p>1 minute walk to the Duomo. Named Family Triple &amp; Quadruple rooms. Reviews: 9.1–9.2/10.</p>
     </div>
@@ -384,7 +425,7 @@
       <p>Steps from the Trevi Fountain, walkable to the Pantheon, Spanish Steps, and Colosseum. Most central option considered.</p>
     </div>
     <div class="hotel-card">
-      <h4><a href="https://www.viminalehill.com/?utm_source=google&amp;utm_medium=organic&amp;utm_campaign=GoogleMyBusiness" target="_blank" style="color:inherit; text-decoration:underline;">Al Viminale Hill Inn &amp; Hotel</a></h4>
+      <h4><a href="https://www.viminalehill.com/" target="_blank" style="color:inherit; text-decoration:underline;">Al Viminale Hill Inn &amp; Hotel</a></h4>
       <div class="price">$671.60 <span>total, 2 nights</span></div>
       <p>Near Termini, closer to the historic core than most station hotels. Best reviews and lowest price of the Rome options. Some hills, small bathrooms.</p>
     </div>
@@ -451,46 +492,22 @@
     <strong>Note on June 2:</strong> the cooking class, limoncello tasting, and sunset boat are alternative options for arrival day, not all three together — pick one based on how the group is feeling after the overnight flight. Only one of these costs should be counted in the running total below.
   </div>
 
-  <h3 class="subsection">Private Airport Transfers — Optional Upgrade</h3>
-  <p style="font-size:12.5px; color:var(--ink-soft); margin-top:-6px; margin-bottom:12px;">The ground transfer line in the budget below assumes standard/shared transport for the Naples and Rome airport legs. If you'd rather have a private car waiting at arrivals and departures, here's what that upgrade runs:</p>
-  <div class="activity-row">
-    <div><span class="name">Naples Airport → Sorrento Hotel</span><span class="note">June 2, private transfer</span></div>
-    <div class="price est">~$244.32</div>
-  </div>
-  <div class="activity-row">
-    <div><span class="name">Rome Hotel → FCO Airport</span><span class="note">June 11, private transfer</span></div>
-    <div class="price est">~$168.18</div>
-  </div>
-
-  <h2 class="section">Browse More Excursions</h2>
-  <p style="font-size:13px; color:var(--ink-soft); margin-top:-6px; margin-bottom:20px;">Want to look at more options beyond what's listed above? These links go through Kim's partner accounts with each site — same prices you'd find on your own, just booked through a source Kim can track and help coordinate with the rest of your trip.</p>
-  <div class="hotel-grid">
-    <div class="hotel-card">
-      <h4><a href="https://www.viator.com/?pid=P00003990&amp;uid=U00821308&amp;mcid=58086&amp;currency=USD" target="_blank" style="color:inherit; text-decoration:underline;">Viator</a></h4>
-      <p>Wide selection of guided tours, skip-the-line tickets, and day trips across Sorrento, Florence, and Rome.</p>
-    </div>
-    <div class="hotel-card">
-      <h4><a href="https://www.getyourguide.com?partner_id=DBHKNQW&amp;cmp=share_to_earn" target="_blank" style="color:inherit; text-decoration:underline;">GetYourGuide</a></h4>
-      <p>Similar range of tours and activities, often with different availability or pricing than Viator — worth a look for the same excursion.</p>
-    </div>
-    <div class="hotel-card">
-      <h4><a href="https://www.projectexpedition.com/?utm_source=kimgametmagicalmomentsvacations-60429-kimgamet-116162&amp;utm_medium=referral&amp;utm_campaign=tagent" target="_blank" style="color:inherit; text-decoration:underline;">Project Expedition</a></h4>
-      <p>Curated small-group and private tours, good for more unique or higher-end excursion options.</p>
-    </div>
-  </div>
-
   <h2 class="section">Budget Summary</h2>
   <table class="budget">
     <tr><td>Flights — Delta Basic Economy (3 × $1,213)</td><td class="amount">$3,639.00</td></tr>
-    <tr><td>Hotels — Sorrento, Florence, Rome (combined)</td><td class="amount">$4,024.08</td></tr>
-    <tr><td>Ground transfers &amp; trains (4 legs, standard/shared)</td><td class="amount">~$550–660</td></tr>
+    <tr><td>Hotels — Sorrento, Florence, Rome (combined)</td><td class="amount">$3,746.62</td></tr>
+    <tr><td>Ground transfers &amp; trains (4 legs)</td><td class="amount">~$550–660</td></tr>
     <tr><td>Estimated tours (Pompeii, Path of the Gods, Uffizi, Accademia, Colosseum, Vatican)</td><td class="amount">~$1,612.15</td></tr>
     <tr><td>Estimated extras (ferry loop + one June 2 activity)</td><td class="amount">~$305–415</td></tr>
-    <tr class="total"><td>Total</td><td class="amount">~$10,130–10,350</td></tr>
+    <tr class="total"><td>Total</td><td class="amount">~$9,853–10,073</td></tr>
   </table>
 
-  <div class="note-box">
-    <strong>A note on this total:</strong> the figures above combine confirmed pricing (flights, hotels) with estimates that will be finalized closer to booking (tours, transfers, extras). Meals are not included in this budget. Once you let me know which options you'd like to move forward with, I'll firm up the exact numbers.
+  <div class="remaining-box">
+    <div>
+      <div class="label">Remaining Balance</div>
+      <div class="num">~$1,927–2,147</div>
+    </div>
+    <div class="sub">Out of the $12,000 total. Meals are not included in this budget — that comes from this remaining balance or separately, per your preference.</div>
   </div>
 
   <div class="note-box">
@@ -503,23 +520,5 @@
   </footer>
 
 </div>
-</div>
-
-<script>
-(function(){
-  var PW = 'Baker2026';
-  var KEY = 'baker_italy_2026';
-  if(sessionStorage.getItem(KEY)==='1') show();
-  function show(){
-    document.getElementById('lock').classList.add('hidden');
-    document.getElementById('page').classList.add('visible');
-  }
-  window.unlock = function(){
-    var v = document.getElementById('pw-input').value;
-    if(v === PW){ sessionStorage.setItem(KEY,'1'); show(); }
-    else{ document.getElementById('pw-error').textContent = 'Incorrect password.'; document.getElementById('pw-input').value=''; }
-  };
-})();
-</script>
 </body>
 </html>
