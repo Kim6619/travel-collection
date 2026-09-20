@@ -1,1 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chad &amp; Angie — Sorrento &amp; Amalfi Coast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F1EAD9;
+    --ink:#2B2420;
+    --ink-soft:#5C5347;
+    --amalfi:#2B5C73;
+    --amalfi-deep:#1D414F;
+    --gold:#C89B3C;
+    --rust:#A8482E;
+    --sage:#7C8B6F;
+    --line:#D8CDB2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{
+    max-width:960px;
+    margin:0 auto;
+    padding:56px 48px 44px;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--amalfi);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:40px;
+    line-height:1.08;
+    margin:0 0 8px;
+  }
+  h1 em{ font-style:italic; color:var(--rust); }
+  .subhead{
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:600px;
+    line-height:1.55;
+  }
+  .trip-meta{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-top:20px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .trip-meta strong{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:500;
+    color:var(--ink);
+  }
 
+  h2.section{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:23px;
+    margin:42px 0 16px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--amalfi);
+  }
+
+  table.days{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin-bottom:8px;
+  }
+  table.days th{
+    text-align:left;
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:8px 10px;
+    border-bottom:1px solid var(--line);
+  }
+  table.days td{
+    padding:11px 10px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.days td.date{font-weight:600; white-space:nowrap;}
+
+  table.hotels{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  table.hotels th{
+    text-align:left;
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:10px;
+    border-bottom:1px solid var(--line);
+  }
+  table.hotels td{
+    padding:12px 10px;
+    border-bottom:1px solid var(--line);
+  }
+  table.hotels td.price{
+    font-weight:600;
+    white-space:nowrap;
+    color:var(--amalfi-deep);
+  }
+  table.hotels tr.lead td{
+    background:rgba(124,139,111,0.08);
+  }
+  table.hotels a{ color:inherit; text-decoration:underline; font-weight:500; }
+  .pick-tag{
+    font-size:9.5px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    background:var(--sage);
+    color:#fff;
+    padding:2px 7px;
+    border-radius:2px;
+    margin-left:6px;
+  }
+
+  .note-box{
+    margin-top:16px;
+    padding:16px 20px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:2px;
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--ink);
+  }
+
+  .special-box{
+    margin-top:20px;
+    padding:22px 26px;
+    background:var(--amalfi-deep);
+    color:var(--cream);
+    border-radius:2px;
+  }
+  .special-box h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:17px;
+    margin:0 0 10px;
+    color:#fff;
+  }
+  .special-box p{
+    font-size:13px;
+    line-height:1.65;
+    color:#E8DFC9;
+    margin:0 0 8px;
+  }
+
+  table.budget{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  table.budget td{
+    padding:10px 4px;
+    border-bottom:1px solid var(--line);
+  }
+  table.budget td.amount{
+    text-align:right;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  table.budget tr.total td{
+    border-top:2px solid var(--ink);
+    border-bottom:none;
+    font-weight:600;
+    padding-top:14px;
+    font-size:16px;
+  }
+
+  footer{
+    margin-top:38px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+  }
+
+  @media print{
+    body{background:#fff;}
+    .sheet{padding:20px;}
+  }
+  @media (max-width:680px){
+    .sheet{padding:32px 20px;}
+    table.days, table.hotels{font-size:12px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="gate" style="position:fixed; inset:0; background:#F1EAD9; display:flex; align-items:center; justify-content:center; z-index:999; font-family:'Work Sans', sans-serif;">
+  <div style="text-align:center; max-width:320px; padding:0 24px;">
+    <div style="font-family:'Fraunces', serif; font-size:26px; color:#2B2420; margin-bottom:6px;">Chad &amp; Angie's Trip</div>
+    <div style="font-size:13px; color:#5C5347; margin-bottom:20px;">Enter the passcode to view this page.</div>
+    <input id="gate-input" type="password" placeholder="Passcode" style="width:100%; padding:10px 12px; font-size:15px; border:1px solid #D8CDB2; border-radius:2px; margin-bottom:12px; box-sizing:border-box; font-family:'Work Sans', sans-serif;">
+    <button onclick="checkGatePassword()" style="width:100%; padding:10px 12px; font-size:14px; background:#1D414F; color:#F1EAD9; border:none; border-radius:2px; cursor:pointer; font-family:'Work Sans', sans-serif; font-weight:600;">Enter</button>
+    <div id="gate-error" style="color:#A8482E; font-size:12px; margin-top:10px; display:none;">Incorrect passcode — try again.</div>
+  </div>
+</div>
+
+<script>
+  const GATE_PASSWORD = "ChadAngie2026";
+  function checkGatePassword(){
+    const val = document.getElementById('gate-input').value;
+    if(val === GATE_PASSWORD){
+      document.getElementById('gate').style.display = 'none';
+      sessionStorage.setItem('chadAngieGateOK','1');
+    } else {
+      document.getElementById('gate-error').style.display = 'block';
+    }
+  }
+  document.getElementById('gate-input')?.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ checkGatePassword(); }
+  });
+  if(sessionStorage.getItem('chadAngieGateOK') === '1'){
+    document.getElementById('gate').style.display = 'none';
+  }
+</script>
+
+<div class="sheet">
+
+  <div class="eyebrow">MMV Travel Collection · Chad &amp; Angie's Portion</div>
+  <h1>Sorrento <em>&amp;</em> the Amalfi Coast</h1>
+  <div class="subhead">Joining the family for the Sorrento leg of the Italy trip — Amalfi Coast, Pompeii, and Path of the Gods, with a separate departure back to Naples.</div>
+
+  <div class="trip-meta">
+    <div><strong>4 Nights</strong>June 2 – June 6</div>
+    <div><strong>2 Travelers</strong>Chad &amp; Angie</div>
+    <div><strong>~$5,000</strong>Total budget, flights included</div>
+  </div>
+
+  <h2 class="section">Their Days in Sorrento</h2>
+  <table class="days">
+    <tr><th>Date</th><th>Plan</th></tr>
+    <tr>
+      <td class="date">Jun 2</td>
+      <td>Arrive, join the family group in Sorrento. Evening: choose from Marina Grande walk, limoncello tasting, sunset boat, or cooking class.</td>
+    </tr>
+    <tr>
+      <td class="date">Jun 3</td>
+      <td>Pompeii — guided tour, with the group</td>
+    </tr>
+    <tr>
+      <td class="date">Jun 4</td>
+      <td>Amalfi Coast by ferry — Amalfi town, then Positano, with the group</td>
+    </tr>
+    <tr>
+      <td class="date">Jun 5</td>
+      <td>Path of the Gods hike, with the group</td>
+    </tr>
+    <tr>
+      <td class="date">Jun 6</td>
+      <td><strong>Depart separately</strong> — private van transfer to Naples Airport (~1 hour). Chad &amp; Angie do not continue on to Florence.</td>
+    </tr>
+  </table>
+
+  <h2 class="section">Hotel Options — Sorrento, 4 Nights (2 Guests)</h2>
+  <table class="hotels">
+    <tr><th>Hotel</th><th>Price</th><th>Notes</th></tr>
+    <tr class="lead">
+      <td><a href="https://www.lameridianasorrento.com/en/" target="_blank">La Meridiana</a><span class="pick-tag">Best Value</span></td>
+      <td class="price">$1,248.79</td>
+      <td>Cheapest option, 5–8 min walk to Piazza Tasso, 5 min to train station</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.so-sorrento.com/en/" target="_blank">So' Lifestyle Hotel</a></td>
+      <td class="price">$1,282.01</td>
+      <td>Beach club access via sister property, 15–20 min walk</td>
+    </tr>
+    <tr>
+      <td><a href="https://flowersuites.topsorrentohotels.com/en/" target="_blank">Flower Suites Sorrento</a></td>
+      <td class="price">$1,470.61</td>
+      <td>Full kitchen in suite, 5 min walk — breakfast not included</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.vesuviosorrento.com/en/rooms" target="_blank">Grand Hotel Vesuvio</a></td>
+      <td class="price">$1,483.32</td>
+      <td>Near Marina di Puolo beach, pool, garden, free shuttle</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.maisontoutlemonde.com/en/" target="_blank">La Maison des Tout le Monde</a></td>
+      <td class="price">$1,536.78</td>
+      <td>2 min to Corso Italia — no elevator, less of a concern for 2 travelers</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.sorrentocity.com/en/" target="_blank">Hotel Sorrento City</a></td>
+      <td class="price">$1,549.66</td>
+      <td>~5 min to Piazza Tasso, consistently strong reviews</td>
+    </tr>
+    <tr>
+      <td><a href="https://boutiquesuites186.topsorrentohotels.com/en/" target="_blank">Boutique Suites 186</a><span class="pick-tag">Best Reviews</span></td>
+      <td class="price">$1,757.53</td>
+      <td>2 min to Piazza Tasso, 9.2–9.3 reviews — breakfast not included</td>
+    </tr>
+  </table>
+
+  <h3 style="font-family:'Fraunces', serif; font-weight:500; font-size:16px; margin:20px 0 8px; color:var(--amalfi-deep);">Flex / Splurge Options</h3>
+  <p style="font-size:12px; color:var(--ink-soft); margin-top:-4px; margin-bottom:12px;">Prices shown are refundable rates — non-refundable would bring these down further.</p>
+  <table class="hotels">
+    <tr><th>Hotel</th><th>Price</th><th>Notes</th></tr>
+    <tr>
+      <td>Hilton Sorrento Palace</td>
+      <td class="price">$2,556.28</td>
+      <td>341 rooms, ~10 min walk, dependable chain amenities</td>
+    </tr>
+    <tr>
+      <td>Palazzo Marziale</td>
+      <td class="price">$2,515.21</td>
+      <td>Central Sorrento, well-reviewed (895+ reviews)</td>
+    </tr>
+    <tr>
+      <td>Grand Hotel la Favorita</td>
+      <td class="price">$2,769.82</td>
+      <td>5-star, 4–6 min walk, rooftop pool, romantic, lemon gardens</td>
+    </tr>
+    <tr>
+      <td>Grand Hotel Europa Palace</td>
+      <td class="price">$3,442.92</td>
+      <td>5 min walk, cliffside pool by private lift, private beach/pier</td>
+    </tr>
+  </table>
+
+  <div class="note-box">
+    <strong>Note:</strong> if the whole family books the same hotel, Chad &amp; Angie's room and the main group's rooms would be at the same property — worth deciding together once a hotel is finalized for the group.
+  </div>
+
+  <div class="special-box">
+    <h3>A Note for This Leg of the Trip</h3>
+    <p>The Path of the Gods hike (June 5) and the Amalfi Coast ferry day (June 4) are the two days the whole family will be together for the coastal experience Chad specifically wanted included.</p>
+    <p>A private sunset boat charter or a scenic dinner reservation are both worth considering as an add-on for this stretch of the trip — happy to help price either one out further.</p>
+  </div>
+
+  <h2 class="section">Budget Snapshot</h2>
+  <table class="budget">
+    <tr><td>Hotel (4 nights, 2 guests) — using La Meridiana</td><td class="amount">$1,248.79</td></tr>
+    <tr><td>Van transfer to Naples Airport (June 6)</td><td class="amount">~$60–100</td></tr>
+    <tr><td>Flights (round trip, 2 travelers)</td><td class="amount">Not yet priced</td></tr>
+    <tr><td>Activities &amp; meals</td><td class="amount">Remaining balance</td></tr>
+    <tr class="total"><td>Total Budget</td><td class="amount">~$5,000</td></tr>
+  </table>
+
+  <div class="note-box">
+    <strong>Still needed:</strong> flight pricing for Chad &amp; Angie specifically, and confirmation of which activities (Pompeii tour, ferry tickets) are shared costs with the main group vs. booked separately for the two of them.
+  </div>
+
+  <footer>
+    <div>Kim Gamet · MMV Travel Collection</div>
+    <div>kimgamet.com</div>
+  </footer>
+
+</div>
+</body>
+</html>
